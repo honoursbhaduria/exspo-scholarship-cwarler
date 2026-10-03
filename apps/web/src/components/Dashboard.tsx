@@ -96,110 +96,98 @@ export const Dashboard: React.FC<Props> = ({
       {/* KPI Cards Grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3.5 sm:gap-4">
         {/* Discovered */}
-        <div className="clay-card p-4 sm:p-5 flex flex-col justify-between space-y-3 transition-transform hover:-translate-y-0.5">
+        <div className="clay-card p-5 flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-[11px] uppercase tracking-wider font-bold text-slate-500">
+            <span className="text-xs uppercase tracking-wider font-bold text-slate-500">
               Discovered
             </span>
-            <div className="w-9 h-9 rounded-2xl bg-white shadow-xs border border-slate-200/80 flex items-center justify-center text-slate-700 clay-pill">
-              <HugeiconsIcon icon={Compass01Icon} size={18} />
-            </div>
+            <HugeiconsIcon icon={Compass01Icon} size={22} className="text-slate-500 shrink-0" />
           </div>
           <div>
             <div className="text-3xl font-black text-slate-900 font-mono tracking-tight">
               {metrics?.total_discovered || 0}
             </div>
-            <div className="text-[11px] text-slate-400 mt-0.5">Total crawled items</div>
+            <div className="text-[11px] text-slate-400 mt-1">Total crawled items</div>
           </div>
         </div>
 
         {/* Verified */}
-        <div className="clay-card p-4 sm:p-5 flex flex-col justify-between space-y-3 transition-transform hover:-translate-y-0.5">
+        <div className="clay-card p-5 flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-[11px] uppercase tracking-wider font-bold text-emerald-800">
+            <span className="text-xs uppercase tracking-wider font-bold text-emerald-800">
               Verified
             </span>
-            <div className="w-9 h-9 rounded-2xl bg-emerald-50 text-emerald-700 border border-emerald-200/80 flex items-center justify-center clay-pill">
-              <HugeiconsIcon icon={CheckmarkBadge01Icon} size={18} />
-            </div>
+            <HugeiconsIcon icon={CheckmarkBadge01Icon} size={22} className="text-emerald-600 shrink-0" />
           </div>
           <div>
             <div className="text-3xl font-black text-emerald-800 font-mono tracking-tight">
               {metrics?.verified_count || 0}
             </div>
-            <div className="text-[11px] text-emerald-700/80 font-medium mt-0.5">≥ 95.0% confidence</div>
+            <div className="text-[11px] text-emerald-700/80 font-medium mt-1">≥ 95.0% confidence</div>
           </div>
         </div>
 
         {/* Review Required */}
-        <div className="clay-card p-4 sm:p-5 flex flex-col justify-between space-y-3 transition-transform hover:-translate-y-0.5">
+        <div className="clay-card p-5 flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-[11px] uppercase tracking-wider font-bold text-amber-800">
+            <span className="text-xs uppercase tracking-wider font-bold text-amber-800">
               Review Req.
             </span>
-            <div className="w-9 h-9 rounded-2xl bg-amber-50 text-amber-700 border border-amber-200/80 flex items-center justify-center clay-pill">
-              <HugeiconsIcon icon={ShieldAlertIcon} size={18} />
-            </div>
+            <HugeiconsIcon icon={ShieldAlertIcon} size={22} className="text-amber-600 shrink-0" />
           </div>
           <div>
             <div className="text-3xl font-black text-amber-800 font-mono tracking-tight">
               {metrics?.review_required_count || 0}
             </div>
-            <div className="text-[11px] text-amber-700/80 font-medium mt-0.5">Flagged items</div>
+            <div className="text-[11px] text-amber-700/80 font-medium mt-1">Flagged items</div>
           </div>
         </div>
 
         {/* Active */}
-        <div className="clay-card p-4 sm:p-5 flex flex-col justify-between space-y-3 transition-transform hover:-translate-y-0.5">
+        <div className="clay-card p-5 flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-[11px] uppercase tracking-wider font-bold text-slate-600">
+            <span className="text-xs uppercase tracking-wider font-bold text-slate-600">
               Active
             </span>
-            <div className="w-9 h-9 rounded-2xl bg-white shadow-xs border border-slate-200/80 flex items-center justify-center text-slate-700 clay-pill">
-              <HugeiconsIcon icon={CheckmarkCircle02Icon} size={18} />
-            </div>
+            <HugeiconsIcon icon={CheckmarkCircle02Icon} size={22} className="text-slate-600 shrink-0" />
           </div>
           <div>
             <div className="text-3xl font-black text-slate-900 font-mono tracking-tight">
               {metrics?.active_count || 0}
             </div>
-            <div className="text-[11px] text-slate-400 mt-0.5">Open applications</div>
+            <div className="text-[11px] text-slate-400 mt-1">Open applications</div>
           </div>
         </div>
 
         {/* Expired / Stale */}
-        <div className="clay-card p-4 sm:p-5 flex flex-col justify-between space-y-3 transition-transform hover:-translate-y-0.5">
+        <div className="clay-card p-5 flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-[11px] uppercase tracking-wider font-bold text-rose-800">
+            <span className="text-xs uppercase tracking-wider font-bold text-rose-800">
               Expired
             </span>
-            <div className="w-9 h-9 rounded-2xl bg-rose-50 text-rose-700 border border-rose-200/80 flex items-center justify-center clay-pill">
-              <HugeiconsIcon icon={HourglassIcon} size={18} />
-            </div>
+            <HugeiconsIcon icon={HourglassIcon} size={22} className="text-rose-600 shrink-0" />
           </div>
           <div>
             <div className="text-3xl font-black text-rose-800 font-mono tracking-tight">
               {metrics?.expired_count || 0}
             </div>
-            <div className="text-[11px] text-rose-700/80 font-medium mt-0.5">Past deadline</div>
+            <div className="text-[11px] text-rose-700/80 font-medium mt-1">Past deadline</div>
           </div>
         </div>
 
         {/* Avg Confidence */}
-        <div className="clay-card p-4 sm:p-5 flex flex-col justify-between space-y-3 transition-transform hover:-translate-y-0.5">
+        <div className="clay-card p-5 flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-[11px] uppercase tracking-wider font-bold text-slate-600">
+            <span className="text-xs uppercase tracking-wider font-bold text-slate-600">
               Avg Conf.
             </span>
-            <div className="w-9 h-9 rounded-2xl bg-white shadow-xs border border-slate-200/80 flex items-center justify-center text-slate-700 clay-pill">
-              <HugeiconsIcon icon={Analytics01Icon} size={18} />
-            </div>
+            <HugeiconsIcon icon={Analytics01Icon} size={22} className="text-slate-600 shrink-0" />
           </div>
           <div>
             <div className="text-3xl font-black text-slate-900 font-mono tracking-tight">
               {metrics ? `${metrics.average_confidence.toFixed(1)}%` : '0.0%'}
             </div>
-            <div className="text-[11px] text-slate-400 mt-0.5">All opportunities</div>
+            <div className="text-[11px] text-slate-400 mt-1">All opportunities</div>
           </div>
         </div>
       </div>
