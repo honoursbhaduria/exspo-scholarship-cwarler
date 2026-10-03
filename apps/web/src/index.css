@@ -167,25 +167,26 @@
       inset 0 2px 3px 0 rgba(0, 0, 0, 0.85);
   }
 
-  /* Real White Clay Diff Card for Recently Detected Changes - Very Minute Subtle Shadow */
+  /* Real White Clay Diff Card for Recently Detected Changes - Soft Tactile Clay Shadow */
   .clay-diff-card {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.95);
-    border-radius: 1rem;
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.85);
+    border-radius: 1.25rem;
     box-shadow:
-      0 1px 2px 0 rgba(15, 23, 42, 0.04),
-      inset 0 1.5px 2px 0 rgba(255, 255, 255, 1),
-      inset 0 -1.5px 2px 0 rgba(148, 163, 184, 0.09);
-    transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+      0 4px 14px -2px rgba(15, 23, 42, 0.08),
+      0 2px 4px -1px rgba(15, 23, 42, 0.04),
+      inset 0 2px 3px 0 rgba(255, 255, 255, 1),
+      inset 0 -2px 3px 0 rgba(148, 163, 184, 0.15);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .clay-diff-card:hover {
-    background: #ffffff;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
     box-shadow:
-      0 2px 6px -1px rgba(15, 23, 42, 0.06),
-      inset 0 1.5px 2px 0 rgba(255, 255, 255, 1),
-      inset 0 -1.5px 2px 0 rgba(148, 163, 184, 0.12);
+      0 8px 22px -3px rgba(15, 23, 42, 0.12),
+      0 4px 6px -1px rgba(15, 23, 42, 0.05),
+      inset 0 2px 3px 0 rgba(255, 255, 255, 1),
+      inset 0 -2px 3px 0 rgba(148, 163, 184, 0.2);
   }
 
   /* Clay Severity Badges with Tactile 3D Bevel (Preserving Exact Colors) */
