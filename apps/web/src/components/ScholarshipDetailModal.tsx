@@ -17,6 +17,7 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
   const [evidence, setEvidence] = useState<EvidenceItem[]>([]);
   const [history, setHistory] = useState<VersionItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [showRawAst, setShowRawAst] = useState(false);
 
   // Close on ESC key
   useEffect(() => {
@@ -168,14 +169,58 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
                     </div>
                   </div>
 
-                  {/* Structured Eligibility AST */}
+                  {/* Structured Eligibility Criteria */}
                   <div className="border border-slate-200 rounded-xl p-4 bg-slate-50/50 space-y-3">
-                    <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider text-xs">
-                      Structured Eligibility Model (Boolean AST)
-                    </h3>
-                    <div className="bg-slate-900 text-slate-200 font-mono text-xs p-3 rounded-lg overflow-x-auto">
-                      {JSON.stringify(detail.eligibility_json, null, 2)}
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                        Structured Eligibility Criteria (Atlas Match Engine)
+                      </h3>
+                      <button
+                        onClick={() => setShowRawAst(!showRawAst)}
+                        className="text-[11px] font-mono font-semibold text-sky-600 hover:text-sky-800 underline"
+                      >
+                        {showRawAst ? 'Hide Machine AST (JSON)' : 'View Machine AST (JSON)'}
+                      </button>
                     </div>
+
+                    {/* Official Raw Text Description */}
+                    {detail.eligibility_json?.raw_text && (
+                      <div className="text-xs text-slate-700 bg-white p-3 rounded-lg border border-slate-200 leading-relaxed italic">
+                        "{detail.eligibility_json.raw_text}"
+                      </div>
+                    )}
+
+                    {/* Human-Readable Criteria Badges */}
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {detail.academic_requirements.length > 0 && (
+                        <span className="text-xs px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 font-medium">
+                          Academic: {detail.academic_requirements[0]}
+                        </span>
+                      )}
+                      {detail.income_limit && (
+                        <span className="text-xs px-2.5 py-1 rounded-md bg-amber-50 text-amber-800 border border-amber-200 font-medium font-mono">
+                          Income Limit: $\le$ {formatCurrency(detail.income_limit)}
+                        </span>
+                      )}
+                      {detail.gender_criteria && detail.gender_criteria !== 'ALL' && (
+                        <span className="text-xs px-2.5 py-1 rounded-md bg-purple-50 text-purple-800 border border-purple-200 font-medium">
+                          Gender: {detail.gender_criteria.replace('_', ' ')}
+                        </span>
+                      )}
+                      {detail.category_criteria && detail.category_criteria.length > 0 && (
+                        <span className="text-xs px-2.5 py-1 rounded-md bg-blue-50 text-blue-800 border border-blue-200 font-medium">
+                          Categories: {detail.category_criteria.join(', ')}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Optional Machine-Readable JSON AST */}
+                    {showRawAst && (
+                      <div className="mt-3 bg-slate-900 text-slate-200 font-mono text-xs p-3 rounded-lg overflow-x-auto border border-slate-800">
+                        <div className="text-[10px] text-slate-400 mb-1">// Atlas Universal Boolean Logic Model (all_of / any_of AST):</div>
+                        {JSON.stringify(detail.eligibility_json, null, 2)}
+                      </div>
+                    )}
                   </div>
 
                   {/* Academic Requirements & Documents */}
