@@ -29,7 +29,6 @@ URL_MAP = [
     ("Anna University", "https://www.annauniv.edu/dsa/scholarship.html", "https://www.annauniv.edu/dsa/scholarship.html"),
     ("Jawaharlal Nehru", "https://www.jnu.ac.in/fellowships_scholarships", "https://www.jnu.ac.in/fellowships_scholarships"),
     ("Community", "https://www.buddy4study.com/", "https://www.buddy4study.com/"),
-    ("Official Scholarship", "https://www.sbifoundation.in/", "https://www.sbiashascholarship.co.in/"),
     ("Scholarship portal", "https://www.buddy4study.com/", "https://www.buddy4study.com/"),
 ]
 

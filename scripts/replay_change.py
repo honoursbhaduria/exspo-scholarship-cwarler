@@ -32,7 +32,7 @@ def simulate_changes():
             <p>Students studying in professional degree courses scoring at least 60% marks in Class 12.</p>
             <p>Family income should not exceed 3,50,000 per annum.</p>
             <p>Last date for application is {new_deadline_tata}. Applications have been extended!</p>
-            <p>Apply online at https://www.tatacapital.com/apply-pankh-v2</p>
+            <p>Apply online at https://www.tatacapital.com/sustainability.html</p>
             <p>Documents: Aadhaar Card, Income Certificate, Mark Sheet, Bank Passbook, Admission Letter</p>
         </main>
         </body>
@@ -42,7 +42,7 @@ def simulate_changes():
         print("[1/2] Simulating official update on Tata Capital Pankh Scholarship...")
         print("      - Amount increased: Rs. 50,000 -> Rs. 75,000")
         print(f"      - Deadline extended to: {new_deadline_tata}")
-        print("      - Application URL updated to v2 portal")
+        print("      - Official application portal verified")
         
         coord = PipelineCoordinator(db)
         res1 = coord.process_url(tata_url, tata_src, html_override=tata_modified_html, force_reextract=True)
@@ -58,7 +58,7 @@ def simulate_changes():
         aicte_modified_html = f"""
         <!DOCTYPE html>
         <html>
-        <head><title>AICTE Pragati Scholarship Scheme for Girl Students (Extended)</title></head>
+        <head><title>AICTE Pragati Scholarship Scheme for Girl Students</title></head>
         <body>
         <main>
             <h1>AICTE Pragati Scholarship Scheme for Girl Students</h1>
@@ -69,7 +69,7 @@ def simulate_changes():
             <p>Family income should not exceed 8,00,000 per annum.</p>
             <p>Maximum two girl children per family are eligible.</p>
             <p>Last date for application is {new_deadline_aicte}. Deadline extended by AICTE Council!</p>
-            <p>Apply online at https://www.aicte-india.org/apply-pragati</p>
+            <p>Apply online at https://scholarships.gov.in/</p>
             <p>Documents: Admission Letter, Income Certificate, Mark Sheet, Aadhaar Card</p>
         </main>
         </body>
