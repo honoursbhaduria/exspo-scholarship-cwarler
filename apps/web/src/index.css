@@ -298,11 +298,16 @@
     transition: all 0.2s ease;
   }
 
-  /* Hide Scrollbars Everywhere While Keeping Natural Scrolling */
+  /* Utility to explicitly hide scrollbars where intended (e.g. horizontal tab bars) */
   .no-scrollbar::-webkit-scrollbar {
     display: none !important;
     width: 0px !important;
     height: 0px !important;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
   }
 
   /* Brand Typography Classes */
@@ -450,24 +455,39 @@
   }
 }
 
-/* Global Invisible Scrollbars */
-*::-webkit-scrollbar {
-  display: none !important;
-  width: 0px !important;
-  height: 0px !important;
+/* Sleek, Modern Minimalist Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.65);
+  border: 2px solid transparent;
+  background-clip: padding-box;
 }
 
 * {
-  -ms-overflow-style: none !important;
-  scrollbar-width: none !important;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.4) transparent;
 }
 
-/* Super Smooth Scroll Behavior Across All Browsers & Devices */
+/* Smooth Natural Scroll Behavior */
 html {
-  scroll-behavior: smooth !important;
+  scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   text-rendering: optimizeLegibility;
-  overscroll-behavior-y: none;
 }
 
 body {
@@ -476,7 +496,6 @@ body {
   color: #000000;
   background-color: #f1f5f9;
   overflow-x: hidden;
-  overscroll-behavior-y: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -489,11 +508,9 @@ body, button, input, select, textarea {
 /* Hardware Accelerated Smooth Scrolling Containers */
 .smooth-scroll,
 .overflow-y-auto,
-.overflow-x-auto,
-main {
-  scroll-behavior: smooth !important;
+.overflow-x-auto {
+  scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  overscroll-behavior: contain;
 }
 
 /* Eliminate jitter, micro-stutters, and paint flashes on 3D clay cards */

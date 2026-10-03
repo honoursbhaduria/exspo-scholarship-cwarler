@@ -158,7 +158,7 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
         </div>
 
         {/* Modal Body */}
-        <div className="p-3.5 sm:p-6 overflow-y-auto flex-1 space-y-4 sm:space-y-6 no-scrollbar bg-slate-50/60">
+        <div className="p-3.5 sm:p-6 overflow-y-auto flex-1 space-y-4 sm:space-y-6 bg-slate-50/60">
           {loading ? (
             <div className="py-20 text-center text-slate-400 text-sm">Loading intelligence data...</div>
           ) : detail ? (

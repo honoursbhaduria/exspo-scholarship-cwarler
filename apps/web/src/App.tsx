@@ -42,7 +42,7 @@ export function App() {
   }, []);
 
   return (
-    <div className="relative min-h-screen flex flex-col md:flex-row font-bricolage selection:bg-slate-900 selection:text-white">
+    <div className="relative min-h-screen flex flex-col md:flex-row font-bricolage selection:bg-slate-900 selection:text-white overflow-x-clip">
       {/* Ambient Blurred Cloud Shader Background */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <CloudShader
@@ -162,7 +162,7 @@ export function App() {
       </aside>
 
       {/* Main Workspace Area */}
-      <main className="relative z-10 flex-1 p-2.5 sm:p-4 md:p-6 w-full max-w-7xl mx-auto overflow-x-hidden">
+      <main className="relative z-10 flex-1 min-w-0 p-2.5 sm:p-4 md:p-6 w-full max-w-7xl mx-auto">
         {activeTab === 'dashboard' && (
           <Dashboard
             metrics={metrics}

@@ -380,7 +380,7 @@ export const CloudShader = ({
   return (
     <div
       className={cn(
-        "relative h-full min-h-80 w-full overflow-hidden",
+        "relative h-full min-h-80 w-full overflow-hidden pointer-events-none select-none",
         className,
       )}
     >
