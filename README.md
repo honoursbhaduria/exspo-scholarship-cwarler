@@ -73,63 +73,81 @@ This is not a one-shot scraper; it is an autonomous intelligence pipeline. When 
 ## 2. End-to-End System Architecture
 
 ```mermaid
-flowchart TD
-    subgraph DiscoveryLayer["1. Autonomous Discovery Layer"]
-        D1["Official Portal Registry<br/>(22+ Curated Sources)"]
-        D2["Serper Google Search API<br/>(Gazettes & Circulars)"]
-        D3["Tavily AI Search<br/>(Targeted Education Queries)"]
-        D4["XML Sitemaps & RSS Feeds"]
+graph TD
+    subgraph Discovery ["1. Autonomous Discovery Layer"]
+        D1["Official Portal Registry"]
+        D2["Serper Google Search API"]
+        D3["Tavily AI Search"]
+        D4["Sitemaps and RSS Feeds"]
     end
 
-    subgraph IngestionLayer["2. High-Performance Ingestion"]
-        I1["SSRF Security Guard<br/>(Blocks 127.0.0.1, Private CIDR)"]
-        I2["Async HTTPX Fetcher<br/>(Polite Rate-Limiting & Headers)"]
-        I3["Browserless Headless Chrome<br/>(JavaScript SPA Hydration)"]
-        I4["PDF Parser & Text Normalizer"]
+    subgraph Ingestion ["2. High-Performance Ingestion"]
+        I1["SSRF Security Guard"]
+        I2["Async HTTPX Fetcher"]
+        I3["Browserless Headless Chrome"]
+        I4["PDF Parser and Text Normalizer"]
     end
 
-    subgraph SnapshotLayer["3. Immutable Snapshot Store"]
-        S1["SHA-256 Document Fingerprint"]
-        S2["Backblaze B2 Cloud Object Storage<br/>(Raw HTML & Artifact Archival)"]
+    subgraph Snapshot ["3. Immutable Snapshot Store"]
+        S1["SHA-256 Fingerprint"]
+        S2["Backblaze B2 Object Storage"]
     end
 
-    subgraph ExtractionLayer["4. Dual Extraction Engine"]
-        E1["Deterministic RegEx Engine<br/>(ISO Dates, Rupee Amounts, Ranks)"]
-        E2["Google Gemini 1.5 / 2.0 Flash<br/>(Pydantic Strict JSON Schema)"]
+    subgraph Extraction ["4. Dual Extraction Engine"]
+        E1["Deterministic RegEx Engine"]
+        E2["Google Gemini Flash API"]
         E3["Pydantic AST Normalizer"]
     end
 
-    subgraph VerificationLayer["5. Verification & Confidence Engine"]
-        V1["EvidenceGuard Substring Validator<br/>(Calculates [char_start, char_end])"]
-        V2["Official Domain Whitelist Cross-Check"]
-        V3["Conflict & Anomaly Detector"]
-        V4["9-Factor Deterministic Scoring<br/>(Hard Gating: >= 95.0% for VERIFIED)"]
+    subgraph Verification ["5. Verification and Confidence"]
+        V1["EvidenceGuard Substring Validator"]
+        V2["Official Domain Whitelist"]
+        V3["Conflict and Anomaly Detector"]
+        V4["9-Factor Scoring Model"]
     end
 
-    subgraph EvolutionLayer["6. Change & Lifecycle Engine"]
-        C1["Field Diff Engine (Old vs New)"]
-        C2["Severity Classifier (HIGH / MED / LOW)"]
-        C3["Status Evaluator (ACTIVE / EXPIRED / STALE)"]
-        C4["Version Snapshot Generator (v1 -> v2)"]
+    subgraph Lifecycle ["6. Change and Evolution Engine"]
+        C1["Field Diff Engine"]
+        C2["Severity Classifier"]
+        C3["Status Evaluator"]
+        C4["Immutable Version Generator"]
     end
 
-    subgraph StorageLayer["7. Cloud Data Persistence"]
-        DB["Neon Serverless PostgreSQL<br/>(Branch: production, Pooler: PgBouncer)"]
+    subgraph Database ["7. Persistence Layer"]
+        DB[("Neon Serverless PostgreSQL")]
     end
 
-    subgraph PresentationLayer["8. Intelligence Dashboard & API"]
-        API["FastAPI REST Engine<br/>(OpenAPI Docs, CORS, Filters)"]
-        UI["React 18 + Vite Dashboard<br/>(Claymorphic UI, Mobile-Responsive)"]
+    subgraph Presentation ["8. Dashboard and API"]
+        API["FastAPI REST Engine"]
+        UI["React 18 Claymorphic Dashboard"]
     end
 
-    DiscoveryLayer --> IngestionLayer
-    IngestionLayer --> I1 --> I2 & I3 & I4
-    I2 & I3 & I4 --> SnapshotLayer
-    SnapshotLayer --> ExtractionLayer
-    ExtractionLayer --> VerificationLayer
-    VerificationLayer --> EvolutionLayer
-    EvolutionLayer --> StorageLayer
-    StorageLayer <--> API <--> UI
+    D1 --> I1
+    D2 --> I1
+    D3 --> I1
+    D4 --> I1
+    I1 --> I2
+    I1 --> I3
+    I1 --> I4
+    I2 --> S1
+    I3 --> S1
+    I4 --> S1
+    S1 --> S2
+    S1 --> E1
+    S1 --> E2
+    E1 --> E3
+    E2 --> E3
+    E3 --> V1
+    V1 --> V2
+    V2 --> V3
+    V3 --> V4
+    V4 --> C1
+    C1 --> C2
+    C2 --> C3
+    C3 --> C4
+    C4 --> DB
+    DB --> API
+    API --> UI
 ```
 
 ---
