@@ -1,4 +1,4 @@
-# Scholarship Intelligence Platform (Atlas Engine)
+# Scholarship Intelligence Platform 
 
 [![Python 3.11+](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat&logo=python&logoColor=white)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688?style=flat&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
