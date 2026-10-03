@@ -222,3 +222,12 @@ Tests cover:
 | `GET` | `/api/v1/changes` | Recent field change events feed |
 | `GET` | `/api/v1/review-queue` | Opportunities flagged for human review |
 | `POST` | `/api/v1/review-queue/{id}/action` | Approve or Reject flagged items with reviewer notes |
+
+---
+
+## 7. Author & Contributor
+
+- **Honours Bhadauria** ([@honoursbhaduria](https://github.com/honoursbhaduria))
+  - GitHub: [https://github.com/honoursbhaduria](https://github.com/honoursbhaduria)
+  - Role: Lead Architect & Developer
+

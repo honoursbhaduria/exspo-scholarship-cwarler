@@ -138,6 +138,26 @@ export function App() {
             </button>
           </nav>
         </div>
+
+        {/* Contributor / Author Credit */}
+        <div className="pt-4 border-t border-slate-200/60 hidden md:block">
+          <a
+            href="https://github.com/honoursbhaduria"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between p-2 rounded-xl text-black/70 hover:text-black hover:bg-black/5 transition-all text-xs"
+          >
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded-full bg-black text-white flex items-center justify-center text-[10px] font-black font-mono">
+                HB
+              </div>
+              <span className="font-bold text-[11px]">@honoursbhaduria</span>
+            </div>
+            <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-full bg-black/5 text-black">
+              Contributor
+            </span>
+          </a>
+        </div>
       </aside>
 
       {/* Main Workspace Area */}
