@@ -144,19 +144,6 @@ export function App() {
             </button>
           </nav>
         </div>
-
-        {/* Bottom Sidebar Status Card */}
-        <div className="hidden md:block pt-4 border-t border-slate-200/60">
-          <div className="p-3 rounded-2xl clay-inset flex items-center gap-3 text-xs text-slate-600">
-            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-            <div className="truncate">
-              <div className="font-semibold text-slate-800">Pipeline Active</div>
-              <div className="text-[10px] text-slate-500 font-mono">
-                {metrics?.verified_count || 0} Verified Schemes
-              </div>
-            </div>
-          </div>
-        </div>
       </aside>
 
       {/* Main Workspace Area */}
