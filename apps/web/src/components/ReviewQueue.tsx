@@ -79,7 +79,7 @@ export const ReviewQueue: React.FC = () => {
                 </div>
                 <div className="text-right">
                   <span className="text-xs font-bold font-mono text-amber-700 bg-amber-100 px-2 py-0.5 rounded">
-                    Score: {item.confidence_score.toFixed(1)}%
+                    {item.confidence_score.toFixed(1)}%
                   </span>
                   <div className="text-[11px] text-slate-400 mt-0.5">
                     Flagged: {item.reason.replace('_', ' ')}

@@ -4,15 +4,14 @@ import {
   LayoutDashboard,
   ListFilter,
   ShieldAlert,
-  Terminal,
   Activity,
-  Github,
 } from 'lucide-react';
 import { Dashboard } from './components/Dashboard';
 import { ScholarshipList } from './components/ScholarshipList';
 import { ReviewQueue } from './components/ReviewQueue';
 import { CrawlRunsView } from './components/CrawlRunsView';
 import { ScholarshipDetailModal } from './components/ScholarshipDetailModal';
+import { CloudShader } from './components/ui/cloud-shader';
 import { Metrics, Scholarship, ChangeEvent } from './types';
 
 export function App() {
@@ -44,9 +43,23 @@ export function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
+    <div className="relative min-h-screen flex flex-col font-sans selection:bg-sky-500 selection:text-white">
+      {/* Ambient Blurred Cloud Shader Background */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <CloudShader
+          className="w-full h-full filter blur-[3px] scale-105 opacity-80"
+          speed={0.4}
+          count={5}
+          cloudColor="#ffffff"
+          skyTopColor="#3876ba"
+          skyBottomColor="#8cbfe8"
+        />
+        {/* Soft Frosted Glass Overlay for crisp text contrast */}
+        <div className="absolute inset-0 bg-slate-50/85 backdrop-blur-[1px]" />
+      </div>
+
       {/* Navigation Header */}
-      <header className="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-xs">
+      <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-sky-600 text-white flex items-center justify-center shadow-md">
@@ -55,9 +68,6 @@ export function App() {
             <div className="flex items-center gap-2">
               <span className="font-extrabold text-base text-slate-900 tracking-tight">
                 Scholarship Intelligence
-              </span>
-              <span className="hidden sm:inline-block text-[11px] font-mono font-bold bg-sky-100 text-sky-800 border border-sky-300 px-2 py-0.5 rounded-full">
-                v1.0 Production
               </span>
             </div>
           </div>
@@ -124,7 +134,7 @@ export function App() {
       </header>
 
       {/* Main Content Area */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
+      <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
         {activeTab === 'dashboard' && (
           <Dashboard
             metrics={metrics}
@@ -155,17 +165,13 @@ export function App() {
       )}
 
       {/* Footer */}
-      <footer className="border-t border-slate-200 bg-white py-6 mt-auto">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+      <footer className="relative z-10 border-t border-slate-200/80 bg-white/70 backdrop-blur-md py-4 mt-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between text-xs text-slate-500">
           <div className="flex items-center gap-2">
             <span className="font-semibold text-slate-700">Scholarship Intelligence Engine</span>
-            <span>•</span>
-            <span className="text-emerald-600 font-medium">Anti-Hallucination Verified</span>
-            <span>•</span>
-            <span>100-Point Deterministic Confidence</span>
           </div>
           <div>
-            Run CLI verification: <code className="bg-slate-100 px-1.5 py-0.5 rounded font-mono text-slate-800">python scripts/audit_dataset.py</code>
+            <span>Verified Official Opportunities</span>
           </div>
         </div>
       </footer>

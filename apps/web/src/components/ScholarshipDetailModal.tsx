@@ -71,9 +71,6 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
               >
                 {detail?.status}
               </span>
-              <span className="text-xs font-mono font-bold text-slate-700 bg-white border px-2 py-0.5 rounded">
-                Score: {detail?.confidence_score.toFixed(1)}%
-              </span>
             </div>
             <h2 className="text-xl font-bold text-slate-900">{detail?.name || 'Loading details...'}</h2>
             <p className="text-sm text-slate-500">{detail?.provider}</p>

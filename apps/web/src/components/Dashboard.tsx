@@ -215,33 +215,33 @@ export const Dashboard: React.FC<Props> = ({
         </div>
 
         {/* System Integrity & Traceability Summary Card */}
-        <div className="bg-slate-900 text-white rounded-2xl p-6 shadow-sm flex flex-col justify-between space-y-6">
+        <div className="bg-slate-900/90 backdrop-blur-md text-white rounded-2xl p-6 shadow-sm flex flex-col justify-between space-y-6 border border-slate-800">
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-sky-400">
               <Database className="w-5 h-5" />
-              <h3 className="font-bold text-sm uppercase tracking-wider">Engine Verification Guarantee</h3>
+              <h3 className="font-bold text-sm uppercase tracking-wider">Repository Audit Chain</h3>
             </div>
             <p className="text-xs text-slate-300 leading-relaxed">
-              Every single scholarship in this system maintains an unbroken chain of custody:
+              Every funding opportunity in this repository maintains a complete audit trail:
             </p>
             <div className="space-y-2 text-xs text-slate-300 font-mono">
-              <div className="p-2 bg-slate-800 rounded border border-slate-700">
-                1. Official Source Verified Domain
+              <div className="p-2 bg-slate-800/80 rounded border border-slate-700/80">
+                1. Official Source Domain Validation
               </div>
-              <div className="p-2 bg-slate-800 rounded border border-slate-700">
-                2. SHA-256 Hashed Raw Snapshot
+              <div className="p-2 bg-slate-800/80 rounded border border-slate-700/80">
+                2. SHA-256 Snapshot Storage
               </div>
-              <div className="p-2 bg-slate-800 rounded border border-slate-700">
-                3. Verbatim Substring Proof Binding
+              <div className="p-2 bg-slate-800/80 rounded border border-slate-700/80">
+                3. Substring Evidence Proof Binding
               </div>
-              <div className="p-2 bg-slate-800 rounded border border-slate-700">
-                4. Deterministic 100-Point Score
+              <div className="p-2 bg-slate-800/80 rounded border border-slate-700/80">
+                4. Automated Field Change Diffing
               </div>
             </div>
           </div>
 
           <div className="border-t border-slate-800 pt-4 text-xs text-slate-400 space-y-1">
-            <div>Anti-Hallucination Rate: <span className="text-emerald-400 font-bold">100% Validated</span></div>
+            <div>Verified Records: <span className="text-emerald-400 font-bold">{metrics?.verified_count || 0}</span></div>
             <div>Registered Source Domains: <span className="text-sky-400 font-bold">{metrics?.total_sources || 0}</span></div>
           </div>
         </div>
