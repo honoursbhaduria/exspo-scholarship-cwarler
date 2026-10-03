@@ -5,6 +5,7 @@ import {
   FilterIcon,
   ViewIcon,
   ArrowDown01Icon,
+  ArrowUpRight01Icon,
 } from './ui/icons';
 import { Scholarship } from '../types';
 import { formatDate, formatCurrency } from '../utils';
@@ -117,7 +118,12 @@ export const ScholarshipList: React.FC<Props> = ({ scholarships, onSelect }) => 
                 return (
                   <tr key={item.id} className="hover:bg-white/80 transition-colors">
                     <td className="py-3.5 px-4">
-                      <div className="font-bold text-black">{item.name}</div>
+                      <button
+                        onClick={() => onSelect(item.id)}
+                        className="font-bold text-black text-left hover:underline focus:outline-none"
+                      >
+                        {item.name}
+                      </button>
                       <div className="text-xs text-black/60 font-medium">{item.provider}</div>
                     </td>
 
@@ -172,13 +178,28 @@ export const ScholarshipList: React.FC<Props> = ({ scholarships, onSelect }) => 
                     </td>
 
                     <td className="py-3.5 px-4 text-right">
-                      <button
-                        onClick={() => onSelect(item.id)}
-                        className="clay-btn px-3.5 py-1.5 inline-flex items-center gap-1.5 text-xs font-bold text-black shadow-md hover:shadow-lg transition-all"
-                      >
-                        <HugeiconsIcon icon={ViewIcon} size={14} className="text-black" />
-                        <span>Inspect</span>
-                      </button>
+                      <div className="flex items-center justify-end gap-2">
+                        {(item.application_url || item.official_source_url) && (
+                          <a
+                            href={item.application_url || item.official_source_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="clay-btn-dark px-3 py-1.5 inline-flex items-center gap-1 text-[11px] font-bold shadow-sm hover:shadow-md transition-all text-white"
+                            title="Direct link to official scholarship/application portal"
+                          >
+                            <span>Apply</span>
+                            <HugeiconsIcon icon={ArrowUpRight01Icon} size={12} />
+                          </a>
+                        )}
+                        <button
+                          onClick={() => onSelect(item.id)}
+                          className="clay-btn px-3 py-1.5 inline-flex items-center gap-1 text-[11px] font-bold text-black shadow-sm hover:shadow-md transition-all"
+                          title="View audit details, evidence quotes & change history"
+                        >
+                          <HugeiconsIcon icon={ViewIcon} size={13} className="text-black" />
+                          <span>Inspect</span>
+                        </button>
+                      </div>
                     </td>
                   </tr>
                 );
