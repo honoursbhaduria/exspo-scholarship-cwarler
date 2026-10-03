@@ -7,6 +7,7 @@ export const KnowledgeLogo: React.FC<{ className?: string }> = ({ className = 'w
     animationData: knowledgeAnimation,
     loop: true,
     autoplay: true,
+    style: { width: '100%', height: '100%' },
   };
   const { View } = useLottie(options);
 
