@@ -52,12 +52,12 @@ export function App() {
             <div className="w-10 h-10 rounded-xl bg-sky-600 text-white flex items-center justify-center shadow-md">
               <GraduationCap className="w-6 h-6" />
             </div>
-            <div>
+            <div className="flex items-center gap-2">
               <span className="font-extrabold text-base text-slate-900 tracking-tight">
-                Scholarship<span className="text-sky-600">Intel</span>
+                Scholarship Intelligence
               </span>
-              <span className="hidden sm:inline-block ml-2 text-[10px] font-mono font-bold bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
-                v1.0-PROD
+              <span className="hidden sm:inline-block text-[11px] font-mono font-bold bg-sky-100 text-sky-800 border border-sky-300 px-2 py-0.5 rounded-full">
+                v1.0 Production
               </span>
             </div>
           </div>

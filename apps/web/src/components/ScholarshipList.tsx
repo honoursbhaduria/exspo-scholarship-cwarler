@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Search, Filter, ExternalLink, Eye, ShieldCheck, AlertCircle } from 'lucide-react';
 import { Scholarship } from '../types';
+import { formatDate, formatCurrency } from '../utils';
 
 interface Props {
   scholarships: Scholarship[];
@@ -108,12 +109,12 @@ export const ScholarshipList: React.FC<Props> = ({ scholarships, onSelect }) => 
                       </span>
                     </td>
 
-                    <td className="py-3 px-4 font-medium text-slate-900">
-                      {item.amount ? `₹${item.amount.toLocaleString()}` : 'Specified in rules'}
+                    <td className="py-3 px-4 font-medium text-slate-900 font-mono">
+                      {formatCurrency(item.amount)}
                     </td>
 
-                    <td className="py-3 px-4 text-xs font-mono">
-                      {item.closing_date ? new Date(item.closing_date).toLocaleDateString() : 'N/A'}
+                    <td className="py-3 px-4 text-xs font-mono text-slate-700">
+                      {formatDate(item.closing_date)}
                     </td>
 
                     <td className="py-3 px-4">

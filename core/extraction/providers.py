@@ -93,25 +93,39 @@ class DeterministicHybridExtractionProvider(BaseExtractionProvider):
         return fallback, fallback
 
     def _extract_provider(self, lines: List[str], name: str, source_url: str) -> Tuple[str, str]:
-        # Extract from known patterns or URL
-        patterns = [
-            r"(?:offered by|provided by|initiated by|sponsored by)\s+([A-Za-z0-9\s.,&]+)",
-            r"([A-Za-z0-9\s.,&]+)\s+(?:Foundation|Trust|University|Government|Ministry|Corporation|Limited|CSR)",
+        # 1. Explicit attribution markers
+        for line in lines[:25]:
+            m = re.search(r"(?:offered by|provided by|initiated by|sponsored by)\s+([A-Za-z0-9\s.,&'()-]{4,75}?)(?:\.|\n|$)", line, re.IGNORECASE)
+            if m:
+                prov = m.group(1).strip().rstrip(".,;")
+                if 3 < len(prov) < 70 and prov.lower() not in name.lower() and name.lower() not in prov.lower():
+                    return prov, line
+
+        # 2. Known institutional patterns with complete names
+        org_patterns = [
+            r"([A-Za-z0-9\s.,&'()-]{3,50}?\s+(?:Foundation|Trusts?|Education Trust|Parivartan|CSR|Group))",
+            r"(Indian Institute of Technology\s+[A-Za-z]+)",
+            r"(Indian Institute of Science\s+[A-Za-z]*)",
+            r"(University of\s+[A-Za-z]+)",
+            r"([A-Za-z\s]+?\s+University(?:\s+[A-Za-z]+)?)",
+            r"(All India Council for Technical Education(?:\s*\(AICTE\))?)",
+            r"(Ministry of\s+[A-Za-z\s]+)",
+            r"(Department of\s+[A-Za-z\s]+)",
+            r"(University Grants Commission(?:\s*\(UGC\))?)",
         ]
         for line in lines[:25]:
-            for pat in patterns:
+            for pat in org_patterns:
                 m = re.search(pat, line, re.IGNORECASE)
                 if m:
-                    prov = m.group(1).strip()
-                    if 3 < len(prov) < 60 and prov.lower() != name.lower():
+                    prov = m.group(1).strip().rstrip(".,;")
+                    if 4 < len(prov) < 70 and prov.lower() not in name.lower():
                         return prov, line
 
-        # Fallback to domain host name
+        # 3. Fallback to domain host name
         from urllib.parse import urlparse
         host = urlparse(source_url).hostname or "Official Provider"
-        parts = host.replace("www.", "").split(".")
-        prov_name = parts[0].upper()
-        return prov_name, f"Provided by official host: {host}"
+        clean_host = host.replace("www.", "")
+        return clean_host, f"Provided by official host: {host}"
 
     def _extract_closing_date(self, lines: List[str], full_text: str) -> Tuple[Optional[str], Optional[str], Optional[str]]:
         prefix = r"(?:last date|closing date|deadline|apply before|end date|last day)"
