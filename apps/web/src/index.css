@@ -66,6 +66,30 @@
       inset 0 -1px 2px 0 rgba(255, 255, 255, 0.8),
       0 1px 2px 0 rgba(255, 255, 255, 0.6);
   }
+
+  /* Hide Scrollbars Everywhere While Keeping Natural Scrolling */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none !important;
+    width: 0px !important;
+    height: 0px !important;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+  }
+}
+
+/* Global Invisible Scrollbars */
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0px !important;
+  height: 0px !important;
+}
+
+* {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
 }
 
 body {

@@ -8,6 +8,8 @@ import {
   DiplomaIcon,
   File01Icon,
   CheckmarkCircle02Icon,
+  CheckmarkBadge01Icon,
+  Time02Icon,
 } from './ui/icons';
 import { ScholarshipDetail, EvidenceItem, VersionItem } from '../types';
 import { ScoreBreakdown } from './ScoreBreakdown';
@@ -93,52 +95,71 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
           </button>
         </div>
 
-        {/* Modal Navigation Pills */}
-        <div className="flex border-b border-slate-200/60 px-6 gap-2 py-3 bg-slate-50/50 overflow-x-auto">
-          <button
-            onClick={() => setActiveTab('overview')}
-            className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition ${
-              activeTab === 'overview'
-                ? 'bg-slate-900 text-white shadow-xs'
-                : 'text-slate-600 hover:bg-white hover:text-slate-900'
-            }`}
-          >
-            Overview & Criteria
-          </button>
-          <button
-            onClick={() => setActiveTab('score')}
-            className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition ${
-              activeTab === 'score'
-                ? 'bg-slate-900 text-white shadow-xs'
-                : 'text-slate-600 hover:bg-white hover:text-slate-900'
-            }`}
-          >
-            Confidence Audit Breakdown
-          </button>
-          <button
-            onClick={() => setActiveTab('evidence')}
-            className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition ${
-              activeTab === 'evidence'
-                ? 'bg-slate-900 text-white shadow-xs'
-                : 'text-slate-600 hover:bg-white hover:text-slate-900'
-            }`}
-          >
-            Source Evidence ({evidence.length})
-          </button>
-          <button
-            onClick={() => setActiveTab('history')}
-            className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition ${
-              activeTab === 'history'
-                ? 'bg-slate-900 text-white shadow-xs'
-                : 'text-slate-600 hover:bg-white hover:text-slate-900'
-            }`}
-          >
-            Change History ({history.length})
-          </button>
+        {/* Modal Segmented Navigation Bar */}
+        <div className="px-6 py-3 border-b border-slate-200/60 bg-slate-50/60">
+          <div className="p-1 rounded-2xl bg-slate-200/60 flex items-center gap-1 overflow-x-auto no-scrollbar">
+            <button
+              onClick={() => setActiveTab('overview')}
+              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all whitespace-nowrap ${
+                activeTab === 'overview'
+                  ? 'bg-white text-slate-900 shadow-sm border border-white'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/40'
+              }`}
+            >
+              <HugeiconsIcon icon={DiplomaIcon} size={16} className={activeTab === 'overview' ? 'text-slate-900' : 'text-slate-500'} />
+              <span>Overview & Criteria</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('score')}
+              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all whitespace-nowrap ${
+                activeTab === 'score'
+                  ? 'bg-white text-slate-900 shadow-sm border border-white'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/40'
+              }`}
+            >
+              <HugeiconsIcon icon={CheckmarkBadge01Icon} size={16} className={activeTab === 'score' ? 'text-emerald-700' : 'text-slate-500'} />
+              <span>Confidence Audit Breakdown</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('evidence')}
+              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all whitespace-nowrap ${
+                activeTab === 'evidence'
+                  ? 'bg-white text-slate-900 shadow-sm border border-white'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/40'
+              }`}
+            >
+              <HugeiconsIcon icon={File01Icon} size={16} className={activeTab === 'evidence' ? 'text-slate-900' : 'text-slate-500'} />
+              <span>Source Evidence</span>
+              <span className={`text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-full ${
+                activeTab === 'evidence' ? 'bg-slate-100 text-slate-800' : 'bg-slate-300/60 text-slate-700'
+              }`}>
+                {evidence.length}
+              </span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('history')}
+              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all whitespace-nowrap ${
+                activeTab === 'history'
+                  ? 'bg-white text-slate-900 shadow-sm border border-white'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/40'
+              }`}
+            >
+              <HugeiconsIcon icon={Time02Icon} size={16} className={activeTab === 'history' ? 'text-slate-900' : 'text-slate-500'} />
+              <span>Change History</span>
+              <span className={`text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-full ${
+                activeTab === 'history' ? 'bg-slate-100 text-slate-800' : 'bg-slate-300/60 text-slate-700'
+              }`}>
+                {history.length}
+              </span>
+            </button>
+          </div>
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 overflow-y-auto flex-1 space-y-6">
+        <div className="p-6 overflow-y-auto flex-1 space-y-6 no-scrollbar">
           {loading ? (
             <div className="py-20 text-center text-slate-400 text-sm">Loading intelligence data...</div>
           ) : detail ? (
