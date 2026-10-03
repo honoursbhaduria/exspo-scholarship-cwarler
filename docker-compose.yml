@@ -1,0 +1,83 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: scholarship_postgres
+    environment:
+      POSTGRES_USER: honours
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: scholarship_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U honours -d scholarship_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: scholarship_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: scholarship_api
+    environment:
+      DATABASE_URL: postgresql+psycopg2://honours:password123@postgres:5432/scholarship_db
+      REDIS_URL: redis://redis:6379/0
+      OLLAMA_BASE_URL: http://ollama:11434
+      SNAPSHOT_DIR: /app/storage/snapshots
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - snapshots_data:/app/storage/snapshots
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: scholarship_worker
+    command: celery -A workers.celery_app.celery_app worker -l info
+    environment:
+      DATABASE_URL: postgresql+psycopg2://honours:password123@postgres:5432/scholarship_db
+      REDIS_URL: redis://redis:6379/0
+      OLLAMA_BASE_URL: http://ollama:11434
+      SNAPSHOT_DIR: /app/storage/snapshots
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - snapshots_data:/app/storage/snapshots
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: scholarship_ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+
+volumes:
+  postgres_data:
+  redis_data:
+  snapshots_data:
+  ollama_models:
