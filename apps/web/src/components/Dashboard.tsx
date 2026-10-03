@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import {
   HugeiconsIcon,
-  Search01Icon,
+  Compass01Icon,
   CheckmarkBadge01Icon,
   ShieldAlertIcon,
   CheckmarkCircle02Icon,
-  Clock01Icon,
-  Activity01Icon,
+  HourglassIcon,
+  Analytics01Icon,
   RefreshIcon,
   Database01Icon,
   ArrowRight01Icon,
@@ -94,67 +94,113 @@ export const Dashboard: React.FC<Props> = ({
       )}
 
       {/* KPI Cards Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3.5 sm:gap-4">
         {/* Discovered */}
-        <div className="clay-card p-4 sm:p-5 space-y-1">
-          <div className="text-[11px] uppercase tracking-wider font-semibold text-slate-500 flex items-center gap-1.5">
-            <HugeiconsIcon icon={Search01Icon} size={14} className="text-slate-600" />
-            <span>Discovered</span>
+        <div className="clay-card p-4 sm:p-5 flex flex-col justify-between space-y-3 transition-transform hover:-translate-y-0.5">
+          <div className="flex items-center justify-between">
+            <span className="text-[11px] uppercase tracking-wider font-bold text-slate-500">
+              Discovered
+            </span>
+            <div className="w-9 h-9 rounded-2xl bg-white shadow-xs border border-slate-200/80 flex items-center justify-center text-slate-700 clay-pill">
+              <HugeiconsIcon icon={Compass01Icon} size={18} />
+            </div>
           </div>
-          <div className="text-2xl font-black text-slate-900">{metrics?.total_discovered || 0}</div>
-          <div className="text-[11px] text-slate-400">Total crawled items</div>
+          <div>
+            <div className="text-3xl font-black text-slate-900 font-mono tracking-tight">
+              {metrics?.total_discovered || 0}
+            </div>
+            <div className="text-[11px] text-slate-400 mt-0.5">Total crawled items</div>
+          </div>
         </div>
 
         {/* Verified */}
-        <div className="clay-card p-4 sm:p-5 space-y-1">
-          <div className="text-[11px] uppercase tracking-wider font-semibold text-emerald-700 flex items-center gap-1.5">
-            <HugeiconsIcon icon={CheckmarkBadge01Icon} size={14} className="text-emerald-600" />
-            <span>Verified</span>
+        <div className="clay-card p-4 sm:p-5 flex flex-col justify-between space-y-3 transition-transform hover:-translate-y-0.5">
+          <div className="flex items-center justify-between">
+            <span className="text-[11px] uppercase tracking-wider font-bold text-emerald-800">
+              Verified
+            </span>
+            <div className="w-9 h-9 rounded-2xl bg-emerald-50 text-emerald-700 border border-emerald-200/80 flex items-center justify-center clay-pill">
+              <HugeiconsIcon icon={CheckmarkBadge01Icon} size={18} />
+            </div>
           </div>
-          <div className="text-2xl font-black text-emerald-800">{metrics?.verified_count || 0}</div>
-          <div className="text-[11px] text-emerald-700/80 font-medium">Confidence $\ge$ 95%</div>
+          <div>
+            <div className="text-3xl font-black text-emerald-800 font-mono tracking-tight">
+              {metrics?.verified_count || 0}
+            </div>
+            <div className="text-[11px] text-emerald-700/80 font-medium mt-0.5">≥ 95.0% confidence</div>
+          </div>
         </div>
 
         {/* Review Required */}
-        <div className="clay-card p-4 sm:p-5 space-y-1">
-          <div className="text-[11px] uppercase tracking-wider font-semibold text-amber-700 flex items-center gap-1.5">
-            <HugeiconsIcon icon={ShieldAlertIcon} size={14} className="text-amber-600" />
-            <span>Review Req.</span>
+        <div className="clay-card p-4 sm:p-5 flex flex-col justify-between space-y-3 transition-transform hover:-translate-y-0.5">
+          <div className="flex items-center justify-between">
+            <span className="text-[11px] uppercase tracking-wider font-bold text-amber-800">
+              Review Req.
+            </span>
+            <div className="w-9 h-9 rounded-2xl bg-amber-50 text-amber-700 border border-amber-200/80 flex items-center justify-center clay-pill">
+              <HugeiconsIcon icon={ShieldAlertIcon} size={18} />
+            </div>
           </div>
-          <div className="text-2xl font-black text-amber-800">{metrics?.review_required_count || 0}</div>
-          <div className="text-[11px] text-amber-700/80 font-medium">Flagged items</div>
+          <div>
+            <div className="text-3xl font-black text-amber-800 font-mono tracking-tight">
+              {metrics?.review_required_count || 0}
+            </div>
+            <div className="text-[11px] text-amber-700/80 font-medium mt-0.5">Flagged items</div>
+          </div>
         </div>
 
         {/* Active */}
-        <div className="clay-card p-4 sm:p-5 space-y-1">
-          <div className="text-[11px] uppercase tracking-wider font-semibold text-slate-600 flex items-center gap-1.5">
-            <HugeiconsIcon icon={CheckmarkCircle02Icon} size={14} className="text-slate-600" />
-            <span>Active</span>
+        <div className="clay-card p-4 sm:p-5 flex flex-col justify-between space-y-3 transition-transform hover:-translate-y-0.5">
+          <div className="flex items-center justify-between">
+            <span className="text-[11px] uppercase tracking-wider font-bold text-slate-600">
+              Active
+            </span>
+            <div className="w-9 h-9 rounded-2xl bg-white shadow-xs border border-slate-200/80 flex items-center justify-center text-slate-700 clay-pill">
+              <HugeiconsIcon icon={CheckmarkCircle02Icon} size={18} />
+            </div>
           </div>
-          <div className="text-2xl font-black text-slate-900">{metrics?.active_count || 0}</div>
-          <div className="text-[11px] text-slate-400">Open applications</div>
+          <div>
+            <div className="text-3xl font-black text-slate-900 font-mono tracking-tight">
+              {metrics?.active_count || 0}
+            </div>
+            <div className="text-[11px] text-slate-400 mt-0.5">Open applications</div>
+          </div>
         </div>
 
         {/* Expired / Stale */}
-        <div className="clay-card p-4 sm:p-5 space-y-1">
-          <div className="text-[11px] uppercase tracking-wider font-semibold text-rose-600 flex items-center gap-1.5">
-            <HugeiconsIcon icon={Clock01Icon} size={14} className="text-rose-500" />
-            <span>Expired</span>
+        <div className="clay-card p-4 sm:p-5 flex flex-col justify-between space-y-3 transition-transform hover:-translate-y-0.5">
+          <div className="flex items-center justify-between">
+            <span className="text-[11px] uppercase tracking-wider font-bold text-rose-800">
+              Expired
+            </span>
+            <div className="w-9 h-9 rounded-2xl bg-rose-50 text-rose-700 border border-rose-200/80 flex items-center justify-center clay-pill">
+              <HugeiconsIcon icon={HourglassIcon} size={18} />
+            </div>
           </div>
-          <div className="text-2xl font-black text-rose-800">{metrics?.expired_count || 0}</div>
-          <div className="text-[11px] text-slate-400">Past deadline</div>
+          <div>
+            <div className="text-3xl font-black text-rose-800 font-mono tracking-tight">
+              {metrics?.expired_count || 0}
+            </div>
+            <div className="text-[11px] text-rose-700/80 font-medium mt-0.5">Past deadline</div>
+          </div>
         </div>
 
         {/* Avg Confidence */}
-        <div className="clay-card p-4 sm:p-5 space-y-1">
-          <div className="text-[11px] uppercase tracking-wider font-semibold text-slate-600 flex items-center gap-1.5">
-            <HugeiconsIcon icon={Activity01Icon} size={14} className="text-slate-600" />
-            <span>Avg Conf.</span>
+        <div className="clay-card p-4 sm:p-5 flex flex-col justify-between space-y-3 transition-transform hover:-translate-y-0.5">
+          <div className="flex items-center justify-between">
+            <span className="text-[11px] uppercase tracking-wider font-bold text-slate-600">
+              Avg Conf.
+            </span>
+            <div className="w-9 h-9 rounded-2xl bg-white shadow-xs border border-slate-200/80 flex items-center justify-center text-slate-700 clay-pill">
+              <HugeiconsIcon icon={Analytics01Icon} size={18} />
+            </div>
           </div>
-          <div className="text-2xl font-black text-slate-900">
-            {metrics ? `${metrics.average_confidence.toFixed(1)}%` : '0.0%'}
+          <div>
+            <div className="text-3xl font-black text-slate-900 font-mono tracking-tight">
+              {metrics ? `${metrics.average_confidence.toFixed(1)}%` : '0.0%'}
+            </div>
+            <div className="text-[11px] text-slate-400 mt-0.5">All opportunities</div>
           </div>
-          <div className="text-[11px] text-slate-400">All opportunities</div>
         </div>
       </div>
 

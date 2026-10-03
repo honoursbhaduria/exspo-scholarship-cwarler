@@ -30,6 +30,9 @@ import {
   User02Icon,
   DiplomaIcon,
   Building03Icon,
+  Compass01Icon,
+  HourglassIcon,
+  Analytics01Icon,
 } from '@hugeicons/core-free-icons';
 
 export {
@@ -63,6 +66,9 @@ export {
   User02Icon,
   DiplomaIcon,
   Building03Icon,
+  Compass01Icon,
+  HourglassIcon,
+  Analytics01Icon,
 };
 
 export interface HugeIconProps {
