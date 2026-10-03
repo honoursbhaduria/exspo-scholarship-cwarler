@@ -299,7 +299,8 @@ export const CloudShader = ({
     ).matches;
 
     const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      // Keep background canvas resolution at 1.0 DPR for max GPU efficiency and silky 120fps scrolling
+      const dpr = 1.0;
       const width = canvas.clientWidth;
       const height = canvas.clientHeight;
       const w = Math.max(1, Math.floor(width * dpr));
@@ -316,9 +317,36 @@ export const CloudShader = ({
     observer.observe(canvas);
     resize();
 
+    // Scroll throttle to guarantee zero scroll jitter
+    let isScrolling = false;
+    let scrollTimeout: any = null;
+    const onScroll = () => {
+      isScrolling = true;
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        isScrolling = false;
+      }, 100);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+
     const start = performance.now();
+    let lastRenderTime = 0;
     const draw = (now: number) => {
       if (!running) return;
+
+      // When actively scrolling, skip re-evaluating heavy shader frames to maintain 120 FPS
+      if (isScrolling) {
+        frame = requestAnimationFrame(draw);
+        return;
+      }
+
+      // Limit shader redraw to ~30 FPS to conserve GPU for butter-smooth DOM scrolling
+      if (now - lastRenderTime < 30) {
+        frame = requestAnimationFrame(draw);
+        return;
+      }
+      lastRenderTime = now;
+
       const p = paramsRef.current;
       const elapsed = reduceMotion ? 0 : ((now - start) / 1000) * p.speed;
       const cloud = parseHex(p.cloudColor);
@@ -340,6 +368,8 @@ export const CloudShader = ({
       running = false;
       cancelAnimationFrame(frame);
       observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+      if (scrollTimeout) clearTimeout(scrollTimeout);
       gl.deleteBuffer(buffer);
       gl.deleteProgram(program);
       gl.deleteShader(vert);

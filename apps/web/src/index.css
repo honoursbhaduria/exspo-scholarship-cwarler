@@ -16,7 +16,7 @@
       inset 0 1px 2px 0 #ffffff,
       inset 0 -3.5px 6px 0 rgba(148, 163, 184, 0.22),
       inset 0 -1px 3px 0 rgba(148, 163, 184, 0.12);
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .clay-card:hover {
@@ -39,7 +39,7 @@
       0 1px 2px 0 rgba(15, 23, 42, 0.04),
       inset 0 2.5px 5px 0 #ffffff,
       inset 0 -2.5px 5px 0 rgba(148, 163, 184, 0.18);
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .clay-subcard:hover {
@@ -462,13 +462,54 @@
   scrollbar-width: none !important;
 }
 
-body, button, input, select, textarea {
+/* Super Smooth Scroll Behavior Across All Browsers & Devices */
+html {
+  scroll-behavior: smooth !important;
+  -webkit-overflow-scrolling: touch;
+  text-rendering: optimizeLegibility;
+  overscroll-behavior-y: none;
+}
+
+body {
   margin: 0;
   font-family: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: #000000;
   background-color: #f1f5f9;
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body, button, input, select, textarea {
+  font-family: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #000000;
+}
+
+/* Hardware Accelerated Smooth Scrolling Containers */
+.smooth-scroll,
+.overflow-y-auto,
+.overflow-x-auto,
+main {
+  scroll-behavior: smooth !important;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* Eliminate jitter, micro-stutters, and paint flashes on 3D clay cards */
+.clay-card,
+.clay-subcard,
+.clay-card-sky,
+.clay-card-emerald,
+.clay-card-amber,
+.clay-card-lavender,
+.clay-btn {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 code, pre, kbd, samp, .font-mono {
   font-family: "Iosevka Charon", monospace !important;
 }
+
