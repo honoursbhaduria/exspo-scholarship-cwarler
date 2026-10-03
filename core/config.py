@@ -13,7 +13,7 @@ class Settings(BaseSettings):
     VERIFIED_CONFIDENCE_THRESHOLD: float = 95.0
     EXPIRING_SOON_DAYS: int = 7
     API_HOST: str = "0.0.0.0"
-    API_PORT: int = 8000
+    API_PORT: int = 8080
     ENVIRONMENT: str = "development"
     LOG_LEVEL: str = "INFO"
 
