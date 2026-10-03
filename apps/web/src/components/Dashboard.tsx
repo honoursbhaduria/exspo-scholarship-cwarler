@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import {
-  ShieldCheck,
-  AlertTriangle,
-  Clock,
-  CheckCircle2,
-  TrendingUp,
-  RefreshCw,
-  ArrowRight,
-  Database,
-  Search,
-} from 'lucide-react';
+  HugeiconsIcon,
+  Search01Icon,
+  CheckmarkBadge01Icon,
+  ShieldAlertIcon,
+  CheckmarkCircle02Icon,
+  Clock01Icon,
+  Activity01Icon,
+  RefreshIcon,
+  Database01Icon,
+  ArrowRight01Icon,
+} from './ui/icons';
 import { Metrics, ChangeEvent } from '../types';
 
 interface Props {
@@ -38,7 +39,7 @@ export const Dashboard: React.FC<Props> = ({
         body: JSON.stringify({ max_pages: 50, run_async: false }),
       });
       if (res.ok) {
-        setCrawlMessage('Crawl run queued & completed successfully!');
+        setCrawlMessage('Crawl run completed successfully!');
         setTimeout(() => {
           onRefresh();
           setCrawlMessage(null);
@@ -53,113 +54,123 @@ export const Dashboard: React.FC<Props> = ({
 
   return (
     <div className="space-y-6">
-      {/* Top Banner / Actions */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border shadow-sm">
+      {/* Top Banner / Actions Card */}
+      <div className="clay-card p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
+          <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
             Scholarship Intelligence Platform
           </h1>
-          <p className="text-sm text-slate-500 mt-1">
-            Production audit engine for discovering, verifying, scoring, and diff-tracking official opportunities.
+          <p className="text-xs sm:text-sm text-slate-500 mt-1">
+            Continuous discovery, evidence verification, and version diff tracking for official Indian education schemes.
           </p>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5">
           <button
             onClick={onRefresh}
-            className="p-2.5 text-slate-600 hover:text-slate-900 border rounded-xl hover:bg-slate-50"
+            className="p-2.5 text-slate-600 hover:text-slate-900 rounded-2xl clay-pill bg-white/80 hover:bg-white transition"
             title="Refresh Metrics"
           >
-            <RefreshCw className="w-4 h-4" />
+            <HugeiconsIcon icon={RefreshIcon} size={18} />
           </button>
           <button
             onClick={handleTriggerCrawl}
             disabled={crawling}
-            className="px-4 py-2.5 bg-sky-600 hover:bg-sky-700 disabled:opacity-50 text-white rounded-xl text-sm font-semibold flex items-center gap-2 shadow-sm transition"
+            className="px-4 py-2.5 bg-slate-900 hover:bg-slate-800 disabled:opacity-50 text-white rounded-2xl text-xs sm:text-sm font-semibold flex items-center gap-2 shadow-md transition"
           >
-            <RefreshCw className={`w-4 h-4 ${crawling ? 'animate-spin' : ''}`} />
+            <HugeiconsIcon
+              icon={RefreshIcon}
+              size={16}
+              className={crawling ? 'animate-spin' : ''}
+            />
             {crawling ? 'Crawling Pipeline...' : 'Run Pipeline Crawl'}
           </button>
         </div>
       </div>
 
       {crawlMessage && (
-        <div className="p-3 bg-sky-50 border border-sky-200 text-sky-800 text-xs font-medium rounded-xl animate-in fade-in">
+        <div className="p-3 bg-white/80 backdrop-blur-md border border-slate-200 text-slate-800 text-xs font-medium rounded-2xl shadow-sm animate-in fade-in">
           {crawlMessage}
         </div>
       )}
 
       {/* KPI Cards Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4">
         {/* Discovered */}
-        <div className="bg-white p-5 rounded-2xl border shadow-sm space-y-1">
-          <div className="text-xs uppercase tracking-wider font-semibold text-slate-400 flex items-center gap-1.5">
-            <Search className="w-3.5 h-3.5 text-sky-500" /> Discovered
+        <div className="clay-card p-4 sm:p-5 space-y-1">
+          <div className="text-[11px] uppercase tracking-wider font-semibold text-slate-500 flex items-center gap-1.5">
+            <HugeiconsIcon icon={Search01Icon} size={14} className="text-slate-600" />
+            <span>Discovered</span>
           </div>
           <div className="text-2xl font-black text-slate-900">{metrics?.total_discovered || 0}</div>
           <div className="text-[11px] text-slate-400">Total crawled items</div>
         </div>
 
         {/* Verified */}
-        <div className="bg-white p-5 rounded-2xl border shadow-sm space-y-1 border-l-4 border-l-emerald-500">
-          <div className="text-xs uppercase tracking-wider font-semibold text-emerald-600 flex items-center gap-1.5">
-            <ShieldCheck className="w-3.5 h-3.5" /> Verified
+        <div className="clay-card p-4 sm:p-5 space-y-1">
+          <div className="text-[11px] uppercase tracking-wider font-semibold text-emerald-700 flex items-center gap-1.5">
+            <HugeiconsIcon icon={CheckmarkBadge01Icon} size={14} className="text-emerald-600" />
+            <span>Verified</span>
           </div>
-          <div className="text-2xl font-black text-emerald-700">{metrics?.verified_count || 0}</div>
-          <div className="text-[11px] text-emerald-600/80 font-medium">$\ge$ 95.0% confidence</div>
+          <div className="text-2xl font-black text-emerald-800">{metrics?.verified_count || 0}</div>
+          <div className="text-[11px] text-emerald-700/80 font-medium">Confidence $\ge$ 95%</div>
         </div>
 
         {/* Review Required */}
-        <div className="bg-white p-5 rounded-2xl border shadow-sm space-y-1 border-l-4 border-l-amber-500">
-          <div className="text-xs uppercase tracking-wider font-semibold text-amber-600 flex items-center gap-1.5">
-            <AlertTriangle className="w-3.5 h-3.5" /> Review Req.
+        <div className="clay-card p-4 sm:p-5 space-y-1">
+          <div className="text-[11px] uppercase tracking-wider font-semibold text-amber-700 flex items-center gap-1.5">
+            <HugeiconsIcon icon={ShieldAlertIcon} size={14} className="text-amber-600" />
+            <span>Review Req.</span>
           </div>
-          <div className="text-2xl font-black text-amber-700">{metrics?.review_required_count || 0}</div>
-          <div className="text-[11px] text-amber-600/80 font-medium">Pending verification</div>
+          <div className="text-2xl font-black text-amber-800">{metrics?.review_required_count || 0}</div>
+          <div className="text-[11px] text-amber-700/80 font-medium">Flagged items</div>
         </div>
 
         {/* Active */}
-        <div className="bg-white p-5 rounded-2xl border shadow-sm space-y-1">
-          <div className="text-xs uppercase tracking-wider font-semibold text-blue-600 flex items-center gap-1.5">
-            <CheckCircle2 className="w-3.5 h-3.5" /> Active
+        <div className="clay-card p-4 sm:p-5 space-y-1">
+          <div className="text-[11px] uppercase tracking-wider font-semibold text-slate-600 flex items-center gap-1.5">
+            <HugeiconsIcon icon={CheckmarkCircle02Icon} size={14} className="text-slate-600" />
+            <span>Active</span>
           </div>
           <div className="text-2xl font-black text-slate-900">{metrics?.active_count || 0}</div>
-          <div className="text-[11px] text-slate-400">Open for application</div>
+          <div className="text-[11px] text-slate-400">Open applications</div>
         </div>
 
         {/* Expired / Stale */}
-        <div className="bg-white p-5 rounded-2xl border shadow-sm space-y-1">
-          <div className="text-xs uppercase tracking-wider font-semibold text-rose-500 flex items-center gap-1.5">
-            <Clock className="w-3.5 h-3.5" /> Expired
+        <div className="clay-card p-4 sm:p-5 space-y-1">
+          <div className="text-[11px] uppercase tracking-wider font-semibold text-rose-600 flex items-center gap-1.5">
+            <HugeiconsIcon icon={Clock01Icon} size={14} className="text-rose-500" />
+            <span>Expired</span>
           </div>
-          <div className="text-2xl font-black text-slate-900">{metrics?.expired_count || 0}</div>
-          <div className="text-[11px] text-slate-400">Past closing deadline</div>
+          <div className="text-2xl font-black text-rose-800">{metrics?.expired_count || 0}</div>
+          <div className="text-[11px] text-slate-400">Past deadline</div>
         </div>
 
         {/* Avg Confidence */}
-        <div className="bg-white p-5 rounded-2xl border shadow-sm space-y-1">
-          <div className="text-xs uppercase tracking-wider font-semibold text-indigo-600 flex items-center gap-1.5">
-            <TrendingUp className="w-3.5 h-3.5" /> Avg Conf.
+        <div className="clay-card p-4 sm:p-5 space-y-1">
+          <div className="text-[11px] uppercase tracking-wider font-semibold text-slate-600 flex items-center gap-1.5">
+            <HugeiconsIcon icon={Activity01Icon} size={14} className="text-slate-600" />
+            <span>Avg Conf.</span>
           </div>
-          <div className="text-2xl font-black text-indigo-700">
+          <div className="text-2xl font-black text-slate-900">
             {metrics ? `${metrics.average_confidence.toFixed(1)}%` : '0.0%'}
           </div>
-          <div className="text-[11px] text-indigo-600/80 font-medium">Across all records</div>
+          <div className="text-[11px] text-slate-400">All opportunities</div>
         </div>
       </div>
 
       {/* Main Grid: Recently Detected Changes & System Integrity */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Recently Updated Changes Feed */}
-        <div className="lg:col-span-2 bg-white rounded-2xl border shadow-sm p-6 space-y-4">
-          <div className="flex items-center justify-between border-b pb-3">
+        <div className="lg:col-span-2 clay-card p-6 space-y-4">
+          <div className="flex items-center justify-between border-b border-slate-200/60 pb-3">
             <div>
               <h2 className="text-base font-bold text-slate-900">Recently Detected Field Changes</h2>
-              <p className="text-xs text-slate-400 mt-0.5">
+              <p className="text-xs text-slate-500 mt-0.5">
                 Automated field-by-field diff comparison across successive crawl runs.
               </p>
             </div>
-            <span className="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-600">
-              {changes.length} change events
+            <span className="text-xs font-mono bg-white/80 border border-slate-200/80 px-2.5 py-1 rounded-xl text-slate-700 clay-pill">
+              {changes.length} events
             </span>
           </div>
 
@@ -173,18 +184,18 @@ export const Dashboard: React.FC<Props> = ({
                 <div
                   key={ch.id}
                   onClick={() => onSelectScholarship(ch.scholarship_id)}
-                  className="p-3.5 bg-slate-50 hover:bg-sky-50/50 rounded-xl border border-slate-200 transition cursor-pointer space-y-1.5"
+                  className="p-3.5 bg-white/60 hover:bg-white/90 rounded-2xl border border-white/80 transition cursor-pointer space-y-1.5 shadow-xs hover:shadow-sm"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-semibold text-sm text-slate-800 hover:text-sky-600">
+                    <span className="font-semibold text-sm text-slate-800 hover:text-slate-900">
                       {ch.scholarship_name}
                     </span>
                     <span
-                      className={`text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider ${
+                      className={`text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider ${
                         ch.severity === 'HIGH'
-                          ? 'bg-rose-100 text-rose-800 border border-rose-200'
+                          ? 'bg-rose-50 text-rose-700 border border-rose-200'
                           : ch.severity === 'MEDIUM'
-                          ? 'bg-amber-100 text-amber-800 border border-amber-200'
+                          ? 'bg-amber-50 text-amber-700 border border-amber-200'
                           : 'bg-slate-100 text-slate-600'
                       }`}
                     >
@@ -199,7 +210,7 @@ export const Dashboard: React.FC<Props> = ({
                     <span className="line-through text-slate-400 truncate max-w-[150px]">
                       {ch.old_value || 'None'}
                     </span>
-                    <ArrowRight className="w-3 h-3 text-slate-400 shrink-0" />
+                    <HugeiconsIcon icon={ArrowRight01Icon} size={14} className="text-slate-400 shrink-0" />
                     <span className="font-medium text-emerald-700 truncate max-w-[200px]">
                       {ch.new_value}
                     </span>
@@ -215,26 +226,26 @@ export const Dashboard: React.FC<Props> = ({
         </div>
 
         {/* System Integrity & Traceability Summary Card */}
-        <div className="bg-slate-900/90 backdrop-blur-md text-white rounded-2xl p-6 shadow-sm flex flex-col justify-between space-y-6 border border-slate-800">
+        <div className="clay-card-dark text-white p-6 flex flex-col justify-between space-y-6">
           <div className="space-y-4">
-            <div className="flex items-center gap-2 text-sky-400">
-              <Database className="w-5 h-5" />
-              <h3 className="font-bold text-sm uppercase tracking-wider">Repository Audit Chain</h3>
+            <div className="flex items-center gap-2 text-slate-300">
+              <HugeiconsIcon icon={Database01Icon} size={18} />
+              <h3 className="font-bold text-xs uppercase tracking-wider">Repository Audit Chain</h3>
             </div>
             <p className="text-xs text-slate-300 leading-relaxed">
               Every funding opportunity in this repository maintains a complete audit trail:
             </p>
             <div className="space-y-2 text-xs text-slate-300 font-mono">
-              <div className="p-2 bg-slate-800/80 rounded border border-slate-700/80">
+              <div className="p-2.5 bg-slate-800/80 rounded-xl border border-slate-700/80">
                 1. Official Source Domain Validation
               </div>
-              <div className="p-2 bg-slate-800/80 rounded border border-slate-700/80">
+              <div className="p-2.5 bg-slate-800/80 rounded-xl border border-slate-700/80">
                 2. SHA-256 Snapshot Storage
               </div>
-              <div className="p-2 bg-slate-800/80 rounded border border-slate-700/80">
+              <div className="p-2.5 bg-slate-800/80 rounded-xl border border-slate-700/80">
                 3. Substring Evidence Proof Binding
               </div>
-              <div className="p-2 bg-slate-800/80 rounded border border-slate-700/80">
+              <div className="p-2.5 bg-slate-800/80 rounded-xl border border-slate-700/80">
                 4. Automated Field Change Diffing
               </div>
             </div>
@@ -242,7 +253,7 @@ export const Dashboard: React.FC<Props> = ({
 
           <div className="border-t border-slate-800 pt-4 text-xs text-slate-400 space-y-1">
             <div>Verified Records: <span className="text-emerald-400 font-bold">{metrics?.verified_count || 0}</span></div>
-            <div>Registered Source Domains: <span className="text-sky-400 font-bold">{metrics?.total_sources || 0}</span></div>
+            <div>Registered Source Domains: <span className="text-slate-300 font-bold">{metrics?.total_sources || 0}</span></div>
           </div>
         </div>
       </div>

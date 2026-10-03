@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { KnowledgeLogo } from './components/ui/KnowledgeLogo';
 import {
-  GraduationCap,
-  LayoutDashboard,
-  ListFilter,
-  ShieldAlert,
-  Activity,
-} from 'lucide-react';
+  HugeiconsIcon,
+  DashboardSquare01Icon,
+  Mortarboard01Icon,
+  ShieldAlertIcon,
+  Activity01Icon,
+  CheckmarkCircle02Icon,
+} from './components/ui/icons';
 import { Dashboard } from './components/Dashboard';
 import { ScholarshipList } from './components/ScholarshipList';
 import { ReviewQueue } from './components/ReviewQueue';
@@ -20,10 +22,8 @@ export function App() {
   const [scholarships, setScholarships] = useState<Scholarship[]>([]);
   const [changes, setChanges] = useState<ChangeEvent[]>([]);
   const [selectedScholarshipId, setSelectedScholarshipId] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
 
   const fetchGlobalData = () => {
-    setLoading(true);
     Promise.all([
       fetch('/api/v1/metrics').then((r) => r.json()),
       fetch('/api/v1/scholarships?limit=100').then((r) => r.json()),
@@ -34,8 +34,7 @@ export function App() {
         setScholarships(s);
         setChanges(c);
       })
-      .catch((err) => console.error('Error fetching global data:', err))
-      .finally(() => setLoading(false));
+      .catch((err) => console.error('Error fetching global data:', err));
   };
 
   useEffect(() => {
@@ -43,76 +42,90 @@ export function App() {
   }, []);
 
   return (
-    <div className="relative min-h-screen flex flex-col font-sans selection:bg-sky-500 selection:text-white">
+    <div className="relative min-h-screen flex flex-col md:flex-row font-sans selection:bg-slate-900 selection:text-white">
       {/* Ambient Blurred Cloud Shader Background */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <CloudShader
           className="w-full h-full filter blur-[3px] scale-105 opacity-80"
-          speed={0.4}
+          speed={0.3}
           count={5}
           cloudColor="#ffffff"
           skyTopColor="#3876ba"
           skyBottomColor="#8cbfe8"
         />
-        {/* Soft Frosted Glass Overlay for crisp text contrast */}
-        <div className="absolute inset-0 bg-slate-50/85 backdrop-blur-[1px]" />
+        {/* Soft Frosted Glass Overlay */}
+        <div className="absolute inset-0 bg-slate-100/75 backdrop-blur-[2px]" />
       </div>
 
-      {/* Navigation Header */}
-      <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-sky-600 text-white flex items-center justify-center shadow-md">
-              <GraduationCap className="w-6 h-6" />
+      {/* Floating Rounded Side Navbar */}
+      <aside className="relative z-30 md:sticky md:top-6 md:self-start md:h-[calc(100vh-3rem)] m-4 md:m-6 md:mr-0 w-auto md:w-64 shrink-0 flex flex-col justify-between p-5 rounded-3xl clay-card">
+        <div className="space-y-6">
+          {/* Logo & Brand Header */}
+          <div className="flex items-center gap-3 px-1 py-1">
+            <div className="w-11 h-11 rounded-2xl bg-white/90 shadow-[inset_0_2px_4px_rgba(255,255,255,1),0_4px_12px_rgba(0,0,0,0.06)] border border-white flex items-center justify-center overflow-hidden shrink-0">
+              <KnowledgeLogo className="w-9 h-9" />
             </div>
-            <div className="flex items-center gap-2">
-              <span className="font-extrabold text-base text-slate-900 tracking-tight">
-                Scholarship Intelligence
-              </span>
+            <div>
+              <h1 className="font-extrabold text-sm text-slate-900 tracking-tight leading-tight">
+                Scholarship
+              </h1>
+              <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">
+                Intelligence
+              </p>
             </div>
           </div>
 
-          {/* Navigation Bar */}
-          <nav className="flex items-center gap-1 sm:gap-2">
+          {/* Navigation Links */}
+          <nav className="flex flex-row md:flex-col gap-1.5 overflow-x-auto md:overflow-visible py-1">
             <button
               onClick={() => setActiveTab('dashboard')}
-              className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 transition ${
+              className={`w-full px-3.5 py-2.5 rounded-2xl text-xs sm:text-sm font-semibold flex items-center gap-3 transition-all ${
                 activeTab === 'dashboard'
-                  ? 'bg-sky-50 text-sky-700 shadow-xs'
-                  : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                  ? 'bg-slate-900 text-white shadow-md'
+                  : 'text-slate-600 hover:bg-white/60 hover:text-slate-900'
               }`}
             >
-              <LayoutDashboard className="w-4 h-4" />
+              <HugeiconsIcon icon={DashboardSquare01Icon} size={18} />
               <span>Dashboard</span>
             </button>
 
             <button
               onClick={() => setActiveTab('scholarships')}
-              className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 transition ${
+              className={`w-full px-3.5 py-2.5 rounded-2xl text-xs sm:text-sm font-semibold flex items-center justify-between transition-all ${
                 activeTab === 'scholarships'
-                  ? 'bg-sky-50 text-sky-700 shadow-xs'
-                  : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                  ? 'bg-slate-900 text-white shadow-md'
+                  : 'text-slate-600 hover:bg-white/60 hover:text-slate-900'
               }`}
             >
-              <ListFilter className="w-4 h-4" />
-              <span>Scholarships</span>
-              <span className="text-[10px] font-mono bg-slate-200/80 text-slate-700 px-1.5 py-0.2 rounded-full">
+              <div className="flex items-center gap-3">
+                <HugeiconsIcon icon={Mortarboard01Icon} size={18} />
+                <span>Scholarships</span>
+              </div>
+              <span
+                className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full ${
+                  activeTab === 'scholarships'
+                    ? 'bg-slate-800 text-white'
+                    : 'bg-slate-200/80 text-slate-700'
+                }`}
+              >
                 {scholarships.length}
               </span>
             </button>
 
             <button
               onClick={() => setActiveTab('review')}
-              className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 transition ${
+              className={`w-full px-3.5 py-2.5 rounded-2xl text-xs sm:text-sm font-semibold flex items-center justify-between transition-all ${
                 activeTab === 'review'
-                  ? 'bg-sky-50 text-sky-700 shadow-xs'
-                  : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                  ? 'bg-slate-900 text-white shadow-md'
+                  : 'text-slate-600 hover:bg-white/60 hover:text-slate-900'
               }`}
             >
-              <ShieldAlert className="w-4 h-4" />
-              <span>Review Queue</span>
+              <div className="flex items-center gap-3">
+                <HugeiconsIcon icon={ShieldAlertIcon} size={18} />
+                <span>Review Queue</span>
+              </div>
               {(metrics?.review_required_count || 0) > 0 && (
-                <span className="text-[10px] font-mono bg-amber-500 text-white px-1.5 py-0.2 rounded-full font-bold">
+                <span className="text-[10px] font-mono font-bold bg-amber-500 text-white px-2 py-0.5 rounded-full">
                   {metrics?.review_required_count}
                 </span>
               )}
@@ -120,21 +133,34 @@ export function App() {
 
             <button
               onClick={() => setActiveTab('runs')}
-              className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 transition ${
+              className={`w-full px-3.5 py-2.5 rounded-2xl text-xs sm:text-sm font-semibold flex items-center gap-3 transition-all ${
                 activeTab === 'runs'
-                  ? 'bg-sky-50 text-sky-700 shadow-xs'
-                  : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                  ? 'bg-slate-900 text-white shadow-md'
+                  : 'text-slate-600 hover:bg-white/60 hover:text-slate-900'
               }`}
             >
-              <Activity className="w-4 h-4" />
+              <HugeiconsIcon icon={Activity01Icon} size={18} />
               <span>Crawl Runs</span>
             </button>
           </nav>
         </div>
-      </header>
 
-      {/* Main Content Area */}
-      <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
+        {/* Bottom Sidebar Status Card */}
+        <div className="hidden md:block pt-4 border-t border-slate-200/60">
+          <div className="p-3 rounded-2xl clay-inset flex items-center gap-3 text-xs text-slate-600">
+            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+            <div className="truncate">
+              <div className="font-semibold text-slate-800">Pipeline Active</div>
+              <div className="text-[10px] text-slate-500 font-mono">
+                {metrics?.verified_count || 0} Verified Schemes
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      {/* Main Workspace Area */}
+      <main className="relative z-10 flex-1 p-4 md:p-6 w-full max-w-7xl mx-auto overflow-x-hidden">
         {activeTab === 'dashboard' && (
           <Dashboard
             metrics={metrics}
@@ -163,18 +189,6 @@ export function App() {
           onClose={() => setSelectedScholarshipId(null)}
         />
       )}
-
-      {/* Footer */}
-      <footer className="relative z-10 border-t border-slate-200/80 bg-white/70 backdrop-blur-md py-4 mt-auto">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between text-xs text-slate-500">
-          <div className="flex items-center gap-2">
-            <span className="font-semibold text-slate-700">Scholarship Intelligence Engine</span>
-          </div>
-          <div>
-            <span>Verified Official Opportunities</span>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

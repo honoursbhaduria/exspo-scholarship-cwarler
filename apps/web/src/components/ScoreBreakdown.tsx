@@ -1,5 +1,10 @@
 import React from 'react';
-import { CheckCircle2, AlertTriangle, ShieldCheck, XCircle } from 'lucide-react';
+import {
+  HugeiconsIcon,
+  CheckmarkCircle02Icon,
+  AlertCircleIcon,
+  Cancel01Icon,
+} from './ui/icons';
 
 interface Props {
   score: number;
@@ -24,19 +29,19 @@ export const ScoreBreakdown: React.FC<Props> = ({ score, status, breakdown }) =>
   };
 
   return (
-    <div className="bg-white border rounded-xl p-5 shadow-sm space-y-4">
-      <div className="flex items-center justify-between border-b pb-4">
+    <div className="bg-white/80 border border-slate-200/70 rounded-2xl p-5 shadow-xs space-y-4">
+      <div className="flex items-center justify-between border-b border-slate-200/60 pb-4">
         <div>
-          <div className="text-xs uppercase tracking-wider text-slate-500 font-semibold">Deterministic Confidence Audit</div>
-          <div className="flex items-center gap-2 mt-1">
+          <div className="text-xs uppercase tracking-wider text-slate-500 font-semibold">Confidence Audit Evaluation</div>
+          <div className="flex items-center gap-2.5 mt-1">
             <span className="text-3xl font-extrabold text-slate-900">{score.toFixed(1)}%</span>
             <span
-              className={`px-2.5 py-1 text-xs font-semibold rounded-full uppercase tracking-wider ${
+              className={`px-2.5 py-0.5 text-xs font-semibold rounded-full uppercase tracking-wider ${
                 isVerified
-                  ? 'bg-emerald-100 text-emerald-800 border border-emerald-300'
+                  ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
                   : isReview
-                  ? 'bg-amber-100 text-amber-800 border border-amber-300'
-                  : 'bg-blue-100 text-blue-800 border border-blue-300'
+                  ? 'bg-amber-50 text-amber-800 border border-amber-200'
+                  : 'bg-slate-100 text-slate-800 border border-slate-200'
               }`}
             >
               {status.replace('_', ' ')}
@@ -44,8 +49,8 @@ export const ScoreBreakdown: React.FC<Props> = ({ score, status, breakdown }) =>
           </div>
         </div>
         <div className="text-right text-xs text-slate-500">
-          <div>Assignment Benchmark:</div>
-          <div className="font-semibold text-slate-700">Verified $\ge$ 95.0% + Zero Conflicts</div>
+          <div>Verification Standard:</div>
+          <div className="font-semibold text-slate-700">Score $\ge$ 95.0% + Zero Conflicts</div>
         </div>
       </div>
 
@@ -57,21 +62,21 @@ export const ScoreBreakdown: React.FC<Props> = ({ score, status, breakdown }) =>
           return (
             <div key={key} className="text-sm border-b border-slate-100 pb-2.5 last:border-0 last:pb-0">
               <div className="flex items-center justify-between">
-                <span className="font-medium text-slate-700 flex items-center gap-1.5">
+                <span className="font-medium text-slate-700 flex items-center gap-2">
                   {isMax ? (
-                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                    <HugeiconsIcon icon={CheckmarkCircle02Icon} size={16} className="text-emerald-600" />
                   ) : isZero ? (
-                    <XCircle className="w-4 h-4 text-rose-500" />
+                    <HugeiconsIcon icon={Cancel01Icon} size={16} className="text-rose-500" />
                   ) : (
-                    <AlertTriangle className="w-4 h-4 text-amber-500" />
+                    <HugeiconsIcon icon={AlertCircleIcon} size={16} className="text-amber-500" />
                   )}
-                  {categoryLabels[key] || key}
+                  <span>{categoryLabels[key] || key}</span>
                 </span>
-                <span className="font-mono font-semibold text-slate-800">
+                <span className="font-mono font-semibold text-slate-800 text-xs">
                   +{item.score} / {item.max}
                 </span>
               </div>
-              <div className="text-xs text-slate-500 mt-0.5 ml-5.5">{item.reason}</div>
+              <div className="text-xs text-slate-500 mt-0.5 ml-6">{item.reason}</div>
             </div>
           );
         })}
