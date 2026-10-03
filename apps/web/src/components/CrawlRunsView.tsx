@@ -34,7 +34,7 @@ export const CrawlRunsView: React.FC = () => {
         </div>
         <button
           onClick={fetchRuns}
-          className="p-2.5 border border-slate-200 rounded-2xl bg-white/80 hover:bg-white text-slate-700 clay-pill transition"
+          className="p-2.5 clay-btn text-black flex items-center justify-center"
           title="Refresh"
         >
           <HugeiconsIcon icon={RefreshIcon} size={16} />

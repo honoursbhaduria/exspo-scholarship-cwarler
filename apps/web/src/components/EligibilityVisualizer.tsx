@@ -62,9 +62,9 @@ export const EligibilityVisualizer: React.FC<Props> = ({
 
         <button
           onClick={() => setShowJson(!showJson)}
-          className="px-3 py-1.5 text-xs font-mono font-semibold rounded-xl border border-slate-200/80 bg-white/80 hover:bg-white text-slate-700 flex items-center gap-1.5 transition clay-pill"
+          className="px-3 py-1.5 text-xs font-mono font-bold clay-btn text-black flex items-center gap-1.5"
         >
-          <HugeiconsIcon icon={CodeIcon} size={14} className="text-slate-600" />
+          <HugeiconsIcon icon={CodeIcon} size={14} className="text-black" />
           <span>{showJson ? 'Hide AST JSON' : 'Inspect AST JSON'}</span>
         </button>
       </div>
@@ -209,9 +209,9 @@ export const EligibilityVisualizer: React.FC<Props> = ({
             <span className="text-[11px] font-mono text-slate-400">// Universal Machine-Readable Schema (JSONB):</span>
             <button
               onClick={handleCopy}
-              className="px-2.5 py-1 text-[11px] font-mono text-slate-600 hover:text-slate-900 flex items-center gap-1 bg-white border border-slate-200 rounded-lg clay-pill"
+              className="px-2.5 py-1 text-[11px] font-mono font-bold text-black flex items-center gap-1 clay-btn"
             >
-              <HugeiconsIcon icon={copied ? CheckmarkCircle02Icon : Copy01Icon} size={12} className={copied ? "text-emerald-600" : ""} />
+              <HugeiconsIcon icon={copied ? CheckmarkCircle02Icon : Copy01Icon} size={12} className={copied ? "text-emerald-700" : "text-black"} />
               <span>{copied ? 'Copied!' : 'Copy AST'}</span>
             </button>
           </div>

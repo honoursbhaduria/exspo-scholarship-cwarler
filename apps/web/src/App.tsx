@@ -79,10 +79,10 @@ export function App() {
           <nav className="flex flex-row md:flex-col gap-1.5 overflow-x-auto md:overflow-visible py-1">
             <button
               onClick={() => setActiveTab('dashboard')}
-              className={`w-full px-3.5 py-2.5 rounded-2xl text-xs sm:text-sm font-semibold flex items-center gap-3 transition-all ${
+              className={`w-full px-4 py-3 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-3 transition-all ${
                 activeTab === 'dashboard'
-                  ? 'bg-slate-900 text-white shadow-md'
-                  : 'text-slate-600 hover:bg-white/60 hover:text-slate-900'
+                  ? 'clay-btn-dark'
+                  : 'clay-btn'
               }`}
             >
               <HugeiconsIcon icon={DashboardSquare01Icon} size={18} />
@@ -91,10 +91,10 @@ export function App() {
 
             <button
               onClick={() => setActiveTab('scholarships')}
-              className={`w-full px-3.5 py-2.5 rounded-2xl text-xs sm:text-sm font-semibold flex items-center justify-between transition-all ${
+              className={`w-full px-4 py-3 rounded-2xl text-xs sm:text-sm font-bold flex items-center justify-between transition-all ${
                 activeTab === 'scholarships'
-                  ? 'bg-slate-900 text-white shadow-md'
-                  : 'text-slate-600 hover:bg-white/60 hover:text-slate-900'
+                  ? 'clay-btn-dark'
+                  : 'clay-btn'
               }`}
             >
               <div className="flex items-center gap-3">
@@ -104,8 +104,8 @@ export function App() {
               <span
                 className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full ${
                   activeTab === 'scholarships'
-                    ? 'bg-slate-800 text-white'
-                    : 'bg-slate-200/80 text-slate-700'
+                    ? 'bg-white/20 text-white'
+                    : 'bg-black/10 text-black'
                 }`}
               >
                 {scholarships.length}
@@ -114,10 +114,10 @@ export function App() {
 
             <button
               onClick={() => setActiveTab('review')}
-              className={`w-full px-3.5 py-2.5 rounded-2xl text-xs sm:text-sm font-semibold flex items-center justify-between transition-all ${
+              className={`w-full px-4 py-3 rounded-2xl text-xs sm:text-sm font-bold flex items-center justify-between transition-all ${
                 activeTab === 'review'
-                  ? 'bg-slate-900 text-white shadow-md'
-                  : 'text-slate-600 hover:bg-white/60 hover:text-slate-900'
+                  ? 'clay-btn-dark'
+                  : 'clay-btn'
               }`}
             >
               <div className="flex items-center gap-3">
@@ -125,7 +125,7 @@ export function App() {
                 <span>Review Queue</span>
               </div>
               {(metrics?.review_required_count || 0) > 0 && (
-                <span className="text-[10px] font-mono font-bold bg-amber-500 text-white px-2 py-0.5 rounded-full">
+                <span className="text-[10px] font-mono font-bold bg-amber-500 text-black px-2 py-0.5 rounded-full">
                   {metrics?.review_required_count}
                 </span>
               )}
@@ -133,10 +133,10 @@ export function App() {
 
             <button
               onClick={() => setActiveTab('runs')}
-              className={`w-full px-3.5 py-2.5 rounded-2xl text-xs sm:text-sm font-semibold flex items-center gap-3 transition-all ${
+              className={`w-full px-4 py-3 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-3 transition-all ${
                 activeTab === 'runs'
-                  ? 'bg-slate-900 text-white shadow-md'
-                  : 'text-slate-600 hover:bg-white/60 hover:text-slate-900'
+                  ? 'clay-btn-dark'
+                  : 'clay-btn'
               }`}
             >
               <HugeiconsIcon icon={Activity01Icon} size={18} />

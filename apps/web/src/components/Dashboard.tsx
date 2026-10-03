@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import {
   HugeiconsIcon,
-  Compass01Icon,
+  Radar01Icon,
   CheckmarkBadge01Icon,
-  ShieldAlertIcon,
-  CheckmarkCircle02Icon,
+  AlertDiamondIcon,
+  Pulse01Icon,
   HourglassIcon,
-  Analytics01Icon,
+  AnalyticsUpIcon,
   RefreshIcon,
   Database01Icon,
   ArrowRight01Icon,
@@ -57,17 +57,17 @@ export const Dashboard: React.FC<Props> = ({
       {/* Top Banner / Actions Card */}
       <div className="clay-card p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+          <h1 className="text-xl sm:text-2xl font-extrabold text-black tracking-tight">
             Scholarship Intelligence Platform
           </h1>
-          <p className="text-xs sm:text-sm text-slate-500 mt-1">
+          <p className="text-xs sm:text-sm text-black/75 mt-1 font-medium">
             Continuous discovery, evidence verification, and version diff tracking for official Indian education schemes.
           </p>
         </div>
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-3">
           <button
             onClick={onRefresh}
-            className="p-2.5 text-slate-600 hover:text-slate-900 rounded-2xl clay-pill bg-white/80 hover:bg-white transition"
+            className="p-3 clay-btn flex items-center justify-center text-black"
             title="Refresh Metrics"
           >
             <HugeiconsIcon icon={RefreshIcon} size={18} />
@@ -75,119 +75,119 @@ export const Dashboard: React.FC<Props> = ({
           <button
             onClick={handleTriggerCrawl}
             disabled={crawling}
-            className="px-4 py-2.5 bg-slate-900 hover:bg-slate-800 disabled:opacity-50 text-white rounded-2xl text-xs sm:text-sm font-semibold flex items-center gap-2 shadow-md transition"
+            className="px-5 py-2.5 clay-btn-dark flex items-center gap-2 text-xs sm:text-sm"
           >
             <HugeiconsIcon
               icon={RefreshIcon}
               size={16}
               className={crawling ? 'animate-spin' : ''}
             />
-            {crawling ? 'Crawling Pipeline...' : 'Run Pipeline Crawl'}
+            <span>{crawling ? 'Crawling Pipeline...' : 'Run Pipeline Crawl'}</span>
           </button>
         </div>
       </div>
 
       {crawlMessage && (
-        <div className="p-3 bg-white/80 backdrop-blur-md border border-slate-200 text-slate-800 text-xs font-medium rounded-2xl shadow-sm animate-in fade-in">
+        <div className="p-3 bg-white/90 border border-slate-200 text-black text-xs font-semibold rounded-2xl shadow-sm animate-in fade-in">
           {crawlMessage}
         </div>
       )}
 
-      {/* KPI Cards Grid */}
+      {/* KPI Cards Grid with subtle eye-pleasing clay colors and pure black text */}
       <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3.5 sm:gap-4">
         {/* Discovered */}
-        <div className="clay-card p-5 flex flex-col justify-between space-y-3">
+        <div className="clay-card-sky p-5 flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-xs uppercase tracking-wider font-bold text-slate-500">
+            <span className="text-xs uppercase tracking-wider font-extrabold text-black">
               Discovered
             </span>
-            <HugeiconsIcon icon={Compass01Icon} size={22} className="text-slate-500 shrink-0" />
+            <HugeiconsIcon icon={Radar01Icon} size={22} className="text-black shrink-0" />
           </div>
           <div>
-            <div className="text-3xl font-black text-slate-900 font-mono tracking-tight">
+            <div className="text-3xl font-black text-black font-mono tracking-tight">
               {metrics?.total_discovered || 0}
             </div>
-            <div className="text-[11px] text-slate-400 mt-1">Total crawled items</div>
+            <div className="text-xs font-bold text-black mt-1">Total crawled items</div>
           </div>
         </div>
 
         {/* Verified */}
-        <div className="clay-card p-5 flex flex-col justify-between space-y-3">
+        <div className="clay-card-emerald p-5 flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-xs uppercase tracking-wider font-bold text-emerald-800">
+            <span className="text-xs uppercase tracking-wider font-extrabold text-black">
               Verified
             </span>
-            <HugeiconsIcon icon={CheckmarkBadge01Icon} size={22} className="text-emerald-600 shrink-0" />
+            <HugeiconsIcon icon={CheckmarkBadge01Icon} size={22} className="text-black shrink-0" />
           </div>
           <div>
-            <div className="text-3xl font-black text-emerald-800 font-mono tracking-tight">
+            <div className="text-3xl font-black text-black font-mono tracking-tight">
               {metrics?.verified_count || 0}
             </div>
-            <div className="text-[11px] text-emerald-700/80 font-medium mt-1">≥ 95.0% confidence</div>
+            <div className="text-xs font-bold text-black mt-1">≥ 95.0% confidence</div>
           </div>
         </div>
 
         {/* Review Required */}
-        <div className="clay-card p-5 flex flex-col justify-between space-y-3">
+        <div className="clay-card-amber p-5 flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-xs uppercase tracking-wider font-bold text-amber-800">
+            <span className="text-xs uppercase tracking-wider font-extrabold text-black">
               Review Req.
             </span>
-            <HugeiconsIcon icon={ShieldAlertIcon} size={22} className="text-amber-600 shrink-0" />
+            <HugeiconsIcon icon={AlertDiamondIcon} size={22} className="text-black shrink-0" />
           </div>
           <div>
-            <div className="text-3xl font-black text-amber-800 font-mono tracking-tight">
+            <div className="text-3xl font-black text-black font-mono tracking-tight">
               {metrics?.review_required_count || 0}
             </div>
-            <div className="text-[11px] text-amber-700/80 font-medium mt-1">Flagged items</div>
+            <div className="text-xs font-bold text-black mt-1">Flagged items</div>
           </div>
         </div>
 
         {/* Active */}
-        <div className="clay-card p-5 flex flex-col justify-between space-y-3">
+        <div className="clay-card-lavender p-5 flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-xs uppercase tracking-wider font-bold text-slate-600">
+            <span className="text-xs uppercase tracking-wider font-extrabold text-black">
               Active
             </span>
-            <HugeiconsIcon icon={CheckmarkCircle02Icon} size={22} className="text-slate-600 shrink-0" />
+            <HugeiconsIcon icon={Pulse01Icon} size={22} className="text-black shrink-0" />
           </div>
           <div>
-            <div className="text-3xl font-black text-slate-900 font-mono tracking-tight">
+            <div className="text-3xl font-black text-black font-mono tracking-tight">
               {metrics?.active_count || 0}
             </div>
-            <div className="text-[11px] text-slate-400 mt-1">Open applications</div>
+            <div className="text-xs font-bold text-black mt-1">Open applications</div>
           </div>
         </div>
 
         {/* Expired / Stale */}
-        <div className="clay-card p-5 flex flex-col justify-between space-y-3">
+        <div className="clay-card-rose p-5 flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-xs uppercase tracking-wider font-bold text-rose-800">
+            <span className="text-xs uppercase tracking-wider font-extrabold text-black">
               Expired
             </span>
-            <HugeiconsIcon icon={HourglassIcon} size={22} className="text-rose-600 shrink-0" />
+            <HugeiconsIcon icon={HourglassIcon} size={22} className="text-black shrink-0" />
           </div>
           <div>
-            <div className="text-3xl font-black text-rose-800 font-mono tracking-tight">
+            <div className="text-3xl font-black text-black font-mono tracking-tight">
               {metrics?.expired_count || 0}
             </div>
-            <div className="text-[11px] text-rose-700/80 font-medium mt-1">Past deadline</div>
+            <div className="text-xs font-bold text-black mt-1">Past deadline</div>
           </div>
         </div>
 
         {/* Avg Confidence */}
-        <div className="clay-card p-5 flex flex-col justify-between space-y-3">
+        <div className="clay-card-mint p-5 flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-xs uppercase tracking-wider font-bold text-slate-600">
+            <span className="text-xs uppercase tracking-wider font-extrabold text-black">
               Avg Conf.
             </span>
-            <HugeiconsIcon icon={Analytics01Icon} size={22} className="text-slate-600 shrink-0" />
+            <HugeiconsIcon icon={AnalyticsUpIcon} size={22} className="text-black shrink-0" />
           </div>
           <div>
-            <div className="text-3xl font-black text-slate-900 font-mono tracking-tight">
+            <div className="text-3xl font-black text-black font-mono tracking-tight">
               {metrics ? `${metrics.average_confidence.toFixed(1)}%` : '0.0%'}
             </div>
-            <div className="text-[11px] text-slate-400 mt-1">All opportunities</div>
+            <div className="text-xs font-bold text-black mt-1">All opportunities</div>
           </div>
         </div>
       </div>
@@ -198,18 +198,18 @@ export const Dashboard: React.FC<Props> = ({
         <div className="lg:col-span-2 clay-card p-6 space-y-4">
           <div className="flex items-center justify-between border-b border-slate-200/60 pb-3">
             <div>
-              <h2 className="text-base font-bold text-slate-900">Recently Detected Field Changes</h2>
-              <p className="text-xs text-slate-500 mt-0.5">
+              <h2 className="text-base font-bold text-black">Recently Detected Field Changes</h2>
+              <p className="text-xs text-black/70 mt-0.5 font-medium">
                 Automated field-by-field diff comparison across successive crawl runs.
               </p>
             </div>
-            <span className="text-xs font-mono bg-white/80 border border-slate-200/80 px-2.5 py-1 rounded-xl text-slate-700 clay-pill">
+            <span className="text-xs font-mono font-bold clay-btn px-3 py-1 text-black">
               {changes.length} events
             </span>
           </div>
 
           {changes.length === 0 ? (
-            <div className="py-12 text-center text-slate-400 text-sm">
+            <div className="py-12 text-center text-black/50 text-sm font-medium">
               No changes detected across crawl runs yet.
             </div>
           ) : (
@@ -218,39 +218,39 @@ export const Dashboard: React.FC<Props> = ({
                 <div
                   key={ch.id}
                   onClick={() => onSelectScholarship(ch.scholarship_id)}
-                  className="p-3.5 bg-white/60 hover:bg-white/90 rounded-2xl border border-white/80 transition cursor-pointer space-y-1.5 shadow-xs hover:shadow-sm"
+                  className="p-3.5 bg-white/70 hover:bg-white rounded-2xl border border-white/80 transition cursor-pointer space-y-1.5 shadow-xs hover:shadow-sm"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-semibold text-sm text-slate-800 hover:text-slate-900">
+                    <span className="font-bold text-sm text-black hover:text-slate-800">
                       {ch.scholarship_name}
                     </span>
                     <span
-                      className={`text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider ${
+                      className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider ${
                         ch.severity === 'HIGH'
-                          ? 'bg-rose-50 text-rose-700 border border-rose-200'
+                          ? 'bg-rose-100 text-rose-900 border border-rose-200'
                           : ch.severity === 'MEDIUM'
-                          ? 'bg-amber-50 text-amber-700 border border-amber-200'
-                          : 'bg-slate-100 text-slate-600'
+                          ? 'bg-amber-100 text-amber-900 border border-amber-200'
+                          : 'bg-slate-100 text-black'
                       }`}
                     >
                       {ch.severity} SEVERITY
                     </span>
                   </div>
 
-                  <div className="text-xs flex items-center gap-2 text-slate-600">
-                    <span className="font-semibold text-slate-700 capitalize">
+                  <div className="text-xs flex items-center gap-2 text-black/80 font-medium">
+                    <span className="font-bold text-black capitalize">
                       {ch.field_name.replace('_', ' ')}:
                     </span>
-                    <span className="line-through text-slate-400 truncate max-w-[150px]">
+                    <span className="line-through text-black/50 truncate max-w-[150px]">
                       {ch.old_value || 'None'}
                     </span>
-                    <HugeiconsIcon icon={ArrowRight01Icon} size={14} className="text-slate-400 shrink-0" />
-                    <span className="font-medium text-emerald-700 truncate max-w-[200px]">
+                    <HugeiconsIcon icon={ArrowRight01Icon} size={14} className="text-black/60 shrink-0" />
+                    <span className="font-bold text-emerald-800 truncate max-w-[200px]">
                       {ch.new_value}
                     </span>
                   </div>
 
-                  <div className="text-[10px] text-slate-400 font-mono">
+                  <div className="text-[10px] text-black/60 font-mono font-medium">
                     Detected: {new Date(ch.detected_at).toLocaleString()}
                   </div>
                 </div>
@@ -262,14 +262,14 @@ export const Dashboard: React.FC<Props> = ({
         {/* System Integrity & Traceability Summary Card */}
         <div className="clay-card-dark text-white p-6 flex flex-col justify-between space-y-6">
           <div className="space-y-4">
-            <div className="flex items-center gap-2 text-slate-300">
+            <div className="flex items-center gap-2 text-white">
               <HugeiconsIcon icon={Database01Icon} size={18} />
               <h3 className="font-bold text-xs uppercase tracking-wider">Repository Audit Chain</h3>
             </div>
-            <p className="text-xs text-slate-300 leading-relaxed">
+            <p className="text-xs text-slate-300 leading-relaxed font-medium">
               Every funding opportunity in this repository maintains a complete audit trail:
             </p>
-            <div className="space-y-2 text-xs text-slate-300 font-mono">
+            <div className="space-y-2 text-xs text-slate-200 font-mono">
               <div className="p-2.5 bg-slate-800/80 rounded-xl border border-slate-700/80">
                 1. Official Source Domain Validation
               </div>
@@ -285,9 +285,9 @@ export const Dashboard: React.FC<Props> = ({
             </div>
           </div>
 
-          <div className="border-t border-slate-800 pt-4 text-xs text-slate-400 space-y-1">
+          <div className="border-t border-slate-800 pt-4 text-xs text-slate-300 space-y-1 font-medium">
             <div>Verified Records: <span className="text-emerald-400 font-bold">{metrics?.verified_count || 0}</span></div>
-            <div>Registered Source Domains: <span className="text-slate-300 font-bold">{metrics?.total_sources || 0}</span></div>
+            <div>Registered Source Domains: <span className="text-white font-bold">{metrics?.total_sources || 0}</span></div>
           </div>
         </div>
       </div>

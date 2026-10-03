@@ -112,14 +112,14 @@ export const ReviewQueue: React.FC = () => {
               <div className="flex items-center justify-end gap-3 pt-2">
                 <button
                   onClick={() => handleAction(item.id, 'REJECT')}
-                  className="px-3.5 py-1.5 border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition clay-pill"
+                  className="px-3.5 py-1.5 clay-btn text-black text-xs font-bold flex items-center gap-1.5"
                 >
-                  <HugeiconsIcon icon={Cancel01Icon} size={14} className="text-rose-500" />
+                  <HugeiconsIcon icon={Cancel01Icon} size={14} className="text-rose-600" />
                   <span>Reject Candidate</span>
                 </button>
                 <button
                   onClick={() => handleAction(item.id, 'APPROVE')}
-                  className="px-3.5 py-1.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-semibold flex items-center gap-1.5 shadow-sm transition"
+                  className="px-3.5 py-1.5 clay-btn-dark text-white text-xs font-bold flex items-center gap-1.5"
                 >
                   <HugeiconsIcon icon={CheckmarkCircle02Icon} size={14} className="text-emerald-400" />
                   <span>Approve & Elevate</span>

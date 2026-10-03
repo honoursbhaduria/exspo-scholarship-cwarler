@@ -51,7 +51,7 @@ export const ScholarshipList: React.FC<Props> = ({ scholarships, onSelect }) => 
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="px-3.5 py-2 bg-white/70 border border-slate-200/80 rounded-2xl text-xs font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400/50 shadow-xs"
+            className="clay-btn px-4 py-2 text-xs font-bold text-black focus:outline-none cursor-pointer"
           >
             <option value="ALL">All Statuses</option>
             <option value="VERIFIED">VERIFIED</option>
@@ -64,7 +64,7 @@ export const ScholarshipList: React.FC<Props> = ({ scholarships, onSelect }) => 
           <select
             value={sourceTypeFilter}
             onChange={(e) => setSourceTypeFilter(e.target.value)}
-            className="px-3.5 py-2 bg-white/70 border border-slate-200/80 rounded-2xl text-xs font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400/50 shadow-xs"
+            className="clay-btn px-4 py-2 text-xs font-bold text-black focus:outline-none cursor-pointer"
           >
             <option value="ALL">All Sources</option>
             <option value="GOVERNMENT">GOVERNMENT</option>
@@ -77,9 +77,9 @@ export const ScholarshipList: React.FC<Props> = ({ scholarships, onSelect }) => 
       </div>
 
       {/* Table */}
-      <div className="overflow-x-auto rounded-2xl border border-slate-200/60 bg-white/40">
-        <table className="w-full text-left text-xs sm:text-sm text-slate-600">
-          <thead className="bg-slate-100/70 text-[11px] uppercase tracking-wider font-semibold text-slate-500 border-b border-slate-200/60">
+      <div className="overflow-x-auto rounded-2xl border border-slate-200/60 bg-white/40 no-scrollbar">
+        <table className="w-full text-left text-xs sm:text-sm text-slate-700">
+          <thead className="bg-slate-100/70 text-[11px] uppercase tracking-wider font-extrabold text-black border-b border-slate-200/60">
             <tr>
               <th className="py-3 px-4">Scholarship & Provider</th>
               <th className="py-3 px-4">Source Type</th>
@@ -90,10 +90,10 @@ export const ScholarshipList: React.FC<Props> = ({ scholarships, onSelect }) => 
               <th className="py-3 px-4 text-right">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-100">
+          <tbody className="divide-y divide-slate-100 font-medium">
             {filtered.length === 0 ? (
               <tr>
-                <td colSpan={7} className="py-12 text-center text-slate-400 text-xs">
+                <td colSpan={7} className="py-12 text-center text-black/50 text-xs font-semibold">
                   No scholarships match the selected criteria.
                 </td>
               </tr>
@@ -106,21 +106,21 @@ export const ScholarshipList: React.FC<Props> = ({ scholarships, onSelect }) => 
                 return (
                   <tr key={item.id} className="hover:bg-white/80 transition-colors">
                     <td className="py-3.5 px-4">
-                      <div className="font-semibold text-slate-900">{item.name}</div>
-                      <div className="text-xs text-slate-400">{item.provider}</div>
+                      <div className="font-bold text-black">{item.name}</div>
+                      <div className="text-xs text-black/60 font-medium">{item.provider}</div>
                     </td>
 
                     <td className="py-3.5 px-4">
-                      <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-lg bg-slate-100/80 text-slate-700 border border-slate-200/60">
+                      <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-lg bg-slate-100 text-black border border-slate-200/60">
                         {item.source_type}
                       </span>
                     </td>
 
-                    <td className="py-3.5 px-4 font-medium text-slate-900 font-mono">
+                    <td className="py-3.5 px-4 font-bold text-black font-mono">
                       {formatCurrency(item.amount)}
                     </td>
 
-                    <td className="py-3.5 px-4 text-xs font-mono text-slate-700">
+                    <td className="py-3.5 px-4 text-xs font-mono font-bold text-black">
                       {formatDate(item.closing_date)}
                     </td>
 
@@ -128,12 +128,12 @@ export const ScholarshipList: React.FC<Props> = ({ scholarships, onSelect }) => 
                       <span
                         className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider ${
                           isVerified
-                            ? 'bg-emerald-50 text-emerald-800 border border-emerald-200/80'
+                            ? 'bg-emerald-50 text-emerald-950 border border-emerald-300'
                             : isReview
-                            ? 'bg-amber-50 text-amber-800 border border-amber-200/80'
+                            ? 'bg-amber-50 text-amber-950 border border-amber-300'
                             : isExpired
-                            ? 'bg-rose-50 text-rose-800 border border-rose-200/80'
-                            : 'bg-slate-100 text-slate-800 border border-slate-200'
+                            ? 'bg-rose-50 text-rose-950 border border-rose-300'
+                            : 'bg-slate-100 text-black border border-slate-300'
                         }`}
                       >
                         {item.status.replace('_', ' ')}
@@ -142,10 +142,10 @@ export const ScholarshipList: React.FC<Props> = ({ scholarships, onSelect }) => 
 
                     <td className="py-3.5 px-4">
                       <div className="flex items-center gap-2">
-                        <span className="font-mono font-bold text-xs text-slate-800">
+                        <span className="font-mono font-bold text-xs text-black">
                           {item.confidence_score.toFixed(1)}%
                         </span>
-                        <div className="w-16 bg-slate-200/80 h-1.5 rounded-full overflow-hidden">
+                        <div className="w-16 bg-slate-200/80 h-2 rounded-full overflow-hidden">
                           <div
                             className={`h-full ${
                               item.confidence_score >= 95
@@ -163,9 +163,9 @@ export const ScholarshipList: React.FC<Props> = ({ scholarships, onSelect }) => 
                     <td className="py-3.5 px-4 text-right">
                       <button
                         onClick={() => onSelect(item.id)}
-                        className="px-3 py-1.5 bg-white/80 hover:bg-white text-slate-800 rounded-xl clay-pill transition inline-flex items-center gap-1.5 text-xs font-semibold"
+                        className="clay-btn px-3.5 py-1.5 inline-flex items-center gap-1.5 text-xs font-bold text-black"
                       >
-                        <HugeiconsIcon icon={ViewIcon} size={14} className="text-slate-600" />
+                        <HugeiconsIcon icon={ViewIcon} size={14} className="text-black" />
                         <span>Inspect</span>
                       </button>
                     </td>

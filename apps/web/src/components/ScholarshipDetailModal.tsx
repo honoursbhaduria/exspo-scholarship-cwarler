@@ -88,7 +88,7 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition clay-pill bg-white"
+            className="p-2 clay-btn text-black flex items-center justify-center"
             title="Close (ESC)"
           >
             <HugeiconsIcon icon={Cancel01Icon} size={18} />
@@ -97,43 +97,43 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
 
         {/* Modal Segmented Navigation Bar */}
         <div className="px-6 py-3 border-b border-slate-200/60 bg-slate-50/60">
-          <div className="p-1 rounded-2xl bg-slate-200/60 flex items-center gap-1 overflow-x-auto no-scrollbar">
+          <div className="p-1 rounded-2xl bg-slate-200/60 flex items-center gap-2 overflow-x-auto no-scrollbar">
             <button
               onClick={() => setActiveTab('overview')}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all whitespace-nowrap ${
+              className={`px-4 py-2 text-xs sm:text-sm font-bold flex items-center gap-2 transition-all whitespace-nowrap ${
                 activeTab === 'overview'
-                  ? 'bg-white text-slate-900 shadow-sm border border-white'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/40'
+                  ? 'clay-btn text-black'
+                  : 'text-black/70 hover:text-black hover:bg-white/40 rounded-xl'
               }`}
             >
-              <HugeiconsIcon icon={DiplomaIcon} size={16} className={activeTab === 'overview' ? 'text-slate-900' : 'text-slate-500'} />
+              <HugeiconsIcon icon={DiplomaIcon} size={16} className="text-black" />
               <span>Overview & Criteria</span>
             </button>
 
             <button
               onClick={() => setActiveTab('score')}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all whitespace-nowrap ${
+              className={`px-4 py-2 text-xs sm:text-sm font-bold flex items-center gap-2 transition-all whitespace-nowrap ${
                 activeTab === 'score'
-                  ? 'bg-white text-slate-900 shadow-sm border border-white'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/40'
+                  ? 'clay-btn text-black'
+                  : 'text-black/70 hover:text-black hover:bg-white/40 rounded-xl'
               }`}
             >
-              <HugeiconsIcon icon={CheckmarkBadge01Icon} size={16} className={activeTab === 'score' ? 'text-emerald-700' : 'text-slate-500'} />
+              <HugeiconsIcon icon={CheckmarkBadge01Icon} size={16} className={activeTab === 'score' ? 'text-black' : 'text-black/70'} />
               <span>Confidence Audit Breakdown</span>
             </button>
 
             <button
               onClick={() => setActiveTab('evidence')}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all whitespace-nowrap ${
+              className={`px-4 py-2 text-xs sm:text-sm font-bold flex items-center gap-2 transition-all whitespace-nowrap ${
                 activeTab === 'evidence'
-                  ? 'bg-white text-slate-900 shadow-sm border border-white'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/40'
+                  ? 'clay-btn text-black'
+                  : 'text-black/70 hover:text-black hover:bg-white/40 rounded-xl'
               }`}
             >
-              <HugeiconsIcon icon={File01Icon} size={16} className={activeTab === 'evidence' ? 'text-slate-900' : 'text-slate-500'} />
+              <HugeiconsIcon icon={File01Icon} size={16} className="text-black" />
               <span>Source Evidence</span>
               <span className={`text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-full ${
-                activeTab === 'evidence' ? 'bg-slate-100 text-slate-800' : 'bg-slate-300/60 text-slate-700'
+                activeTab === 'evidence' ? 'bg-slate-100 text-black' : 'bg-slate-300/60 text-black'
               }`}>
                 {evidence.length}
               </span>
@@ -141,16 +141,16 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
 
             <button
               onClick={() => setActiveTab('history')}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all whitespace-nowrap ${
+              className={`px-4 py-2 text-xs sm:text-sm font-bold flex items-center gap-2 transition-all whitespace-nowrap ${
                 activeTab === 'history'
-                  ? 'bg-white text-slate-900 shadow-sm border border-white'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/40'
+                  ? 'clay-btn text-black'
+                  : 'text-black/70 hover:text-black hover:bg-white/40 rounded-xl'
               }`}
             >
-              <HugeiconsIcon icon={Time02Icon} size={16} className={activeTab === 'history' ? 'text-slate-900' : 'text-slate-500'} />
+              <HugeiconsIcon icon={Time02Icon} size={16} className="text-black" />
               <span>Change History</span>
               <span className={`text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-full ${
-                activeTab === 'history' ? 'bg-slate-100 text-slate-800' : 'bg-slate-300/60 text-slate-700'
+                activeTab === 'history' ? 'bg-slate-100 text-black' : 'bg-slate-300/60 text-black'
               }`}>
                 {history.length}
               </span>
@@ -274,7 +274,7 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
                 href={detail.application_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-semibold flex items-center gap-1.5 shadow-xs transition"
+                className="px-4 py-2 clay-btn-dark text-xs font-bold flex items-center gap-1.5"
               >
                 <span>Official Application Portal</span>
                 <HugeiconsIcon icon={ArrowUpRight01Icon} size={14} />
@@ -285,16 +285,16 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
                 href={detail.official_source_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 border border-slate-200/80 bg-white hover:bg-slate-50 text-slate-700 rounded-xl text-xs font-medium flex items-center gap-1.5 shadow-xs transition"
+                className="px-4 py-2 clay-btn text-xs font-bold text-black flex items-center gap-1.5"
               >
                 <span>Official Primary Source</span>
-                <HugeiconsIcon icon={ArrowUpRight01Icon} size={14} />
+                <HugeiconsIcon icon={ArrowUpRight01Icon} size={14} className="text-black" />
               </a>
             )}
           </div>
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-white border border-slate-200 hover:bg-slate-100 text-slate-700 rounded-xl text-xs font-semibold transition clay-pill"
+            className="px-4 py-2 clay-btn text-xs font-bold text-black"
           >
             Close Inspector
           </button>

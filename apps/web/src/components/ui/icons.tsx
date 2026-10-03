@@ -33,6 +33,14 @@ import {
   Compass01Icon,
   HourglassIcon,
   Analytics01Icon,
+  AiSearch02Icon,
+  SecurityCheckIcon,
+  AlertDiamondIcon,
+  Timer02Icon,
+  Analytics02Icon,
+  Radar01Icon,
+  Pulse01Icon,
+  AnalyticsUpIcon,
 } from '@hugeicons/core-free-icons';
 
 export {
@@ -69,6 +77,14 @@ export {
   Compass01Icon,
   HourglassIcon,
   Analytics01Icon,
+  AiSearch02Icon,
+  SecurityCheckIcon,
+  AlertDiamondIcon,
+  Timer02Icon,
+  Analytics02Icon,
+  Radar01Icon,
+  Pulse01Icon,
+  AnalyticsUpIcon,
 };
 
 export interface HugeIconProps {
