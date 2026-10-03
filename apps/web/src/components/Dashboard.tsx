@@ -118,7 +118,7 @@ export const Dashboard: React.FC<Props> = ({
       {/* KPI Cards Grid - All White Clay Cards with Pure Black Typography */}
       <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3.5 sm:gap-4">
         {/* Discovered */}
-        <div className="clay-card bg-white/95 p-5 flex flex-col justify-between space-y-3">
+        <div className="clay-card p-5 flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
             <span className="text-xs uppercase tracking-wider font-extrabold text-black">
               Discovered
@@ -134,7 +134,7 @@ export const Dashboard: React.FC<Props> = ({
         </div>
 
         {/* Verified */}
-        <div className="clay-card bg-white/95 p-5 flex flex-col justify-between space-y-3">
+        <div className="clay-card p-5 flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
             <span className="text-xs uppercase tracking-wider font-extrabold text-black">
               Verified
@@ -150,7 +150,7 @@ export const Dashboard: React.FC<Props> = ({
         </div>
 
         {/* Review Required */}
-        <div className="clay-card bg-white/95 p-5 flex flex-col justify-between space-y-3">
+        <div className="clay-card p-5 flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
             <span className="text-xs uppercase tracking-wider font-extrabold text-black">
               Review Req.
@@ -166,7 +166,7 @@ export const Dashboard: React.FC<Props> = ({
         </div>
 
         {/* Active */}
-        <div className="clay-card bg-white/95 p-5 flex flex-col justify-between space-y-3">
+        <div className="clay-card p-5 flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
             <span className="text-xs uppercase tracking-wider font-extrabold text-black">
               Active
@@ -182,7 +182,7 @@ export const Dashboard: React.FC<Props> = ({
         </div>
 
         {/* Expired / Stale */}
-        <div className="clay-card bg-white/95 p-5 flex flex-col justify-between space-y-3">
+        <div className="clay-card p-5 flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
             <span className="text-xs uppercase tracking-wider font-extrabold text-black">
               Expired
@@ -198,7 +198,7 @@ export const Dashboard: React.FC<Props> = ({
         </div>
 
         {/* Avg Confidence */}
-        <div className="clay-card bg-white/95 p-5 flex flex-col justify-between space-y-3">
+        <div className="clay-card p-5 flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
             <span className="text-xs uppercase tracking-wider font-extrabold text-black">
               Avg Conf.

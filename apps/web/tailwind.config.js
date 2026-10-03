@@ -6,6 +6,12 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['"Bricolage Grotesque"', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        bricolage: ['"Bricolage Grotesque"', 'sans-serif'],
+        mono: ['"Iosevka Charon"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+        display: ['"Libre Caslon Display"', 'serif'],
+      },
       colors: {
         brand: {
           50: '#f0f9ff',

@@ -38,7 +38,7 @@ export const EvidenceViewer: React.FC<Props> = ({ evidence, officialUrl }) => {
 
       <div className="grid gap-3">
         {evidence.map((item) => (
-          <div key={item.id} className="bg-white/70 border border-slate-200/70 rounded-2xl p-4 space-y-2.5 shadow-xs">
+          <div key={item.id} className="clay-subcard p-4 space-y-2.5">
             <div className="flex items-center justify-between">
               <span className="text-[11px] uppercase tracking-wider font-bold text-slate-800 bg-slate-100 border border-slate-200/80 px-2.5 py-0.5 rounded-lg">
                 {item.field_name.replace('_', ' ')}

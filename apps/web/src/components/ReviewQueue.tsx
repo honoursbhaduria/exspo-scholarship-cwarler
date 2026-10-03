@@ -79,7 +79,7 @@ export const ReviewQueue: React.FC = () => {
       ) : (
         <div className="space-y-4">
           {items.map((item) => (
-            <div key={item.id} className="p-5 border border-slate-200/70 rounded-2xl bg-white/70 space-y-3 shadow-xs">
+            <div key={item.id} className="clay-subcard p-5 space-y-3">
               <div className="flex items-start justify-between">
                 <div>
                   <h3 className="font-bold text-slate-900 text-sm sm:text-base">{item.scholarship_name}</h3>

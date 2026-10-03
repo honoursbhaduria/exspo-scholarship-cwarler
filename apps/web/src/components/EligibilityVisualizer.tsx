@@ -87,7 +87,7 @@ export const EligibilityVisualizer: React.FC<Props> = ({
                 return (
                   <div
                     key={idx}
-                    className="p-3.5 rounded-2xl bg-white/70 border border-slate-200/70 shadow-xs flex items-center gap-3"
+                    className="clay-subcard p-3.5 flex items-center gap-3"
                   >
                     <div className="w-8 h-8 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 border border-slate-200/60">
                       <HugeiconsIcon icon={DiplomaIcon} size={16} />
@@ -106,7 +106,7 @@ export const EligibilityVisualizer: React.FC<Props> = ({
                 return (
                   <div
                     key={idx}
-                    className="p-3.5 rounded-2xl bg-white/70 border border-slate-200/70 shadow-xs flex items-center gap-3"
+                    className="clay-subcard p-3.5 flex items-center gap-3"
                   >
                     <div className="w-8 h-8 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 border border-slate-200/60">
                       <HugeiconsIcon icon={Coins01Icon} size={16} />
@@ -125,7 +125,7 @@ export const EligibilityVisualizer: React.FC<Props> = ({
                 return (
                   <div
                     key={idx}
-                    className="p-3.5 rounded-2xl bg-white/70 border border-slate-200/70 shadow-xs flex items-center gap-3"
+                    className="clay-subcard p-3.5 flex items-center gap-3"
                   >
                     <div className="w-8 h-8 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 border border-slate-200/60">
                       <HugeiconsIcon icon={User02Icon} size={16} />
@@ -144,7 +144,7 @@ export const EligibilityVisualizer: React.FC<Props> = ({
                 return (
                   <div
                     key={idx}
-                    className="p-3.5 rounded-2xl bg-white/70 border border-slate-200/70 shadow-xs flex items-center gap-3"
+                    className="clay-subcard p-3.5 flex items-center gap-3"
                   >
                     <div className="w-8 h-8 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 border border-slate-200/60">
                       <HugeiconsIcon icon={User02Icon} size={16} />
@@ -158,7 +158,7 @@ export const EligibilityVisualizer: React.FC<Props> = ({
               }
 
               return (
-                <div key={idx} className="p-3 rounded-xl border border-slate-200/70 bg-white/60 text-xs font-mono">
+                <div key={idx} className="p-3 rounded-xl border border-slate-200/70 bg-white text-xs font-mono">
                   {JSON.stringify(rule)}
                 </div>
               );
@@ -198,7 +198,7 @@ export const EligibilityVisualizer: React.FC<Props> = ({
             <HugeiconsIcon icon={File01Icon} size={14} className="text-slate-400" />
             <span>Official Published Clause (Raw Snapshot Text)</span>
           </div>
-          <div className="text-xs text-slate-700 bg-white/70 p-3.5 rounded-2xl border border-slate-200/70 whitespace-pre-line leading-relaxed italic">
+          <div className="text-xs text-slate-800 clay-subcard p-4 whitespace-pre-line leading-relaxed italic">
             "{rawText}"
           </div>
         </div>

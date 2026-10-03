@@ -29,7 +29,7 @@ export const ScoreBreakdown: React.FC<Props> = ({ score, status, breakdown }) =>
   };
 
   return (
-    <div className="bg-white/80 border border-slate-200/70 rounded-2xl p-5 shadow-xs space-y-4">
+    <div className="clay-subcard p-6 space-y-4">
       <div className="flex items-center justify-between border-b border-slate-200/60 pb-4">
         <div>
           <div className="text-xs uppercase tracking-wider text-slate-500 font-semibold">Confidence Audit Evaluation</div>

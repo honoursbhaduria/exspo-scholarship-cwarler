@@ -36,10 +36,8 @@ export const ChangeHistory: React.FC<Props> = ({ versions }) => {
           return (
             <div
               key={ver.id}
-              className={`p-4 rounded-2xl border ${
-                isLatest
-                  ? 'bg-white border-slate-300/80 shadow-xs'
-                  : 'bg-white/60 border-slate-200/60 opacity-80'
+              className={`clay-subcard p-4.5 ${
+                isLatest ? 'ring-2 ring-emerald-500/20' : 'opacity-85'
               }`}
             >
               <div className="flex items-center justify-between">

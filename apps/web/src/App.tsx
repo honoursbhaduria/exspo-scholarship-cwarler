@@ -41,7 +41,7 @@ export function App() {
   }, []);
 
   return (
-    <div className="relative min-h-screen flex flex-col md:flex-row font-sans selection:bg-slate-900 selection:text-white">
+    <div className="relative min-h-screen flex flex-col md:flex-row font-bricolage selection:bg-slate-900 selection:text-white">
       {/* Ambient Blurred Cloud Shader Background */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <CloudShader

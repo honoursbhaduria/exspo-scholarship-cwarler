@@ -164,7 +164,7 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
                 <div className="space-y-6">
                   {/* Top Key Facts */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4">
-                    <div className="p-4 rounded-2xl bg-white/80 border border-slate-200/70 shadow-xs">
+                    <div className="clay-subcard p-4">
                       <div className="text-xs text-slate-500 flex items-center gap-1.5 font-medium">
                         <HugeiconsIcon icon={Coins01Icon} size={15} className="text-slate-600" />
                         <span>Benefit Amount</span>
@@ -174,7 +174,7 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
                       </div>
                     </div>
 
-                    <div className="p-4 rounded-2xl bg-white/80 border border-slate-200/70 shadow-xs">
+                    <div className="clay-subcard p-4">
                       <div className="text-xs text-slate-500 flex items-center gap-1.5 font-medium">
                         <HugeiconsIcon icon={Calendar03Icon} size={15} className="text-slate-600" />
                         <span>Closing Date</span>
@@ -184,7 +184,7 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
                       </div>
                     </div>
 
-                    <div className="p-4 rounded-2xl bg-white/80 border border-slate-200/70 shadow-xs">
+                    <div className="clay-subcard p-4">
                       <div className="text-xs text-slate-500 flex items-center gap-1.5 font-medium">
                         <HugeiconsIcon icon={DiplomaIcon} size={15} className="text-slate-600" />
                         <span>Income Limit</span>
@@ -206,7 +206,7 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
 
                   {/* Academic Requirements & Documents */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="border border-slate-200/70 bg-white/60 rounded-2xl p-4 space-y-2">
+                    <div className="clay-subcard p-4 space-y-2">
                       <h4 className="text-xs font-bold text-slate-600 uppercase tracking-wider">
                         Academic Criteria
                       </h4>
@@ -224,7 +224,7 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
                       )}
                     </div>
 
-                    <div className="border border-slate-200/70 bg-white/60 rounded-2xl p-4 space-y-2">
+                    <div className="clay-subcard p-4 space-y-2">
                       <h4 className="text-xs font-bold text-slate-600 uppercase tracking-wider">
                         Documents Required
                       </h4>

@@ -3,118 +3,145 @@
 @tailwind utilities;
 
 @layer utilities {
-  /* High-Quality Claymorphic Glass Card */
+  /* High-Quality Claymorphic White Card - Real 3D Clay with Dual Bevel & Subtle Pop Shadow */
   .clay-card {
-    background: rgba(255, 255, 255, 0.84);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.95);
+    background: #ffffff;
+    border: 1.5px solid rgba(255, 255, 255, 1);
     border-radius: 1.75rem;
     box-shadow:
-      0 14px 34px -8px rgba(15, 23, 42, 0.07),
-      0 4px 12px -2px rgba(15, 23, 42, 0.03),
-      inset 0 3px 5px 0 rgba(255, 255, 255, 1),
-      inset 0 -3px 6px 0 rgba(148, 163, 184, 0.14);
+      0 8px 24px -4px rgba(15, 23, 42, 0.08),
+      0 3px 8px -2px rgba(15, 23, 42, 0.03),
+      inset 0 3.5px 6px 0 #ffffff,
+      inset 0 1px 2px 0 #ffffff,
+      inset 0 -4px 8px 0 rgba(148, 163, 184, 0.28),
+      inset 0 -1px 3px 0 rgba(148, 163, 184, 0.16);
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .clay-card:hover {
     box-shadow:
-      0 20px 42px -8px rgba(15, 23, 42, 0.1),
-      0 6px 16px -2px rgba(15, 23, 42, 0.04),
-      inset 0 3px 5px 0 rgba(255, 255, 255, 1),
-      inset 0 -3px 6px 0 rgba(148, 163, 184, 0.18);
+      0 14px 32px -4px rgba(15, 23, 42, 0.11),
+      0 5px 12px -2px rgba(15, 23, 42, 0.04),
+      inset 0 3.5px 6px 0 #ffffff,
+      inset 0 -4px 8px 0 rgba(148, 163, 184, 0.32);
   }
 
-  /* Subtle Eye-Pleasing Pastel Clay Cards */
+  /* Clay Subcard for nested panels inside modals, visualizers & tables */
+  .clay-subcard {
+    background: #ffffff;
+    border: 1.5px solid rgba(255, 255, 255, 1);
+    border-radius: 1.25rem;
+    box-shadow:
+      0 4px 14px -2px rgba(15, 23, 42, 0.06),
+      0 2px 5px -1px rgba(15, 23, 42, 0.03),
+      inset 0 2.5px 5px 0 #ffffff,
+      inset 0 -3px 6px 0 rgba(148, 163, 184, 0.24);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .clay-subcard:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      0 8px 20px -3px rgba(15, 23, 42, 0.09),
+      0 3px 6px -1px rgba(15, 23, 42, 0.04),
+      inset 0 2.5px 5px 0 #ffffff,
+      inset 0 -3px 6px 0 rgba(148, 163, 184, 0.28);
+  }
+
+  /* Subtle Eye-Pleasing Pastel Clay Cards with Tactile Depth */
   .clay-card-sky {
-    background: rgba(240, 246, 252, 0.92);
-    border: 1px solid rgba(225, 236, 247, 0.95);
+    background: #f0f6fc;
+    border: 1.5px solid rgba(255, 255, 255, 1);
     border-radius: 1.75rem;
     box-shadow:
-      0 14px 34px -8px rgba(56, 118, 186, 0.08),
-      inset 0 3px 5px 0 rgba(255, 255, 255, 1),
-      inset 0 -3px 6px 0 rgba(186, 210, 235, 0.25);
+      0 8px 24px -4px rgba(56, 118, 186, 0.09),
+      0 3px 8px -2px rgba(15, 23, 42, 0.03),
+      inset 0 3.5px 6px 0 #ffffff,
+      inset 0 -4px 8px 0 rgba(186, 210, 235, 0.35);
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .clay-card-emerald {
-    background: rgba(237, 251, 242, 0.92);
-    border: 1px solid rgba(218, 243, 228, 0.95);
+    background: #edfbf2;
+    border: 1.5px solid rgba(255, 255, 255, 1);
     border-radius: 1.75rem;
     box-shadow:
-      0 14px 34px -8px rgba(16, 185, 129, 0.08),
-      inset 0 3px 5px 0 rgba(255, 255, 255, 1),
-      inset 0 -3px 6px 0 rgba(167, 243, 208, 0.25);
+      0 8px 24px -4px rgba(16, 185, 129, 0.09),
+      0 3px 8px -2px rgba(15, 23, 42, 0.03),
+      inset 0 3.5px 6px 0 #ffffff,
+      inset 0 -4px 8px 0 rgba(167, 243, 208, 0.35);
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .clay-card-amber {
-    background: rgba(254, 249, 238, 0.92);
-    border: 1px solid rgba(251, 236, 205, 0.95);
+    background: #fef9ee;
+    border: 1.5px solid rgba(255, 255, 255, 1);
     border-radius: 1.75rem;
     box-shadow:
-      0 14px 34px -8px rgba(245, 158, 11, 0.08),
-      inset 0 3px 5px 0 rgba(255, 255, 255, 1),
-      inset 0 -3px 6px 0 rgba(253, 230, 138, 0.25);
+      0 8px 24px -4px rgba(245, 158, 11, 0.09),
+      0 3px 8px -2px rgba(15, 23, 42, 0.03),
+      inset 0 3.5px 6px 0 #ffffff,
+      inset 0 -4px 8px 0 rgba(253, 230, 138, 0.35);
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .clay-card-lavender {
-    background: rgba(244, 244, 250, 0.92);
-    border: 1px solid rgba(232, 232, 245, 0.95);
+    background: #f4f4fa;
+    border: 1.5px solid rgba(255, 255, 255, 1);
     border-radius: 1.75rem;
     box-shadow:
-      0 14px 34px -8px rgba(99, 102, 241, 0.08),
-      inset 0 3px 5px 0 rgba(255, 255, 255, 1),
-      inset 0 -3px 6px 0 rgba(199, 210, 254, 0.25);
+      0 8px 24px -4px rgba(99, 102, 241, 0.09),
+      0 3px 8px -2px rgba(15, 23, 42, 0.03),
+      inset 0 3.5px 6px 0 #ffffff,
+      inset 0 -4px 8px 0 rgba(199, 210, 254, 0.35);
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .clay-card-rose {
-    background: rgba(253, 242, 242, 0.92);
-    border: 1px solid rgba(249, 222, 222, 0.95);
+    background: #fdf2f2;
+    border: 1.5px solid rgba(255, 255, 255, 1);
     border-radius: 1.75rem;
     box-shadow:
-      0 14px 34px -8px rgba(244, 63, 94, 0.08),
-      inset 0 3px 5px 0 rgba(255, 255, 255, 1),
-      inset 0 -3px 6px 0 rgba(254, 205, 211, 0.25);
+      0 8px 24px -4px rgba(244, 63, 94, 0.09),
+      0 3px 8px -2px rgba(15, 23, 42, 0.03),
+      inset 0 3.5px 6px 0 #ffffff,
+      inset 0 -4px 8px 0 rgba(254, 205, 211, 0.35);
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .clay-card-mint {
-    background: rgba(243, 247, 246, 0.92);
-    border: 1px solid rgba(226, 236, 234, 0.95);
+    background: #f3f7f6;
+    border: 1.5px solid rgba(255, 255, 255, 1);
     border-radius: 1.75rem;
     box-shadow:
-      0 14px 34px -8px rgba(20, 184, 166, 0.08),
-      inset 0 3px 5px 0 rgba(255, 255, 255, 1),
-      inset 0 -3px 6px 0 rgba(204, 251, 241, 0.25);
+      0 8px 24px -4px rgba(20, 184, 166, 0.09),
+      0 3px 8px -2px rgba(15, 23, 42, 0.03),
+      inset 0 3.5px 6px 0 #ffffff,
+      inset 0 -4px 8px 0 rgba(204, 251, 241, 0.35);
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   /* High-Quality Dark Clay Card */
   .clay-card-dark {
-    background: rgba(15, 23, 42, 0.92);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #0f172a;
+    border: 1.5px solid rgba(255, 255, 255, 0.16);
     border-radius: 1.75rem;
     box-shadow:
-      0 20px 45px -8px rgba(0, 0, 0, 0.35),
-      inset 0 2px 3px 0 rgba(255, 255, 255, 0.2),
-      inset 0 -3px 6px 0 rgba(0, 0, 0, 0.5);
+      0 16px 40px -8px rgba(0, 0, 0, 0.35),
+      0 4px 10px -2px rgba(0, 0, 0, 0.2),
+      inset 0 2px 4px 0 rgba(255, 255, 255, 0.22),
+      inset 0 -4px 8px 0 rgba(0, 0, 0, 0.55);
   }
 
-  /* Tactile Real 3D Clay Buttons - No Unnecessary Heavy Outer Shadow */
+  /* Tactile Real 3D Clay Buttons */
   .clay-btn {
     background: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.95);
+    border: 1.5px solid rgba(255, 255, 255, 0.95);
     border-radius: 0.875rem;
     box-shadow:
-      0 1px 3px 0 rgba(15, 23, 42, 0.05),
-      inset 0 2px 3px 0 rgba(255, 255, 255, 1),
-      inset 0 -2px 3px 0 rgba(148, 163, 184, 0.2);
+      0 2px 6px 0 rgba(15, 23, 42, 0.06),
+      inset 0 2px 4px 0 #ffffff,
+      inset 0 -2px 4px 0 rgba(148, 163, 184, 0.26);
     transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: pointer;
     color: #000000;
@@ -124,27 +151,27 @@
   .clay-btn:hover {
     transform: translateY(-1px);
     box-shadow:
-      0 3px 8px -1px rgba(15, 23, 42, 0.08),
-      inset 0 2px 3px 0 rgba(255, 255, 255, 1),
-      inset 0 -2px 3px 0 rgba(148, 163, 184, 0.22);
+      0 4px 12px -1px rgba(15, 23, 42, 0.09),
+      inset 0 2px 4px 0 #ffffff,
+      inset 0 -2px 4px 0 rgba(148, 163, 184, 0.3);
   }
 
   .clay-btn:active {
     transform: translateY(1px);
     box-shadow:
-      0 1px 2px 0 rgba(15, 23, 42, 0.06),
-      inset 0 2px 3px 0 rgba(148, 163, 184, 0.3);
+      0 1px 3px 0 rgba(15, 23, 42, 0.06),
+      inset 0 2px 4px 0 rgba(148, 163, 184, 0.35);
   }
 
-  /* Dark Clay Button - Tactile Inner Bevel without Heavy Outer Drop Shadow */
+  /* Dark Clay Button - Tactile Inner Bevel */
   .clay-btn-dark {
     background: #09090b;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1.5px solid rgba(255, 255, 255, 0.18);
     border-radius: 0.875rem;
     box-shadow:
-      0 1px 3px 0 rgba(0, 0, 0, 0.2),
-      inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.22),
-      inset 0 -2px 3px 0 rgba(0, 0, 0, 0.7);
+      0 2px 6px 0 rgba(0, 0, 0, 0.2),
+      inset 0 2px 3px 0 rgba(255, 255, 255, 0.24),
+      inset 0 -2.5px 4px 0 rgba(0, 0, 0, 0.75);
     transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: pointer;
     color: #ffffff;
@@ -155,49 +182,49 @@
     transform: translateY(-1px);
     background: #18181b;
     box-shadow:
-      0 2px 6px 0 rgba(0, 0, 0, 0.25),
-      inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.28),
-      inset 0 -2px 3px 0 rgba(0, 0, 0, 0.75);
+      0 4px 10px 0 rgba(0, 0, 0, 0.25),
+      inset 0 2px 3px 0 rgba(255, 255, 255, 0.3),
+      inset 0 -2.5px 4px 0 rgba(0, 0, 0, 0.8);
   }
 
   .clay-btn-dark:active {
     transform: translateY(1px);
     box-shadow:
       0 1px 2px 0 rgba(0, 0, 0, 0.2),
-      inset 0 2px 3px 0 rgba(0, 0, 0, 0.85);
+      inset 0 2px 4px 0 rgba(0, 0, 0, 0.9);
   }
 
-  /* Real White Clay Diff Card for Recently Detected Changes - Soft Tactile Clay Shadow */
+  /* Real White Clay Diff Card for Recently Detected Changes - Soft Tactile Clay Shadow & Pop Effect */
   .clay-diff-card {
     background: #ffffff;
-    border: 1px solid rgba(226, 232, 240, 0.85);
+    border: 1.5px solid rgba(255, 255, 255, 1);
     border-radius: 1.25rem;
     box-shadow:
-      0 4px 14px -2px rgba(15, 23, 42, 0.08),
-      0 2px 4px -1px rgba(15, 23, 42, 0.04),
-      inset 0 2px 3px 0 rgba(255, 255, 255, 1),
-      inset 0 -2px 3px 0 rgba(148, 163, 184, 0.15);
+      0 6px 20px -3px rgba(15, 23, 42, 0.08),
+      0 2px 6px -1px rgba(15, 23, 42, 0.03),
+      inset 0 3px 5px 0 #ffffff,
+      inset 0 -3px 6px 0 rgba(148, 163, 184, 0.25);
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .clay-diff-card:hover {
     transform: translateY(-2px);
     box-shadow:
-      0 8px 22px -3px rgba(15, 23, 42, 0.12),
-      0 4px 6px -1px rgba(15, 23, 42, 0.05),
-      inset 0 2px 3px 0 rgba(255, 255, 255, 1),
-      inset 0 -2px 3px 0 rgba(148, 163, 184, 0.2);
+      0 12px 28px -4px rgba(15, 23, 42, 0.12),
+      0 4px 10px -1px rgba(15, 23, 42, 0.05),
+      inset 0 3px 5px 0 #ffffff,
+      inset 0 -3px 6px 0 rgba(148, 163, 184, 0.3);
   }
 
-  /* Clay Severity Badges with Tactile 3D Bevel (Preserving Exact Colors) */
+  /* Clay Severity Badges with Tactile 3D Bevel */
   .clay-badge-high {
     background: #ffe4e6;
     color: #9f1239;
-    border: 1px solid rgba(254, 205, 211, 0.9);
+    border: 1.5px solid rgba(254, 205, 211, 0.9);
     box-shadow:
-      0 1px 2px rgba(244, 63, 94, 0.1),
+      0 1.5px 3px rgba(244, 63, 94, 0.1),
       inset 0 1.5px 2px rgba(255, 255, 255, 0.95),
-      inset 0 -1.5px 2px rgba(244, 63, 94, 0.2);
+      inset 0 -1.5px 2px rgba(244, 63, 94, 0.25);
     border-radius: 9999px;
     font-weight: 800;
   }
@@ -205,11 +232,11 @@
   .clay-badge-medium {
     background: #fef3c7;
     color: #92400e;
-    border: 1px solid rgba(253, 230, 138, 0.9);
+    border: 1.5px solid rgba(253, 230, 138, 0.9);
     box-shadow:
-      0 1px 2px rgba(245, 158, 11, 0.1),
+      0 1.5px 3px rgba(245, 158, 11, 0.1),
       inset 0 1.5px 2px rgba(255, 255, 255, 0.95),
-      inset 0 -1.5px 2px rgba(245, 158, 11, 0.2);
+      inset 0 -1.5px 2px rgba(245, 158, 11, 0.25);
     border-radius: 9999px;
     font-weight: 800;
   }
@@ -217,23 +244,23 @@
   .clay-badge-low {
     background: #f1f5f9;
     color: #1e293b;
-    border: 1px solid rgba(226, 232, 240, 0.9);
+    border: 1.5px solid rgba(226, 232, 240, 0.9);
     box-shadow:
-      0 1px 2px rgba(148, 163, 184, 0.1),
+      0 1.5px 3px rgba(148, 163, 184, 0.1),
       inset 0 1.5px 2px rgba(255, 255, 255, 0.95),
-      inset 0 -1.5px 2px rgba(148, 163, 184, 0.2);
+      inset 0 -1.5px 2px rgba(148, 163, 184, 0.25);
     border-radius: 9999px;
     font-weight: 800;
   }
 
   /* Tactile Clay Pill */
   .clay-pill {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.95);
+    background: #ffffff;
+    border: 1.5px solid rgba(255, 255, 255, 1);
     box-shadow:
       0 4px 14px -1px rgba(15, 23, 42, 0.06),
-      inset 0 2px 3px 0 rgba(255, 255, 255, 1),
-      inset 0 -2px 3px 0 rgba(148, 163, 184, 0.12);
+      inset 0 2px 3px 0 #ffffff,
+      inset 0 -2px 3px 0 rgba(148, 163, 184, 0.18);
     transition: all 0.2s ease;
   }
 
@@ -244,18 +271,18 @@
     height: 0px !important;
   }
 
-  /* Brand Typography: Bricolage Grotesque & Iosevka Charon */
+  /* Brand Typography Classes */
   .font-bricolage {
-    font-family: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, sans-serif !important;
     font-optical-sizing: auto;
   }
 
   .font-iosevka {
-    font-family: "Iosevka Charon", monospace;
+    font-family: "Iosevka Charon", monospace !important;
   }
 
   .font-libre-caslon {
-    font-family: "Libre Caslon Display", serif;
+    font-family: "Libre Caslon Display", serif !important;
   }
 }
 
@@ -271,9 +298,9 @@
   scrollbar-width: none !important;
 }
 
-body {
+body, button, input, select, textarea {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: #000000;
   background-color: #f1f5f9;
 }
