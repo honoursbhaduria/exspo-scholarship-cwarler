@@ -47,7 +47,7 @@ export const EligibilityVisualizer: React.FC<Props> = ({
   return (
     <div className="clay-card p-5 space-y-4">
       {/* Header */}
-      <div className="flex items-center justify-between border-b border-slate-200/60 pb-3">
+      <div className="flex items-center justify-between pb-2">
         <div className="flex items-center gap-2.5">
           <div className="w-8 h-8 rounded-xl bg-white shadow-xs border border-slate-200/80 flex items-center justify-center text-slate-700">
             <HugeiconsIcon icon={DiplomaIcon} size={16} />
@@ -62,9 +62,11 @@ export const EligibilityVisualizer: React.FC<Props> = ({
 
         <button
           onClick={() => setShowJson(!showJson)}
-          className="px-3 py-1.5 text-xs font-mono font-bold clay-btn text-black flex items-center gap-1.5"
+          className={`px-3.5 py-1.5 text-xs font-mono font-bold flex items-center gap-1.5 transition-all ${
+            showJson ? 'clay-btn-dark' : 'clay-btn text-black'
+          }`}
         >
-          <HugeiconsIcon icon={CodeIcon} size={14} className="text-black" />
+          <HugeiconsIcon icon={CodeIcon} size={14} className={showJson ? 'text-white' : 'text-black'} />
           <span>{showJson ? 'Hide AST JSON' : 'Inspect AST JSON'}</span>
         </button>
       </div>

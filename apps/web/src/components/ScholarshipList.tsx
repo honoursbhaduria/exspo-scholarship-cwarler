@@ -32,7 +32,7 @@ export const ScholarshipList: React.FC<Props> = ({ scholarships, onSelect }) => 
   return (
     <div className="clay-card p-6 space-y-6">
       {/* Search and Filters Header */}
-      <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 border-b border-slate-200/60 pb-4">
+      <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 pb-2">
         <div className="relative flex-1 max-w-md">
           <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400">
             <HugeiconsIcon icon={Search01Icon} size={16} />

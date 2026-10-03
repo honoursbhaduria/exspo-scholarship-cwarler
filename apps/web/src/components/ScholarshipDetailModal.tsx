@@ -95,7 +95,7 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
           </button>
         </div>
 
-        {/* Modal Segmented Navigation Bar */}
+        {/* Modal Segmented Navigation Bar - No Icons */}
         <div className="px-6 py-3 border-b border-slate-200/60 bg-slate-50/60">
           <div className="p-1 rounded-2xl bg-slate-200/60 flex items-center gap-2 overflow-x-auto no-scrollbar">
             <button
@@ -106,7 +106,6 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
                   : 'text-black/70 hover:text-black hover:bg-white/40 rounded-xl'
               }`}
             >
-              <HugeiconsIcon icon={DiplomaIcon} size={16} className="text-black" />
               <span>Overview & Criteria</span>
             </button>
 
@@ -118,7 +117,6 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
                   : 'text-black/70 hover:text-black hover:bg-white/40 rounded-xl'
               }`}
             >
-              <HugeiconsIcon icon={CheckmarkBadge01Icon} size={16} className={activeTab === 'score' ? 'text-black' : 'text-black/70'} />
               <span>Confidence Audit Breakdown</span>
             </button>
 
@@ -130,7 +128,6 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
                   : 'text-black/70 hover:text-black hover:bg-white/40 rounded-xl'
               }`}
             >
-              <HugeiconsIcon icon={File01Icon} size={16} className="text-black" />
               <span>Source Evidence</span>
               <span className={`text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-full ${
                 activeTab === 'evidence' ? 'bg-slate-100 text-black' : 'bg-slate-300/60 text-black'
@@ -147,7 +144,6 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
                   : 'text-black/70 hover:text-black hover:bg-white/40 rounded-xl'
               }`}
             >
-              <HugeiconsIcon icon={Time02Icon} size={16} className="text-black" />
               <span>Change History</span>
               <span className={`text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-full ${
                 activeTab === 'history' ? 'bg-slate-100 text-black' : 'bg-slate-300/60 text-black'

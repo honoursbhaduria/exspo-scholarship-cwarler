@@ -48,7 +48,7 @@ export const ReviewQueue: React.FC = () => {
 
   return (
     <div className="clay-card p-6 space-y-6">
-      <div className="flex items-center justify-between border-b border-slate-200/60 pb-4">
+      <div className="flex items-center justify-between pb-2">
         <div>
           <h2 className="text-base font-bold text-slate-900">Human Review Workbench</h2>
           <p className="text-xs text-slate-500 mt-0.5">

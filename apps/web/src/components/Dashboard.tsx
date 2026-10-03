@@ -54,32 +54,32 @@ export const Dashboard: React.FC<Props> = ({
 
   return (
     <div className="space-y-6">
-      {/* Top Banner / Actions Card */}
-      <div className="clay-card p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      {/* Top Banner / Actions Card - Compact, Clean, No Heavy Shadows */}
+      <div className="clay-card p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
         <div>
-          <h1 className="text-xl sm:text-2xl font-extrabold text-black tracking-tight">
+          <h1 className="text-lg sm:text-xl font-extrabold text-black tracking-tight">
             Scholarship Intelligence Platform
           </h1>
-          <p className="text-xs sm:text-sm text-black/75 mt-1 font-medium">
+          <p className="text-xs text-black/75 mt-0.5 font-medium">
             Continuous discovery, evidence verification, and version diff tracking for official Indian education schemes.
           </p>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5">
           <button
             onClick={onRefresh}
-            className="p-3 clay-btn flex items-center justify-center text-black"
+            className="p-2.5 clay-btn flex items-center justify-center text-black"
             title="Refresh Metrics"
           >
-            <HugeiconsIcon icon={RefreshIcon} size={18} />
+            <HugeiconsIcon icon={RefreshIcon} size={16} />
           </button>
           <button
             onClick={handleTriggerCrawl}
             disabled={crawling}
-            className="px-5 py-2.5 clay-btn-dark flex items-center gap-2 text-xs sm:text-sm"
+            className="px-4 py-2 clay-btn-dark flex items-center gap-2 text-xs font-bold"
           >
             <HugeiconsIcon
               icon={RefreshIcon}
-              size={16}
+              size={14}
               className={crawling ? 'animate-spin' : ''}
             />
             <span>{crawling ? 'Crawling Pipeline...' : 'Run Pipeline Crawl'}</span>
@@ -93,10 +93,10 @@ export const Dashboard: React.FC<Props> = ({
         </div>
       )}
 
-      {/* KPI Cards Grid with subtle eye-pleasing clay colors and pure black text */}
+      {/* KPI Cards Grid - All White Clay Cards with Pure Black Typography */}
       <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3.5 sm:gap-4">
         {/* Discovered */}
-        <div className="clay-card-sky p-5 flex flex-col justify-between space-y-3">
+        <div className="clay-card bg-white/95 p-5 flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
             <span className="text-xs uppercase tracking-wider font-extrabold text-black">
               Discovered
@@ -112,7 +112,7 @@ export const Dashboard: React.FC<Props> = ({
         </div>
 
         {/* Verified */}
-        <div className="clay-card-emerald p-5 flex flex-col justify-between space-y-3">
+        <div className="clay-card bg-white/95 p-5 flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
             <span className="text-xs uppercase tracking-wider font-extrabold text-black">
               Verified
@@ -128,7 +128,7 @@ export const Dashboard: React.FC<Props> = ({
         </div>
 
         {/* Review Required */}
-        <div className="clay-card-amber p-5 flex flex-col justify-between space-y-3">
+        <div className="clay-card bg-white/95 p-5 flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
             <span className="text-xs uppercase tracking-wider font-extrabold text-black">
               Review Req.
@@ -144,7 +144,7 @@ export const Dashboard: React.FC<Props> = ({
         </div>
 
         {/* Active */}
-        <div className="clay-card-lavender p-5 flex flex-col justify-between space-y-3">
+        <div className="clay-card bg-white/95 p-5 flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
             <span className="text-xs uppercase tracking-wider font-extrabold text-black">
               Active
@@ -160,7 +160,7 @@ export const Dashboard: React.FC<Props> = ({
         </div>
 
         {/* Expired / Stale */}
-        <div className="clay-card-rose p-5 flex flex-col justify-between space-y-3">
+        <div className="clay-card bg-white/95 p-5 flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
             <span className="text-xs uppercase tracking-wider font-extrabold text-black">
               Expired
@@ -176,7 +176,7 @@ export const Dashboard: React.FC<Props> = ({
         </div>
 
         {/* Avg Confidence */}
-        <div className="clay-card-mint p-5 flex flex-col justify-between space-y-3">
+        <div className="clay-card bg-white/95 p-5 flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
             <span className="text-xs uppercase tracking-wider font-extrabold text-black">
               Avg Conf.
@@ -196,7 +196,7 @@ export const Dashboard: React.FC<Props> = ({
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Recently Updated Changes Feed */}
         <div className="lg:col-span-2 clay-card p-6 space-y-4">
-          <div className="flex items-center justify-between border-b border-slate-200/60 pb-3">
+          <div className="flex items-center justify-between pb-1">
             <div>
               <h2 className="text-base font-bold text-black">Recently Detected Field Changes</h2>
               <p className="text-xs text-black/70 mt-0.5 font-medium">
@@ -218,19 +218,19 @@ export const Dashboard: React.FC<Props> = ({
                 <div
                   key={ch.id}
                   onClick={() => onSelectScholarship(ch.scholarship_id)}
-                  className="p-3.5 bg-white/70 hover:bg-white rounded-2xl border border-white/80 transition cursor-pointer space-y-1.5 shadow-xs hover:shadow-sm"
+                  className="clay-diff-card p-4 space-y-2 cursor-pointer"
                 >
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-sm text-black hover:text-slate-800">
                       {ch.scholarship_name}
                     </span>
                     <span
-                      className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider ${
+                      className={`text-[10px] font-bold px-2.5 py-0.5 uppercase tracking-wider ${
                         ch.severity === 'HIGH'
-                          ? 'bg-rose-100 text-rose-900 border border-rose-200'
+                          ? 'clay-badge-high'
                           : ch.severity === 'MEDIUM'
-                          ? 'bg-amber-100 text-amber-900 border border-amber-200'
-                          : 'bg-slate-100 text-black'
+                          ? 'clay-badge-medium'
+                          : 'clay-badge-low'
                       }`}
                     >
                       {ch.severity} SEVERITY
