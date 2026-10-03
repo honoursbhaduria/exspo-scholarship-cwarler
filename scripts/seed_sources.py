@@ -2,14 +2,13 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-import uuid
 from core.models import SessionLocal, Source
 
 SOURCES_DATA = [
     # GOVERNMENT
     {
         "domain": "scholarships.gov.in",
-        "base_url": "https://scholarships.gov.in/schemes/central-sector",
+        "base_url": "https://scholarships.gov.in/",
         "provider_name": "Ministry of Education (Government of India)",
         "source_type": "GOVERNMENT",
         "trust_level": "OFFICIAL_PRIMARY",
@@ -17,7 +16,7 @@ SOURCES_DATA = [
     },
     {
         "domain": "nosmsje.gov.in",
-        "base_url": "https://nosmsje.gov.in/schemes/national-overseas-scholarship",
+        "base_url": "https://socialjustice.gov.in/",
         "provider_name": "Ministry of Social Justice and Empowerment",
         "source_type": "GOVERNMENT",
         "trust_level": "OFFICIAL_PRIMARY",
@@ -25,7 +24,7 @@ SOURCES_DATA = [
     },
     {
         "domain": "aicte-india.org",
-        "base_url": "https://www.aicte-india.org/schemes/students-development-schemes/pragati",
+        "base_url": "https://www.aicte-india.org/",
         "provider_name": "All India Council for Technical Education (AICTE)",
         "source_type": "GOVERNMENT",
         "trust_level": "OFFICIAL_PRIMARY",
@@ -33,7 +32,7 @@ SOURCES_DATA = [
     },
     {
         "domain": "dst.gov.in",
-        "base_url": "https://online-inspire.gov.in/she-fellowship",
+        "base_url": "https://online-inspire.gov.in/",
         "provider_name": "Department of Science and Technology (DST)",
         "source_type": "GOVERNMENT",
         "trust_level": "OFFICIAL_PRIMARY",
@@ -41,7 +40,7 @@ SOURCES_DATA = [
     },
     {
         "domain": "ugc.ac.in",
-        "base_url": "https://ugc.ac.in/schemes/ishan-uday-special-scholarship",
+        "base_url": "https://www.ugc.gov.in/",
         "provider_name": "University Grants Commission (UGC)",
         "source_type": "GOVERNMENT",
         "trust_level": "OFFICIAL_PRIMARY",
@@ -49,7 +48,7 @@ SOURCES_DATA = [
     },
     {
         "domain": "tribal.nic.in",
-        "base_url": "https://tribal.nic.in/schemes/national-fellowship-st",
+        "base_url": "https://fellowship.tribal.gov.in/",
         "provider_name": "Ministry of Tribal Affairs",
         "source_type": "GOVERNMENT",
         "trust_level": "OFFICIAL_PRIMARY",
@@ -59,7 +58,7 @@ SOURCES_DATA = [
     # UNIVERSITY
     {
         "domain": "iitb.ac.in",
-        "base_url": "https://www.iitb.ac.in/academics/financial-aid/merit-cum-means",
+        "base_url": "https://www.iitb.ac.in/",
         "provider_name": "Indian Institute of Technology Bombay",
         "source_type": "UNIVERSITY",
         "trust_level": "OFFICIAL_PRIMARY",
@@ -67,7 +66,7 @@ SOURCES_DATA = [
     },
     {
         "domain": "du.ac.in",
-        "base_url": "https://www.du.ac.in/students/vice-chancellor-student-fund",
+        "base_url": "https://www.du.ac.in/",
         "provider_name": "University of Delhi",
         "source_type": "UNIVERSITY",
         "trust_level": "OFFICIAL_PRIMARY",
@@ -75,7 +74,7 @@ SOURCES_DATA = [
     },
     {
         "domain": "iisc.ac.in",
-        "base_url": "https://iisc.ac.in/admissions/financial-support-research",
+        "base_url": "https://iisc.ac.in/admissions/",
         "provider_name": "Indian Institute of Science Bangalore",
         "source_type": "UNIVERSITY",
         "trust_level": "OFFICIAL_PRIMARY",
@@ -83,7 +82,7 @@ SOURCES_DATA = [
     },
     {
         "domain": "annauniv.edu",
-        "base_url": "https://www.annauniv.edu/scholarships/merit-student-assistance",
+        "base_url": "https://www.annauniv.edu/",
         "provider_name": "Anna University Chennai",
         "source_type": "UNIVERSITY",
         "trust_level": "OFFICIAL_PRIMARY",
@@ -91,7 +90,7 @@ SOURCES_DATA = [
     },
     {
         "domain": "jnu.ac.in",
-        "base_url": "https://www.jnu.ac.in/fellowships/mcm-merit-scheme",
+        "base_url": "https://www.jnu.ac.in/",
         "provider_name": "Jawaharlal Nehru University",
         "source_type": "UNIVERSITY",
         "trust_level": "OFFICIAL_PRIMARY",
@@ -99,7 +98,7 @@ SOURCES_DATA = [
     },
     {
         "domain": "iitd.ac.in",
-        "base_url": "https://home.iitd.ac.in/financial-assistance/free-studentship",
+        "base_url": "https://home.iitd.ac.in/",
         "provider_name": "Indian Institute of Technology Delhi",
         "source_type": "UNIVERSITY",
         "trust_level": "OFFICIAL_PRIMARY",
@@ -109,7 +108,7 @@ SOURCES_DATA = [
     # CORPORATE
     {
         "domain": "tatacapital.com",
-        "base_url": "https://www.tatacapital.com/csr/pankh-scholarship-program",
+        "base_url": "https://www.tatacapital.com/",
         "provider_name": "Tata Capital Limited (CSR)",
         "source_type": "CORPORATE",
         "trust_level": "OFFICIAL_PRIMARY",
@@ -117,7 +116,7 @@ SOURCES_DATA = [
     },
     {
         "domain": "hdfcbank.com",
-        "base_url": "https://www.hdfcbank.com/parivartan/badhte-kadam-scholarship",
+        "base_url": "https://www.hdfcbank.com/",
         "provider_name": "HDFC Bank Parivartan",
         "source_type": "CORPORATE",
         "trust_level": "OFFICIAL_PRIMARY",
@@ -125,7 +124,7 @@ SOURCES_DATA = [
     },
     {
         "domain": "reliancefoundation.org",
-        "base_url": "https://www.reliancefoundation.org/undergraduate-scholarships",
+        "base_url": "https://www.reliancefoundation.org/",
         "provider_name": "Reliance Foundation",
         "source_type": "CORPORATE",
         "trust_level": "OFFICIAL_PRIMARY",
@@ -133,7 +132,7 @@ SOURCES_DATA = [
     },
     {
         "domain": "adityabirlascholars.net",
-        "base_url": "https://www.adityabirlascholars.net/scholarship-programme",
+        "base_url": "https://www.adityabirlascholars.net/",
         "provider_name": "Aditya Birla Group",
         "source_type": "CORPORATE",
         "trust_level": "OFFICIAL_PRIMARY",
@@ -141,7 +140,7 @@ SOURCES_DATA = [
     },
     {
         "domain": "infosys.com",
-        "base_url": "https://www.infosys.org/stem-stars-scholarship",
+        "base_url": "https://www.infosys.org/",
         "provider_name": "Infosys Foundation",
         "source_type": "CORPORATE",
         "trust_level": "OFFICIAL_PRIMARY",
@@ -149,7 +148,7 @@ SOURCES_DATA = [
     },
     {
         "domain": "sbifoundation.in",
-        "base_url": "https://www.sbifoundation.in/asha-scholarship-initiative",
+        "base_url": "https://www.sbifoundation.in/",
         "provider_name": "SBI Foundation",
         "source_type": "CORPORATE",
         "trust_level": "OFFICIAL_PRIMARY",
@@ -159,7 +158,7 @@ SOURCES_DATA = [
     # FOUNDATION / TRUST
     {
         "domain": "tatatrusts.org",
-        "base_url": "https://www.tatatrusts.org/grants-education/means-grant",
+        "base_url": "https://www.tatatrusts.org/our-work/individual-grants-programme/education-grants",
         "provider_name": "Tata Trusts",
         "source_type": "FOUNDATION",
         "trust_level": "OFFICIAL_PRIMARY",
@@ -167,7 +166,7 @@ SOURCES_DATA = [
     },
     {
         "domain": "azimpremjifoundation.org",
-        "base_url": "https://azimpremjifoundation.org/fellowship-scholarship",
+        "base_url": "https://azimpremjifoundation.org/",
         "provider_name": "Azim Premji Foundation",
         "source_type": "FOUNDATION",
         "trust_level": "OFFICIAL_PRIMARY",
@@ -175,7 +174,7 @@ SOURCES_DATA = [
     },
     {
         "domain": "kcmet.org",
-        "base_url": "https://www.kcmet.org/scholarships/mahindra-postgraduate-grants",
+        "base_url": "https://www.kcmet.org/",
         "provider_name": "K.C. Mahindra Education Trust",
         "source_type": "FOUNDATION",
         "trust_level": "OFFICIAL_PRIMARY",
@@ -185,7 +184,7 @@ SOURCES_DATA = [
     # AGGREGATOR (Used to test discovery & anti-aggregator hard gate)
     {
         "domain": "buddy4study.com",
-        "base_url": "https://www.buddy4study.com/scholarship/unverified-forum-opportunity",
+        "base_url": "https://www.buddy4study.com/",
         "provider_name": "Third-Party Aggregator Portal",
         "source_type": "AGGREGATOR",
         "trust_level": "UNTRUSTED_DISCOVERY",
