@@ -12,6 +12,7 @@ import {
   ArrowRight01Icon,
 } from './ui/icons';
 import { Metrics, ChangeEvent } from '../types';
+import { apiUrl } from '../lib/api';
 
 interface Props {
   metrics: Metrics | null;
@@ -55,7 +56,7 @@ export const Dashboard: React.FC<Props> = ({
     setCrawling(true);
     setCrawlMessage('Initiating Crawl Run...');
     try {
-      const res = await fetch('/api/v1/crawl-runs', {
+      const res = await fetch(apiUrl('/api/v1/crawl-runs'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ max_pages: 50, run_async: false }),

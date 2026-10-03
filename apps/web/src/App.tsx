@@ -14,6 +14,7 @@ import { CrawlRunsView } from './components/CrawlRunsView';
 import { ScholarshipDetailModal } from './components/ScholarshipDetailModal';
 import { CloudShader } from './components/ui/cloud-shader';
 import { Metrics, Scholarship, ChangeEvent } from './types';
+import { apiUrl } from './lib/api';
 
 export function App() {
   const [activeTab, setActiveTab] = useState<'dashboard' | 'scholarships' | 'review' | 'runs'>('dashboard');
@@ -24,9 +25,9 @@ export function App() {
 
   const fetchGlobalData = () => {
     Promise.all([
-      fetch('/api/v1/metrics').then((r) => r.json()),
-      fetch('/api/v1/scholarships?limit=100').then((r) => r.json()),
-      fetch('/api/v1/changes').then((r) => r.json()),
+      fetch(apiUrl('/api/v1/metrics')).then((r) => r.json()),
+      fetch(apiUrl('/api/v1/scholarships?limit=100')).then((r) => r.json()),
+      fetch(apiUrl('/api/v1/changes')).then((r) => r.json()),
     ])
       .then(([m, s, c]) => {
         setMetrics(m);

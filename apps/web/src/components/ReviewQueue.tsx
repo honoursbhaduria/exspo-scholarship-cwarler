@@ -7,6 +7,7 @@ import {
   Cancel01Icon,
 } from './ui/icons';
 import { ReviewItem } from '../types';
+import { apiUrl } from '../lib/api';
 
 export const ReviewQueue: React.FC = () => {
   const [items, setItems] = useState<ReviewItem[]>([]);
@@ -15,7 +16,7 @@ export const ReviewQueue: React.FC = () => {
 
   const fetchItems = () => {
     setLoading(true);
-    fetch('/api/v1/review-queue')
+    fetch(apiUrl('/api/v1/review-queue'))
       .then((r) => r.json())
       .then((data) => setItems(data))
       .finally(() => setLoading(false));
@@ -27,7 +28,7 @@ export const ReviewQueue: React.FC = () => {
 
   const handleAction = async (itemId: string, action: 'APPROVE' | 'REJECT') => {
     try {
-      const res = await fetch(`/api/v1/review-queue/${itemId}/action`, {
+      const res = await fetch(apiUrl(`/api/v1/review-queue/${itemId}/action`), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

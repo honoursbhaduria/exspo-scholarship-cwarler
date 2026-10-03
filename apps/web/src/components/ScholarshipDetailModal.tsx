@@ -17,6 +17,7 @@ import { EvidenceViewer } from './EvidenceViewer';
 import { ChangeHistory } from './ChangeHistory';
 import { EligibilityVisualizer } from './EligibilityVisualizer';
 import { formatDate, formatCurrency } from '../utils';
+import { apiUrl } from '../lib/api';
 
 interface Props {
   scholarshipId: string | null;
@@ -44,9 +45,9 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
     setLoading(true);
 
     Promise.all([
-      fetch(`/api/v1/scholarships/${scholarshipId}`).then((r) => r.json()),
-      fetch(`/api/v1/scholarships/${scholarshipId}/evidence`).then((r) => r.json()),
-      fetch(`/api/v1/scholarships/${scholarshipId}/history`).then((r) => r.json()),
+      fetch(apiUrl(`/api/v1/scholarships/${scholarshipId}`)).then((r) => r.json()),
+      fetch(apiUrl(`/api/v1/scholarships/${scholarshipId}/evidence`)).then((r) => r.json()),
+      fetch(apiUrl(`/api/v1/scholarships/${scholarshipId}/history`)).then((r) => r.json()),
     ])
       .then(([d, e, h]) => {
         setDetail(d);

@@ -6,6 +6,7 @@ import {
   CheckmarkCircle02Icon,
 } from './ui/icons';
 import { CrawlRun } from '../types';
+import { apiUrl } from '../lib/api';
 
 export const CrawlRunsView: React.FC = () => {
   const [runs, setRuns] = useState<CrawlRun[]>([]);
@@ -13,7 +14,7 @@ export const CrawlRunsView: React.FC = () => {
 
   const fetchRuns = () => {
     setLoading(true);
-    fetch('/api/v1/crawl-runs')
+    fetch(apiUrl('/api/v1/crawl-runs'))
       .then((r) => r.json())
       .then((data) => setRuns(data))
       .finally(() => setLoading(false));
