@@ -11,7 +11,7 @@ class Base(DeclarativeBase):
     pass
 
 engine = create_engine(
-    settings.DATABASE_URL,
+    settings.sync_database_url,
     echo=False,
     pool_pre_ping=True,
     pool_size=10,

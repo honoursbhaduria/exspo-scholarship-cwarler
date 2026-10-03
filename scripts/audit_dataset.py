@@ -73,7 +73,7 @@ def audit_dataset():
             ("No unsupported/hallucinated values", True),
         ]
 
-        print("\nAssignment Evaluation Checklist:")
+        print("\nPlatform Intelligence Compliance Checklist:")
         print("-" * 65)
         all_passed = True
         for label, passed in checks:

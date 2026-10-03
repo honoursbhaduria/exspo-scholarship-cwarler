@@ -63,18 +63,18 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
-      className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-md flex items-center justify-center p-2 sm:p-4 animate-in fade-in duration-200"
     >
-      <div className="clay-card p-0 max-w-4xl w-full max-h-[90vh] flex flex-col overflow-hidden bg-white/95 backdrop-blur-2xl">
+      <div className="clay-card p-0 max-w-4xl w-full max-h-[94vh] sm:max-h-[90vh] flex flex-col overflow-hidden bg-white/95 backdrop-blur-2xl rounded-2xl sm:rounded-3xl shadow-2xl">
         {/* Modal Header */}
-        <div className="p-6 border-b border-slate-200/60 flex items-start justify-between bg-white/50">
-          <div className="space-y-1.5">
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-semibold px-2.5 py-0.5 rounded-lg bg-slate-100 text-slate-700 uppercase tracking-wider border border-slate-200/60">
+        <div className="p-4 sm:p-6 border-b border-slate-200/60 flex items-start justify-between bg-white/50 gap-3">
+          <div className="space-y-1 sm:space-y-1.5 flex-1 min-w-0">
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+              <span className="text-[10px] sm:text-xs font-semibold px-2 sm:px-2.5 py-0.5 rounded-lg bg-slate-100 text-slate-700 uppercase tracking-wider border border-slate-200/60">
                 {detail?.source_type || 'SOURCE'}
               </span>
               <span
-                className={`text-xs font-semibold px-2.5 py-0.5 rounded-full ${
+                className={`text-[10px] sm:text-xs font-semibold px-2 sm:px-2.5 py-0.5 rounded-full ${
                   detail?.status === 'VERIFIED'
                     ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
                     : 'bg-amber-50 text-amber-800 border border-amber-200'
@@ -83,24 +83,26 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
                 {detail?.status}
               </span>
             </div>
-            <h2 className="text-xl font-bold text-slate-900">{detail?.name || 'Loading details...'}</h2>
-            <p className="text-xs sm:text-sm text-slate-500">{detail?.provider}</p>
+            <h2 className="text-base sm:text-xl font-bold text-slate-900 line-clamp-2 sm:line-clamp-none break-words">
+              {detail?.name || 'Loading details...'}
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-500 truncate">{detail?.provider}</p>
           </div>
           <button
             onClick={onClose}
-            className="p-2 clay-btn text-black flex items-center justify-center"
+            className="p-2 clay-btn text-black flex items-center justify-center shrink-0"
             title="Close (ESC)"
           >
             <HugeiconsIcon icon={Cancel01Icon} size={18} />
           </button>
         </div>
 
-        {/* Modal Segmented Navigation Bar - No Icons */}
-        <div className="px-6 py-3 border-b border-slate-200/60 bg-slate-50/60">
-          <div className="p-1 rounded-2xl bg-slate-200/60 flex items-center gap-2 overflow-x-auto no-scrollbar">
+        {/* Modal Segmented Navigation Bar */}
+        <div className="px-3 sm:px-6 py-2 sm:py-3 border-b border-slate-200/60 bg-slate-50/60">
+          <div className="p-1 rounded-2xl bg-slate-200/60 flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar">
             <button
               onClick={() => setActiveTab('overview')}
-              className={`px-4 py-2 text-xs sm:text-sm font-bold flex items-center gap-2 transition-all whitespace-nowrap ${
+              className={`px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-bold flex items-center gap-1.5 sm:gap-2 transition-all shrink-0 whitespace-nowrap ${
                 activeTab === 'overview'
                   ? 'clay-btn text-black'
                   : 'text-black/70 hover:text-black hover:bg-white/40 rounded-xl'
@@ -111,7 +113,7 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
 
             <button
               onClick={() => setActiveTab('score')}
-              className={`px-4 py-2 text-xs sm:text-sm font-bold flex items-center gap-2 transition-all whitespace-nowrap ${
+              className={`px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-bold flex items-center gap-1.5 sm:gap-2 transition-all shrink-0 whitespace-nowrap ${
                 activeTab === 'score'
                   ? 'clay-btn text-black'
                   : 'text-black/70 hover:text-black hover:bg-white/40 rounded-xl'
@@ -122,7 +124,7 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
 
             <button
               onClick={() => setActiveTab('evidence')}
-              className={`px-4 py-2 text-xs sm:text-sm font-bold flex items-center gap-2 transition-all whitespace-nowrap ${
+              className={`px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-bold flex items-center gap-1.5 sm:gap-2 transition-all shrink-0 whitespace-nowrap ${
                 activeTab === 'evidence'
                   ? 'clay-btn text-black'
                   : 'text-black/70 hover:text-black hover:bg-white/40 rounded-xl'
@@ -138,7 +140,7 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
 
             <button
               onClick={() => setActiveTab('history')}
-              className={`px-4 py-2 text-xs sm:text-sm font-bold flex items-center gap-2 transition-all whitespace-nowrap ${
+              className={`px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-bold flex items-center gap-1.5 sm:gap-2 transition-all shrink-0 whitespace-nowrap ${
                 activeTab === 'history'
                   ? 'clay-btn text-black'
                   : 'text-black/70 hover:text-black hover:bg-white/40 rounded-xl'
@@ -155,41 +157,41 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 overflow-y-auto flex-1 space-y-6 no-scrollbar">
+        <div className="p-3.5 sm:p-6 overflow-y-auto flex-1 space-y-4 sm:space-y-6 no-scrollbar bg-slate-50/60">
           {loading ? (
             <div className="py-20 text-center text-slate-400 text-sm">Loading intelligence data...</div>
           ) : detail ? (
             <>
               {activeTab === 'overview' && (
-                <div className="space-y-6">
+                <div className="space-y-4 sm:space-y-6">
                   {/* Top Key Facts */}
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4">
-                    <div className="clay-subcard p-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-4">
+                    <div className="clay-subcard p-3 sm:p-4 shadow-sm hover:shadow-md transition-all">
                       <div className="text-xs text-slate-500 flex items-center gap-1.5 font-medium">
                         <HugeiconsIcon icon={Coins01Icon} size={15} className="text-slate-600" />
                         <span>Benefit Amount</span>
                       </div>
-                      <div className="text-lg font-bold text-slate-900 mt-1 font-mono">
+                      <div className="text-base sm:text-lg font-bold text-slate-900 mt-1 font-mono">
                         {formatCurrency(detail.amount)}
                       </div>
                     </div>
 
-                    <div className="clay-subcard p-4">
+                    <div className="clay-subcard p-3 sm:p-4 shadow-sm hover:shadow-md transition-all">
                       <div className="text-xs text-slate-500 flex items-center gap-1.5 font-medium">
                         <HugeiconsIcon icon={Calendar03Icon} size={15} className="text-slate-600" />
                         <span>Closing Date</span>
                       </div>
-                      <div className="text-lg font-bold text-slate-900 mt-1 font-mono">
+                      <div className="text-base sm:text-lg font-bold text-slate-900 mt-1 font-mono">
                         {formatDate(detail.closing_date)}
                       </div>
                     </div>
 
-                    <div className="clay-subcard p-4">
+                    <div className="clay-subcard p-3 sm:p-4 shadow-sm hover:shadow-md transition-all">
                       <div className="text-xs text-slate-500 flex items-center gap-1.5 font-medium">
                         <HugeiconsIcon icon={DiplomaIcon} size={15} className="text-slate-600" />
                         <span>Income Limit</span>
                       </div>
-                      <div className="text-lg font-bold text-slate-900 mt-1 font-mono">
+                      <div className="text-base sm:text-lg font-bold text-slate-900 mt-1 font-mono">
                         {detail.income_limit ? `${formatCurrency(detail.income_limit)} / year` : 'No Income Ceiling'}
                       </div>
                     </div>
@@ -205,8 +207,8 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
                   />
 
                   {/* Academic Requirements & Documents */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="clay-subcard p-4 space-y-2">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                    <div className="clay-subcard p-3.5 sm:p-4 space-y-2 shadow-sm hover:shadow-md transition-all">
                       <h4 className="text-xs font-bold text-slate-600 uppercase tracking-wider">
                         Academic Criteria
                       </h4>
@@ -224,7 +226,7 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
                       )}
                     </div>
 
-                    <div className="clay-subcard p-4 space-y-2">
+                    <div className="clay-subcard p-3.5 sm:p-4 space-y-2 shadow-sm hover:shadow-md transition-all">
                       <h4 className="text-xs font-bold text-slate-600 uppercase tracking-wider">
                         Documents Required
                       </h4>
@@ -263,14 +265,14 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
         </div>
 
         {/* Modal Footer */}
-        <div className="p-4 border-t border-slate-200/60 bg-slate-50/70 flex items-center justify-between">
-          <div className="flex items-center gap-3">
+        <div className="p-3 sm:p-4 border-t border-slate-200/60 bg-slate-50/70 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-2.5 sm:gap-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto">
             {detail?.application_url && (
               <a
                 href={detail.application_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 clay-btn-dark text-xs font-bold flex items-center gap-1.5"
+                className="w-full sm:w-auto justify-center px-4 py-2.5 sm:py-2 clay-btn-dark text-xs font-bold flex items-center gap-1.5 shadow-md hover:shadow-lg transition-all"
               >
                 <span>Official Application Portal</span>
                 <HugeiconsIcon icon={ArrowUpRight01Icon} size={14} />
@@ -281,7 +283,7 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
                 href={detail.official_source_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 clay-btn text-xs font-bold text-black flex items-center gap-1.5"
+                className="w-full sm:w-auto justify-center px-4 py-2.5 sm:py-2 clay-btn text-xs font-bold text-black flex items-center gap-1.5 shadow-md hover:shadow-lg transition-all"
               >
                 <span>Official Primary Source</span>
                 <HugeiconsIcon icon={ArrowUpRight01Icon} size={14} className="text-black" />
@@ -290,7 +292,7 @@ export const ScholarshipDetailModal: React.FC<Props> = ({ scholarshipId, onClose
           </div>
           <button
             onClick={onClose}
-            className="px-4 py-2 clay-btn text-xs font-bold text-black"
+            className="w-full sm:w-auto justify-center px-4 py-2.5 sm:py-2 clay-btn text-xs font-bold text-black shadow-md hover:shadow-lg transition-all"
           >
             Close Inspector
           </button>

@@ -10,7 +10,13 @@ export default {
         sans: ['"Bricolage Grotesque"', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         bricolage: ['"Bricolage Grotesque"', 'sans-serif'],
         mono: ['"Iosevka Charon"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+        iosevka: ['"Iosevka Charon"', 'monospace'],
         display: ['"Libre Caslon Display"', 'serif'],
+        caslon: ['"Libre Caslon Display"', 'serif'],
+        dancing: ['"Dancing Script"', 'cursive'],
+        lobster: ['"Lobster Two"', 'sans-serif'],
+        playwrite: ['"Playwrite AR"', 'cursive'],
+        exo: ['"Exo 2"', 'sans-serif'],
       },
       colors: {
         brand: {

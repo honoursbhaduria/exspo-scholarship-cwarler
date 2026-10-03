@@ -25,22 +25,22 @@ export const ChangeHistory: React.FC<Props> = ({ versions }) => {
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3.5 sm:space-y-4">
       <div className="text-xs text-slate-500 border-b border-slate-200/60 pb-2">
         Immutable Version History: Preserving both previous and updated states across repeated crawl runs.
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-2.5 sm:space-y-3">
         {versions.map((ver, idx) => {
           const isLatest = idx === 0;
           return (
             <div
               key={ver.id}
-              className={`clay-subcard p-4.5 ${
+              className={`clay-subcard p-3.5 sm:p-4.5 bg-white shadow-sm hover:shadow-md transition-all ${
                 isLatest ? 'ring-2 ring-emerald-500/20' : 'opacity-85'
               }`}
             >
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
                 <div className="flex items-center gap-2">
                   <span className="font-bold text-sm text-slate-900">Version {ver.version_number}</span>
                   {isLatest && (
@@ -54,12 +54,12 @@ export const ChangeHistory: React.FC<Props> = ({ versions }) => {
                 </span>
               </div>
 
-              <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
-                <div className="bg-slate-50/80 p-2.5 rounded-xl border border-slate-200/60">
+              <div className="mt-2.5 sm:mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                <div className="bg-slate-50/80 p-2 sm:p-2.5 rounded-xl border border-slate-200/60">
                   <span className="text-slate-400">Closing Date: </span>
                   <span className="font-medium text-slate-800">{ver.payload_json?.closing_date || 'N/A'}</span>
                 </div>
-                <div className="bg-slate-50/80 p-2.5 rounded-xl border border-slate-200/60">
+                <div className="bg-slate-50/80 p-2 sm:p-2.5 rounded-xl border border-slate-200/60">
                   <span className="text-slate-400">Benefit Amount: </span>
                   <span className="font-medium text-slate-800">
                     {ver.payload_json?.amount ? `₹${ver.payload_json.amount.toLocaleString()}` : 'N/A'}

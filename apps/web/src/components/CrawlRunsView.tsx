@@ -24,17 +24,17 @@ export const CrawlRunsView: React.FC = () => {
   }, []);
 
   return (
-    <div className="clay-card p-6 space-y-6">
-      <div className="flex items-center justify-between pb-2">
+    <div className="clay-card p-4 sm:p-6 space-y-4 sm:space-y-6">
+      <div className="flex items-center justify-between pb-1 sm:pb-2 gap-2">
         <div>
-          <h2 className="text-base font-bold text-slate-900">Pipeline Execution Runs</h2>
+          <h2 className="text-sm sm:text-base font-bold text-slate-900">Pipeline Execution Runs</h2>
           <p className="text-xs text-slate-500 mt-0.5">
             Traceable audit of discovery, crawling, extraction, and verification batch jobs.
           </p>
         </div>
         <button
           onClick={fetchRuns}
-          className="p-2.5 clay-btn text-black flex items-center justify-center"
+          className="p-2 sm:p-2.5 clay-btn text-black flex items-center justify-center shrink-0 shadow-md hover:shadow-lg transition-all"
           title="Refresh"
         >
           <HugeiconsIcon icon={RefreshIcon} size={16} />
@@ -46,8 +46,8 @@ export const CrawlRunsView: React.FC = () => {
       ) : runs.length === 0 ? (
         <div className="py-12 text-center text-slate-400 text-xs">No crawl runs recorded.</div>
       ) : (
-        <div className="overflow-x-auto rounded-2xl border border-slate-200/60 bg-white/40">
-          <table className="w-full text-left text-xs sm:text-sm text-slate-600">
+        <div className="overflow-x-auto rounded-2xl border border-slate-200/60 bg-white/40 no-scrollbar">
+          <table className="w-full min-w-[600px] text-left text-xs sm:text-sm text-slate-600">
             <thead className="bg-slate-100/70 text-[11px] uppercase tracking-wider font-semibold text-slate-500 border-b border-slate-200/60">
               <tr>
                 <th className="py-3 px-4">Run ID & Started</th>

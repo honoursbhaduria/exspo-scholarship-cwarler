@@ -47,15 +47,15 @@ export const ReviewQueue: React.FC = () => {
   };
 
   return (
-    <div className="clay-card p-6 space-y-6">
-      <div className="flex items-center justify-between pb-2">
+    <div className="clay-card p-4 sm:p-6 space-y-4 sm:space-y-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-1 sm:pb-2">
         <div>
-          <h2 className="text-base font-bold text-slate-900">Human Review Workbench</h2>
+          <h2 className="text-sm sm:text-base font-bold text-slate-900">Human Review Workbench</h2>
           <p className="text-xs text-slate-500 mt-0.5">
             Flagged opportunities due to non-authoritative sources, conflicting deadlines, or low confidence scores.
           </p>
         </div>
-        <span className="text-xs font-mono font-semibold bg-amber-50 text-amber-800 border border-amber-200 px-3 py-1 rounded-full">
+        <span className="text-xs font-mono font-semibold bg-amber-50 text-amber-800 border border-amber-200 px-3 py-1 rounded-full self-start sm:self-auto shrink-0">
           {items.length} Pending
         </span>
       </div>
@@ -69,7 +69,7 @@ export const ReviewQueue: React.FC = () => {
       {loading ? (
         <div className="py-12 text-center text-slate-400 text-xs">Loading pending review items...</div>
       ) : items.length === 0 ? (
-        <div className="p-12 text-center text-slate-500 bg-white/60 rounded-2xl border border-slate-200/60">
+        <div className="p-8 sm:p-12 text-center text-slate-500 bg-white/60 rounded-2xl border border-slate-200/60">
           <div className="w-10 h-10 mx-auto rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-2 border border-emerald-200/70">
             <HugeiconsIcon icon={CheckmarkCircle02Icon} size={20} />
           </div>
@@ -77,16 +77,16 @@ export const ReviewQueue: React.FC = () => {
           <div className="text-xs text-slate-400 mt-1">No pending review flags in the system.</div>
         </div>
       ) : (
-        <div className="space-y-4">
+        <div className="space-y-3.5 sm:space-y-4">
           {items.map((item) => (
-            <div key={item.id} className="clay-subcard p-5 space-y-3">
-              <div className="flex items-start justify-between">
+            <div key={item.id} className="clay-subcard p-3.5 sm:p-5 space-y-3 shadow-sm hover:shadow-md transition-all">
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
                 <div>
-                  <h3 className="font-bold text-slate-900 text-sm sm:text-base">{item.scholarship_name}</h3>
+                  <h3 className="font-bold text-slate-900 text-sm sm:text-base break-words">{item.scholarship_name}</h3>
                   <div className="text-xs text-slate-500 mt-0.5">{item.provider}</div>
                 </div>
-                <div className="text-right">
-                  <span className="text-xs font-bold font-mono text-amber-800 bg-amber-50 border border-amber-200/80 px-2.5 py-0.5 rounded-full">
+                <div className="text-left sm:text-right self-start sm:self-auto shrink-0">
+                  <span className="text-xs font-bold font-mono text-amber-800 bg-amber-50 border border-amber-200/80 px-2.5 py-0.5 rounded-full inline-block">
                     {item.confidence_score.toFixed(1)}%
                   </span>
                   <div className="text-[11px] text-slate-400 mt-1 font-mono">
@@ -109,17 +109,17 @@ export const ReviewQueue: React.FC = () => {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex items-center justify-end gap-3 pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-2 sm:gap-3 pt-2">
                 <button
                   onClick={() => handleAction(item.id, 'REJECT')}
-                  className="px-3.5 py-1.5 clay-btn text-black text-xs font-bold flex items-center gap-1.5"
+                  className="w-full sm:w-auto justify-center px-3.5 py-2 sm:py-1.5 clay-btn text-black text-xs font-bold flex items-center gap-1.5 shadow-md hover:shadow-lg transition-all"
                 >
                   <HugeiconsIcon icon={Cancel01Icon} size={14} className="text-rose-600" />
                   <span>Reject Candidate</span>
                 </button>
                 <button
                   onClick={() => handleAction(item.id, 'APPROVE')}
-                  className="px-3.5 py-1.5 clay-btn-dark text-white text-xs font-bold flex items-center gap-1.5"
+                  className="w-full sm:w-auto justify-center px-3.5 py-2 sm:py-1.5 clay-btn-dark text-white text-xs font-bold flex items-center gap-1.5 shadow-md hover:shadow-lg transition-all"
                 >
                   <HugeiconsIcon icon={CheckmarkCircle02Icon} size={14} className="text-emerald-400" />
                   <span>Approve & Elevate</span>

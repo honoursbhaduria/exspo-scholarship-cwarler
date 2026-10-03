@@ -70,4 +70,15 @@ class TextNormalizer:
             with open(file_path, "w", encoding="utf-8", errors="ignore") as f:
                 f.write(raw_content)
 
+        # Cloud archive to Backblaze B2
+        try:
+            from core.storage.b2_client import B2StorageManager
+            if B2StorageManager.is_configured():
+                b2_key = f"snapshots/sha256/{content_hash[:2]}/{content_hash}.{ext}"
+                content_type = "application/pdf" if ext == "pdf" else "text/html"
+                B2StorageManager.upload_snapshot(b2_key, raw_content, content_type)
+        except Exception:
+            pass
+
         return str(file_path)
+

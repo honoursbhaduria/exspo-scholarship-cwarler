@@ -4,6 +4,7 @@ import {
   Search01Icon,
   FilterIcon,
   ViewIcon,
+  ArrowDown01Icon,
 } from './ui/icons';
 import { Scholarship } from '../types';
 import { formatDate, formatCurrency } from '../utils';
@@ -30,10 +31,10 @@ export const ScholarshipList: React.FC<Props> = ({ scholarships, onSelect }) => 
   });
 
   return (
-    <div className="clay-card p-6 space-y-6">
+    <div className="clay-card p-4 sm:p-6 space-y-4 sm:space-y-6">
       {/* Search and Filters Header */}
-      <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 pb-2">
-        <div className="relative flex-1 max-w-md">
+      <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 sm:gap-4 pb-1 sm:pb-2">
+        <div className="relative flex-1 max-w-md w-full">
           <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400">
             <HugeiconsIcon icon={Search01Icon} size={16} />
           </div>
@@ -46,39 +47,49 @@ export const ScholarshipList: React.FC<Props> = ({ scholarships, onSelect }) => 
           />
         </div>
 
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-wrap sm:flex-nowrap items-center gap-2.5 sm:gap-3">
           {/* Status Filter */}
-          <select
-            value={statusFilter}
-            onChange={(e) => setStatusFilter(e.target.value)}
-            className="clay-btn px-4 py-2 text-xs font-bold text-black focus:outline-none cursor-pointer"
-          >
-            <option value="ALL">All Statuses</option>
-            <option value="VERIFIED">VERIFIED</option>
-            <option value="REVIEW_REQUIRED">REVIEW REQUIRED</option>
-            <option value="EXPIRING_SOON">EXPIRING SOON</option>
-            <option value="EXPIRED">EXPIRED</option>
-          </select>
+          <div className="relative flex-1 sm:flex-initial">
+            <select
+              value={statusFilter}
+              onChange={(e) => setStatusFilter(e.target.value)}
+              className="w-full clay-btn pl-3.5 pr-8 py-2 text-xs font-bold text-black focus:outline-none cursor-pointer appearance-none shadow-md hover:shadow-lg transition-all"
+            >
+              <option value="ALL">All Statuses</option>
+              <option value="VERIFIED">VERIFIED</option>
+              <option value="REVIEW_REQUIRED">REVIEW REQUIRED</option>
+              <option value="EXPIRING_SOON">EXPIRING SOON</option>
+              <option value="EXPIRED">EXPIRED</option>
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-black">
+              <HugeiconsIcon icon={ArrowDown01Icon} size={14} />
+            </div>
+          </div>
 
           {/* Source Type Filter */}
-          <select
-            value={sourceTypeFilter}
-            onChange={(e) => setSourceTypeFilter(e.target.value)}
-            className="clay-btn px-4 py-2 text-xs font-bold text-black focus:outline-none cursor-pointer"
-          >
-            <option value="ALL">All Sources</option>
-            <option value="GOVERNMENT">GOVERNMENT</option>
-            <option value="UNIVERSITY">UNIVERSITY</option>
-            <option value="CORPORATE">CORPORATE</option>
-            <option value="FOUNDATION">FOUNDATION</option>
-            <option value="AGGREGATOR">AGGREGATOR</option>
-          </select>
+          <div className="relative flex-1 sm:flex-initial">
+            <select
+              value={sourceTypeFilter}
+              onChange={(e) => setSourceTypeFilter(e.target.value)}
+              className="w-full clay-btn pl-3.5 pr-8 py-2 text-xs font-bold text-black focus:outline-none cursor-pointer appearance-none shadow-md hover:shadow-lg transition-all"
+            >
+              <option value="ALL">All Sources</option>
+              <option value="GOVERNMENT">GOVERNMENT</option>
+              <option value="UNIVERSITY">UNIVERSITY</option>
+              <option value="CORPORATE">CORPORATE</option>
+              <option value="FOUNDATION">FOUNDATION</option>
+              <option value="AGGREGATOR">AGGREGATOR</option>
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-black">
+              <HugeiconsIcon icon={ArrowDown01Icon} size={14} />
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Table */}
       <div className="overflow-x-auto rounded-2xl border border-slate-200/60 bg-white/40 no-scrollbar">
-        <table className="w-full text-left text-xs sm:text-sm text-slate-700">
+        <table className="w-full min-w-[650px] text-left text-xs sm:text-sm text-slate-700">
           <thead className="bg-slate-100/70 text-[11px] uppercase tracking-wider font-extrabold text-black border-b border-slate-200/60">
             <tr>
               <th className="py-3 px-4">Scholarship & Provider</th>
@@ -163,7 +174,7 @@ export const ScholarshipList: React.FC<Props> = ({ scholarships, onSelect }) => 
                     <td className="py-3.5 px-4 text-right">
                       <button
                         onClick={() => onSelect(item.id)}
-                        className="clay-btn px-3.5 py-1.5 inline-flex items-center gap-1.5 text-xs font-bold text-black"
+                        className="clay-btn px-3.5 py-1.5 inline-flex items-center gap-1.5 text-xs font-bold text-black shadow-md hover:shadow-lg transition-all"
                       >
                         <HugeiconsIcon icon={ViewIcon} size={14} className="text-black" />
                         <span>Inspect</span>

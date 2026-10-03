@@ -57,46 +57,46 @@ export function App() {
       </div>
 
       {/* Floating Rounded Side Navbar */}
-      <aside className="relative z-30 md:sticky md:top-6 md:self-start md:h-[calc(100vh-3rem)] m-4 md:m-6 md:mr-0 w-auto md:w-64 shrink-0 flex flex-col justify-between p-5 rounded-3xl clay-card">
-        <div className="space-y-6">
+      <aside className="relative z-30 md:sticky md:top-6 md:self-start md:h-[calc(100vh-3rem)] m-2.5 sm:m-4 md:m-6 md:mr-0 w-auto md:w-64 shrink-0 flex flex-col justify-between p-3.5 sm:p-4 md:p-5 rounded-2xl md:rounded-3xl clay-card">
+        <div className="space-y-3 sm:space-y-4 md:space-y-6">
           {/* Brand Header - Typographic Wordmark with Bricolage Grotesque (No Logo) */}
-          <div className="px-2 py-1">
-            <h1 className="font-bricolage text-xl sm:text-2xl font-black text-black tracking-tight leading-tight">
+          <div className="px-1 md:px-2 py-0.5 md:py-1 flex md:block items-baseline gap-2">
+            <h1 className="font-bricolage text-lg sm:text-xl md:text-2xl font-black text-black tracking-tight leading-tight">
               Scholarship
             </h1>
-            <p className="font-bricolage text-xs font-bold text-black/65 tracking-widest uppercase mt-0.5">
+            <p className="font-bricolage text-[10px] sm:text-xs font-bold text-black/65 tracking-widest uppercase mt-0.5">
               Intelligence
             </p>
           </div>
 
           {/* Navigation Links */}
-          <nav className="flex flex-row md:flex-col gap-1.5 overflow-x-auto md:overflow-visible py-1">
+          <nav className="flex flex-row md:flex-col gap-1.5 overflow-x-auto no-scrollbar md:overflow-visible py-1">
             <button
               onClick={() => setActiveTab('dashboard')}
-              className={`w-full px-4 py-3 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-3 transition-all ${
+              className={`w-auto md:w-full shrink-0 whitespace-nowrap px-3 sm:px-4 py-2 md:py-3 rounded-xl md:rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-2 md:gap-3 transition-all ${
                 activeTab === 'dashboard'
-                  ? 'clay-btn-dark'
+                  ? 'clay-nav-active'
                   : 'clay-btn'
               }`}
             >
-              <HugeiconsIcon icon={DashboardSquare01Icon} size={18} />
+              <HugeiconsIcon icon={DashboardSquare01Icon} size={17} />
               <span>Dashboard</span>
             </button>
 
             <button
               onClick={() => setActiveTab('scholarships')}
-              className={`w-full px-4 py-3 rounded-2xl text-xs sm:text-sm font-bold flex items-center justify-between transition-all ${
+              className={`w-auto md:w-full shrink-0 whitespace-nowrap px-3 sm:px-4 py-2 md:py-3 rounded-xl md:rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-2 md:justify-between transition-all ${
                 activeTab === 'scholarships'
-                  ? 'clay-btn-dark'
+                  ? 'clay-nav-active'
                   : 'clay-btn'
               }`}
             >
-              <div className="flex items-center gap-3">
-                <HugeiconsIcon icon={Mortarboard01Icon} size={18} />
+              <div className="flex items-center gap-2 md:gap-3">
+                <HugeiconsIcon icon={Mortarboard01Icon} size={17} />
                 <span>Scholarships</span>
               </div>
               <span
-                className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full ${
+                className={`text-[10px] font-mono font-bold px-1.5 sm:px-2 py-0.5 rounded-full ${
                   activeTab === 'scholarships'
                     ? 'bg-white/20 text-white'
                     : 'bg-black/10 text-black'
@@ -108,18 +108,18 @@ export function App() {
 
             <button
               onClick={() => setActiveTab('review')}
-              className={`w-full px-4 py-3 rounded-2xl text-xs sm:text-sm font-bold flex items-center justify-between transition-all ${
+              className={`w-auto md:w-full shrink-0 whitespace-nowrap px-3 sm:px-4 py-2 md:py-3 rounded-xl md:rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-2 md:justify-between transition-all ${
                 activeTab === 'review'
-                  ? 'clay-btn-dark'
+                  ? 'clay-nav-active'
                   : 'clay-btn'
               }`}
             >
-              <div className="flex items-center gap-3">
-                <HugeiconsIcon icon={ShieldAlertIcon} size={18} />
+              <div className="flex items-center gap-2 md:gap-3">
+                <HugeiconsIcon icon={ShieldAlertIcon} size={17} />
                 <span>Review Queue</span>
               </div>
               {(metrics?.review_required_count || 0) > 0 && (
-                <span className="text-[10px] font-mono font-bold bg-amber-500 text-black px-2 py-0.5 rounded-full">
+                <span className="text-[10px] font-mono font-bold bg-amber-500 text-black px-1.5 sm:px-2 py-0.5 rounded-full">
                   {metrics?.review_required_count}
                 </span>
               )}
@@ -127,13 +127,13 @@ export function App() {
 
             <button
               onClick={() => setActiveTab('runs')}
-              className={`w-full px-4 py-3 rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-3 transition-all ${
+              className={`w-auto md:w-full shrink-0 whitespace-nowrap px-3 sm:px-4 py-2 md:py-3 rounded-xl md:rounded-2xl text-xs sm:text-sm font-bold flex items-center gap-2 md:gap-3 transition-all ${
                 activeTab === 'runs'
-                  ? 'clay-btn-dark'
+                  ? 'clay-nav-active'
                   : 'clay-btn'
               }`}
             >
-              <HugeiconsIcon icon={Activity01Icon} size={18} />
+              <HugeiconsIcon icon={Activity01Icon} size={17} />
               <span>Crawl Runs</span>
             </button>
           </nav>
@@ -161,7 +161,7 @@ export function App() {
       </aside>
 
       {/* Main Workspace Area */}
-      <main className="relative z-10 flex-1 p-4 md:p-6 w-full max-w-7xl mx-auto overflow-x-hidden">
+      <main className="relative z-10 flex-1 p-2.5 sm:p-4 md:p-6 w-full max-w-7xl mx-auto overflow-x-hidden">
         {activeTab === 'dashboard' && (
           <Dashboard
             metrics={metrics}

@@ -1,0 +1,41 @@
+services:
+  - type: web
+    name: scholarship-intelligence-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn apps.api.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: ENVIRONMENT
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-1.5-flash
+      - key: SNAPSHOT_DIR
+        value: /tmp/snapshots
+      - key: VERIFIED_CONFIDENCE_THRESHOLD
+        value: "95.0"
+      - key: EXPIRING_SOON_DAYS
+        value: "7"
+      - key: SERPER_API_KEY
+        sync: false
+      - key: TAVILY_API_KEY
+        sync: false
+      - key: BROWSERLESS_API_KEY
+        sync: false
+      - key: B2_KEY_ID
+        sync: false
+      - key: B2_APPLICATION_KEY
+        sync: false
+      - key: B2_BUCKET_NAME
+        value: scholar-ship
+      - key: B2_BUCKET_ID
+        value: 76c367a1f526092ca91c041a
+      - key: B2_S3_ENDPOINT
+        value: https://s3.us-east-005.backblazeb2.com
+
+

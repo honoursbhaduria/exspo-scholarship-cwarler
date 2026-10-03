@@ -2,6 +2,7 @@
   "name": "scholarship-intelligence-web",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "author": "Honours Bhadauria (honoursbhaduria)",
   "scripts": {
     "dev": "vite",

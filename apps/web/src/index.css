@@ -6,46 +6,50 @@
   /* High-Quality Claymorphic White Card - Real 3D Clay with Dual Bevel & Subtle Pop Shadow */
   .clay-card {
     background: #ffffff;
-    border: 1.5px solid rgba(255, 255, 255, 1);
+    border: 1.5px solid rgba(226, 232, 240, 0.85);
     border-radius: 1.75rem;
     box-shadow:
-      0 8px 24px -4px rgba(15, 23, 42, 0.08),
-      0 3px 8px -2px rgba(15, 23, 42, 0.03),
+      0 10px 25px -4px rgba(15, 23, 42, 0.08),
+      0 4px 10px -2px rgba(15, 23, 42, 0.04),
+      0 1px 3px 0 rgba(15, 23, 42, 0.03),
       inset 0 3.5px 6px 0 #ffffff,
       inset 0 1px 2px 0 #ffffff,
-      inset 0 -4px 8px 0 rgba(148, 163, 184, 0.28),
-      inset 0 -1px 3px 0 rgba(148, 163, 184, 0.16);
+      inset 0 -3.5px 6px 0 rgba(148, 163, 184, 0.22),
+      inset 0 -1px 3px 0 rgba(148, 163, 184, 0.12);
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .clay-card:hover {
     box-shadow:
       0 14px 32px -4px rgba(15, 23, 42, 0.11),
-      0 5px 12px -2px rgba(15, 23, 42, 0.04),
+      0 5px 12px -2px rgba(15, 23, 42, 0.05),
+      0 2px 4px 0 rgba(15, 23, 42, 0.03),
       inset 0 3.5px 6px 0 #ffffff,
-      inset 0 -4px 8px 0 rgba(148, 163, 184, 0.32);
+      inset 0 -4px 8px 0 rgba(148, 163, 184, 0.28);
   }
 
   /* Clay Subcard for nested panels inside modals, visualizers & tables */
   .clay-subcard {
     background: #ffffff;
-    border: 1.5px solid rgba(255, 255, 255, 1);
+    border: 1px solid rgba(226, 232, 240, 0.85);
     border-radius: 1.25rem;
     box-shadow:
-      0 4px 14px -2px rgba(15, 23, 42, 0.06),
-      0 2px 5px -1px rgba(15, 23, 42, 0.03),
+      0 4px 14px -1px rgba(15, 23, 42, 0.09),
+      0 2px 6px -1px rgba(15, 23, 42, 0.05),
+      0 1px 2px 0 rgba(15, 23, 42, 0.04),
       inset 0 2.5px 5px 0 #ffffff,
-      inset 0 -3px 6px 0 rgba(148, 163, 184, 0.24);
+      inset 0 -2.5px 5px 0 rgba(148, 163, 184, 0.18);
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .clay-subcard:hover {
-    transform: translateY(-1px);
+    transform: translateY(-1.5px);
     box-shadow:
-      0 8px 20px -3px rgba(15, 23, 42, 0.09),
-      0 3px 6px -1px rgba(15, 23, 42, 0.04),
+      0 8px 22px -2px rgba(15, 23, 42, 0.13),
+      0 4px 8px -1px rgba(15, 23, 42, 0.07),
+      0 1px 3px 0 rgba(15, 23, 42, 0.04),
       inset 0 2.5px 5px 0 #ffffff,
-      inset 0 -3px 6px 0 rgba(148, 163, 184, 0.28);
+      inset 0 -2.5px 5px 0 rgba(148, 163, 184, 0.22);
   }
 
   /* Subtle Eye-Pleasing Pastel Clay Cards with Tactile Depth */
@@ -136,12 +140,14 @@
   /* Tactile Real 3D Clay Buttons */
   .clay-btn {
     background: #ffffff;
-    border: 1.5px solid rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(203, 213, 225, 0.95);
     border-radius: 0.875rem;
     box-shadow:
-      0 2px 6px 0 rgba(15, 23, 42, 0.06),
-      inset 0 2px 4px 0 #ffffff,
-      inset 0 -2px 4px 0 rgba(148, 163, 184, 0.26);
+      0 4px 14px -1px rgba(15, 23, 42, 0.18),
+      0 2px 6px -1px rgba(15, 23, 42, 0.12),
+      0 1px 2px 0 rgba(15, 23, 42, 0.08),
+      inset 0 1.5px 2px 0 #ffffff,
+      inset 0 -2px 3px 0 rgba(148, 163, 184, 0.25);
     transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: pointer;
     color: #000000;
@@ -149,29 +155,30 @@
   }
 
   .clay-btn:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
     box-shadow:
-      0 4px 12px -1px rgba(15, 23, 42, 0.09),
-      inset 0 2px 4px 0 #ffffff,
-      inset 0 -2px 4px 0 rgba(148, 163, 184, 0.3);
+      0 8px 20px -2px rgba(15, 23, 42, 0.24),
+      0 4px 10px -1px rgba(15, 23, 42, 0.14),
+      inset 0 1.5px 2px 0 #ffffff,
+      inset 0 -2px 3px 0 rgba(148, 163, 184, 0.3);
   }
 
   .clay-btn:active {
     transform: translateY(1px);
     box-shadow:
-      0 1px 3px 0 rgba(15, 23, 42, 0.06),
+      0 2px 4px 0 rgba(15, 23, 42, 0.12),
       inset 0 2px 4px 0 rgba(148, 163, 184, 0.35);
   }
 
   /* Dark Clay Button - Tactile Inner Bevel */
   .clay-btn-dark {
     background: #09090b;
-    border: 1.5px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 0.875rem;
     box-shadow:
-      0 2px 6px 0 rgba(0, 0, 0, 0.2),
-      inset 0 2px 3px 0 rgba(255, 255, 255, 0.24),
-      inset 0 -2.5px 4px 0 rgba(0, 0, 0, 0.75);
+      0 2px 5px 0 rgba(0, 0, 0, 0.2),
+      inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.2),
+      inset 0 -2px 3px 0 rgba(0, 0, 0, 0.7);
     transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: pointer;
     color: #ffffff;
@@ -182,9 +189,9 @@
     transform: translateY(-1px);
     background: #18181b;
     box-shadow:
-      0 4px 10px 0 rgba(0, 0, 0, 0.25),
-      inset 0 2px 3px 0 rgba(255, 255, 255, 0.3),
-      inset 0 -2.5px 4px 0 rgba(0, 0, 0, 0.8);
+      0 3px 8px 0 rgba(0, 0, 0, 0.24),
+      inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.22),
+      inset 0 -2px 3px 0 rgba(0, 0, 0, 0.75);
   }
 
   .clay-btn-dark:active {
@@ -194,26 +201,53 @@
       inset 0 2px 4px 0 rgba(0, 0, 0, 0.9);
   }
 
+  /* Clean, Reduced-Shadow Docked Style for Active Sidebar Section (No Excessive Glow) */
+  .clay-nav-active {
+    background: #09090b;
+    color: #ffffff;
+    border: 1px solid #18181b;
+    border-radius: 1rem;
+    box-shadow:
+      0 1px 3px 0 rgba(0, 0, 0, 0.14),
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.12);
+    transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    font-weight: 700;
+  }
+
+  .clay-nav-active:hover {
+    transform: translateY(-0.5px);
+    background: #18181b;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.18);
+  }
+
+  .clay-nav-active:active {
+    transform: translateY(0.5px);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  }
+
   /* Real White Clay Diff Card for Recently Detected Changes - Soft Tactile Clay Shadow & Pop Effect */
   .clay-diff-card {
     background: #ffffff;
-    border: 1.5px solid rgba(255, 255, 255, 1);
+    border: 1px solid rgba(203, 213, 225, 0.85);
     border-radius: 1.25rem;
     box-shadow:
-      0 6px 20px -3px rgba(15, 23, 42, 0.08),
-      0 2px 6px -1px rgba(15, 23, 42, 0.03),
-      inset 0 3px 5px 0 #ffffff,
-      inset 0 -3px 6px 0 rgba(148, 163, 184, 0.25);
+      0 4px 14px -1px rgba(15, 23, 42, 0.14),
+      0 2px 6px -1px rgba(15, 23, 42, 0.08),
+      0 1px 2px 0 rgba(15, 23, 42, 0.04),
+      inset 0 2.5px 4px 0 #ffffff,
+      inset 0 -2px 4px 0 rgba(148, 163, 184, 0.18);
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .clay-diff-card:hover {
     transform: translateY(-2px);
     box-shadow:
-      0 12px 28px -4px rgba(15, 23, 42, 0.12),
-      0 4px 10px -1px rgba(15, 23, 42, 0.05),
-      inset 0 3px 5px 0 #ffffff,
-      inset 0 -3px 6px 0 rgba(148, 163, 184, 0.3);
+      0 10px 24px -3px rgba(15, 23, 42, 0.2),
+      0 4px 10px -1px rgba(15, 23, 42, 0.12),
+      0 1px 3px 0 rgba(15, 23, 42, 0.06),
+      inset 0 2.5px 4px 0 #ffffff,
+      inset 0 -2px 4px 0 rgba(148, 163, 184, 0.24);
   }
 
   /* Clay Severity Badges with Tactile 3D Bevel */
@@ -256,10 +290,10 @@
   /* Tactile Clay Pill */
   .clay-pill {
     background: #ffffff;
-    border: 1.5px solid rgba(255, 255, 255, 1);
+    border: 1px solid rgba(203, 213, 225, 0.85);
     box-shadow:
-      0 4px 14px -1px rgba(15, 23, 42, 0.06),
-      inset 0 2px 3px 0 #ffffff,
+      0 3px 8px -1px rgba(15, 23, 42, 0.1),
+      inset 0 1.5px 2px 0 #ffffff,
       inset 0 -2px 3px 0 rgba(148, 163, 184, 0.18);
     transition: all 0.2s ease;
   }
@@ -281,8 +315,138 @@
     font-family: "Iosevka Charon", monospace !important;
   }
 
-  .font-libre-caslon {
+  .font-libre-caslon,
+  .font-caslon {
     font-family: "Libre Caslon Display", serif !important;
+  }
+
+  .font-dancing {
+    font-family: "Dancing Script", cursive !important;
+    font-optical-sizing: auto;
+  }
+
+  .font-lobster {
+    font-family: "Lobster Two", sans-serif !important;
+  }
+
+  .font-playwrite {
+    font-family: "Playwrite AR", cursive !important;
+    font-optical-sizing: auto;
+  }
+
+  .font-exo {
+    font-family: "Exo 2", sans-serif !important;
+    font-optical-sizing: auto;
+  }
+
+  /* Iosevka Charon: CSS classes */
+  .iosevka-charon-light {
+    font-family: "Iosevka Charon", monospace;
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  .iosevka-charon-regular {
+    font-family: "Iosevka Charon", monospace;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .iosevka-charon-medium {
+    font-family: "Iosevka Charon", monospace;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  .iosevka-charon-bold {
+    font-family: "Iosevka Charon", monospace;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  .iosevka-charon-light-italic {
+    font-family: "Iosevka Charon", monospace;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  .iosevka-charon-regular-italic {
+    font-family: "Iosevka Charon", monospace;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .iosevka-charon-medium-italic {
+    font-family: "Iosevka Charon", monospace;
+    font-weight: 500;
+    font-style: italic;
+  }
+
+  .iosevka-charon-bold-italic {
+    font-family: "Iosevka Charon", monospace;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  /* Libre Caslon Display: CSS class */
+  .libre-caslon-display-regular {
+    font-family: "Libre Caslon Display", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* Dancing Script: CSS class */
+  .dancing-script {
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+
+  /* Lobster Two: CSS classes */
+  .lobster-two-regular {
+    font-family: "Lobster Two", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .lobster-two-bold {
+    font-family: "Lobster Two", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  .lobster-two-regular-italic {
+    font-family: "Lobster Two", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .lobster-two-bold-italic {
+    font-family: "Lobster Two", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  /* Bricolage Grotesque: CSS class */
+  .bricolage-grotesque {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+  }
+
+  /* Playwrite AR: CSS class */
+  .playwrite-ar {
+    font-family: "Playwrite AR", cursive;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+
+  /* Exo 2: CSS class */
+  .exo-2 {
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
   }
 }
 
@@ -303,4 +467,8 @@ body, button, input, select, textarea {
   font-family: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: #000000;
   background-color: #f1f5f9;
+}
+
+code, pre, kbd, samp, .font-mono {
+  font-family: "Iosevka Charon", monospace !important;
 }
