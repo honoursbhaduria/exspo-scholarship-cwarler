@@ -526,7 +526,12 @@ body, button, input, select, textarea {
   perspective: 1000px;
 }
 
-code, pre, kbd, samp, .font-mono {
-  font-family: "Iosevka Charon", monospace !important;
+code, pre, kbd, samp {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.font-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+  font-feature-settings: "tnum" 1;
 }
 

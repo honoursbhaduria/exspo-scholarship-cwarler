@@ -6,6 +6,7 @@ import {
   ViewIcon,
   ArrowDown01Icon,
   ArrowUpRight01Icon,
+  Calendar03Icon,
 } from './ui/icons';
 import { Scholarship } from '../types';
 import { formatDate, formatCurrency } from '../utils';
