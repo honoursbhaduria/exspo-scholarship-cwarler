@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { KnowledgeLogo } from './components/ui/KnowledgeLogo';
 import {
   HugeiconsIcon,
   DashboardSquare01Icon,
@@ -60,19 +59,14 @@ export function App() {
       {/* Floating Rounded Side Navbar */}
       <aside className="relative z-30 md:sticky md:top-6 md:self-start md:h-[calc(100vh-3rem)] m-4 md:m-6 md:mr-0 w-auto md:w-64 shrink-0 flex flex-col justify-between p-5 rounded-3xl clay-card">
         <div className="space-y-6">
-          {/* Logo & Brand Header */}
-          <div className="flex items-center gap-3 px-1 py-1">
-            <div className="w-11 h-11 rounded-2xl bg-white/90 shadow-[inset_0_2px_4px_rgba(255,255,255,1),0_4px_12px_rgba(0,0,0,0.06)] border border-white flex items-center justify-center overflow-hidden shrink-0">
-              <KnowledgeLogo className="w-9 h-9" />
-            </div>
-            <div>
-              <h1 className="font-extrabold text-sm text-slate-900 tracking-tight leading-tight">
-                Scholarship
-              </h1>
-              <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">
-                Intelligence
-              </p>
-            </div>
+          {/* Brand Header - Typographic Wordmark with Bricolage Grotesque (No Logo) */}
+          <div className="px-2 py-1">
+            <h1 className="font-bricolage text-xl sm:text-2xl font-black text-black tracking-tight leading-tight">
+              Scholarship
+            </h1>
+            <p className="font-bricolage text-xs font-bold text-black/65 tracking-widest uppercase mt-0.5">
+              Intelligence
+            </p>
           </div>
 
           {/* Navigation Links */}

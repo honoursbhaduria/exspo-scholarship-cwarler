@@ -244,9 +244,18 @@
     height: 0px !important;
   }
 
-  .no-scrollbar {
-    -ms-overflow-style: none !important;
-    scrollbar-width: none !important;
+  /* Brand Typography: Bricolage Grotesque & Iosevka Charon */
+  .font-bricolage {
+    font-family: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-optical-sizing: auto;
+  }
+
+  .font-iosevka {
+    font-family: "Iosevka Charon", monospace;
+  }
+
+  .font-libre-caslon {
+    font-family: "Libre Caslon Display", serif;
   }
 }
 

@@ -79,7 +79,7 @@ export const Dashboard: React.FC<Props> = ({
       {/* Top Banner / Actions Card - Compact, Clean, No Heavy Shadows */}
       <div className="clay-card p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
         <div>
-          <h1 className="text-lg sm:text-xl font-extrabold text-black tracking-tight">
+          <h1 className="font-bricolage text-lg sm:text-xl font-black text-black tracking-tight">
             Scholarship Intelligence Platform
           </h1>
           <p className="text-xs text-black/75 mt-0.5 font-medium">
